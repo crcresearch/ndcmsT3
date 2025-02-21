@@ -2,9 +2,9 @@
 Documentation for the ND CMS T3 Infrastructure
 
 
-# How to use this documentation repository
+## How to use this documentation repository
 
-## 1. Set Up Local Development Environment
+### 1. Set Up Local Development Environment
 
 To build the documentation locally, you'll need the following Python packages:
 
@@ -21,11 +21,11 @@ These packages provide:
 - `pymdown-extensions`: For enhanced Markdown features (code highlighting, admonitions, etc.)
 
 
-## 2. Configure MkDocs
+### 2. Configure MkDocs
 
 Modify the `mkdocs.yml` configuration file according to any new pages you might have.
 
-## 3. Current documentation structure
+### 3. Current documentation structure
 
 The initial and current document structure is:
 
@@ -45,11 +45,11 @@ The initial and current document structure is:
 └── mkdocs.yml
 ```
 
-## 4. GitHub actions
+### 4. GitHub actions
 
 GitHub actions have been defined for automatic build and deployment into GitHub Pages
 
-## 5. Test your updates locally
+### 5. Test your updates locally
 
 ```bash
 # Serve documentation locally
@@ -61,12 +61,12 @@ mkdocs build
 
 Visit `http://localhost:8000` to preview your documentation.
 
-## 6. Deploy your documentation to GitHub Pages
+### 6. Deploy your documentation to GitHub Pages
 
 Your documentation will be available at `https://YOUR-USERNAME.github.io/ndcmsT3/`
 
 
-# Converting reStructuredText to Markdown
+## Converting reStructuredText to Markdown
 
 First, install pandoc on your system:
 

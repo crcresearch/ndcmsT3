@@ -1,4 +1,7 @@
 site_name: CMS Tier 3 at University of Notre Dame
+site_url: https://crcresearch.github.io/ndcmsT3/
+repo_url: https://github.com/crcresearch/ndcmsT3
+
 theme:
   name: readthedocs
   logo: images/crc_logo.png
