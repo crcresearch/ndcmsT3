@@ -1,3 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://crcresearch.github.io/ndcmsT3/</loc>
+         <lastmod>2025-02-21</lastmod>
+    </url>
+    <url>
+         <loc>https://crcresearch.github.io/ndcmsT3/research/projects/</loc>
+         <lastmod>2025-02-21</lastmod>
+    </url>
+    <url>
+         <loc>https://crcresearch.github.io/ndcmsT3/research/publications/</loc>
+         <lastmod>2025-02-21</lastmod>
+    </url>
+    <url>
+         <loc>https://crcresearch.github.io/ndcmsT3/resources/computing/</loc>
+         <lastmod>2025-02-21</lastmod>
+    </url>
+    <url>
+         <loc>https://crcresearch.github.io/ndcmsT3/resources/data/</loc>
+         <lastmod>2025-02-21</lastmod>
+    </url>
 </urlset>
