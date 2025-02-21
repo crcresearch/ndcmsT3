@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://crcresearch.github.io/ndcmsT3/modules/matlab/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Matlab - CMS Tier 3 at University of Notre Dame</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Matlab";
+        var mkdocs_page_input_path = "modules/matlab.md";
+        var mkdocs_page_url = "/ndcmsT3/modules/matlab/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../images/crc_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">HOME</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NEW USER INFO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/obtain_account/">Obtaining a CRC account</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/quick_start/">Quick Start Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/connecting_to_crc/">Connecting to CRC Servers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/linux_guide/">Basic Linux Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/modules/">Modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/introductory_videos/">Introductory Videos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/training/">Training Events</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">HELP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/faq/">FAQ</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/help/">Getting Help</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CRC INFRASTRUCTURE</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/resources/">CRC Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/software/">CRC Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/available_hardware/">Available Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/storage/">Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/crc_uge_env/">UGE Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/faculty_infrastructure/">Faculty Cluster Partnership Program</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/landing/">Maintenance</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RESOURCES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/gpu/">GPU</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/condor/">HTCondor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/globus/">Globus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/ndcms/">NDCMS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/singularity/">Apptainer/Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/caml/">CAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">POPULAR MODULES</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Matlab</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#toolboxes">Toolboxes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#submitting-single-core-jobs">Submitting Single Core Jobs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#submitting-multicore-jobs">Submitting Multicore Jobs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#matlab-and-array-jobs">MATLAB and Array Jobs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#memory-profiling">Memory Profiling</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#license-information">License Information</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorials-and-training">Tutorials and Training</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#known-issue-with-parpool-and-matlabpool">Known issue with parpool and matlabpool</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dynare-support">Dynare Support</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#further-information">Further Information</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../r/">R</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tensorflow/">Tensorflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../conda/">Conda</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CMS Tier 3 at University of Notre Dame</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">POPULAR MODULES</li>
+      <li class="breadcrumb-item active">Matlab</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/crcresearch/ndcmsT3/edit/master/docs/modules/matlab.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="matlab">Matlab</h1>
+<p><img alt="image" src="../../images/Matlab.jpg" /></p>
+<p>MATLAB is a high-performance language for technical computing. It integrates computation, visualization, and programming in an easy-to-use interactive environment where problems and solutions are expressed in familiar mathematical notation. This high-level language and interactive environment enables you to perform computationally intensive tasks faster than with traditional programming languages such as C, C++, and Fortran.</p>
+<hr />
+<h2 id="toolboxes">Toolboxes</h2>
+<p>The Matlab Toolboxes licensed by ND changes each year based on user demand (measured by an annual survey). Faculty may also purchase toolbox licenses which were not centrally funded based on broad user demand. To see what toolboxes are currently available simply type <strong>ver</strong> in the Matlab Command Window.</p>
+<hr />
+<h2 id="submitting-single-core-jobs">Submitting Single Core Jobs</h2>
+<p>To submit a single core MATLAB job to CRC systems use the following template:</p>
+<pre class="highlight"><code class="language-shell">#!/bin/bash
+#$ -q long
+#$ -pe smp 1
+
+module load matlab
+
+matlab -singleCompThread -nodisplay -nosplash &lt; your_file.m</code></pre>
+<p>By default, recent versions of MATLAB will try to automatically multithread processing on all the cores available on a machine. If you are only requesting one core in your submission script, you need to invoke MATLAB with the <code>-singleCompThread</code> option (to avoid interfering with other user's running jobs):</p>
+<pre class="highlight"><code class="language-shell">matlab -singleCompThread ...</code></pre>
+<blockquote>
+<p>[!WARNING]
+If you request more than 1 core, maxNumCompThreads function should be used to control the maximum number of computational threads.</p>
+</blockquote>
+<p>For example, adding the following line in your Matlab code will limit the number of threads to the same number as that you entered for the <code>-pe smp</code> flag in your job script:</p>
+<pre class="highlight"><code class="language-shell">maxNumCompThreads(str2num(getenv("NSLOTS")));</code></pre>
+<hr />
+<h2 id="submitting-multicore-jobs">Submitting Multicore Jobs</h2>
+<p>To submit multicore MATLAB jobs (up to 24 cores with current CRC systems) using the PCT (Parallel Computing Toolbox), use the following template. Note that there are normally multiple versions of Matlab available, see the <code>modules</code> page for more information on how software is organized within the CRC.</p>
+<pre class="highlight"><code class="language-shell">#!/bin/bash
+#$ -q long
+#$ -pe smp 12
+
+export MATLABPATH=~/path/to/matlab_file
+
+cd ~/path/to/matlab_file
+
+module load matlab
+
+matlab -nodisplay -nosplash &lt; matlab_file</code></pre>
+<p>The matlab file above includes the command <code>parpool('local',12)</code>, allowing Matlab to use the 12 cores on the machine.</p>
+<p>Parallelization can also be accomplished using a parfor within your matlab file:</p>
+<pre class="highlight"><code class="language-shell">parpool('local', 12);
+parfor i=1:N
+end
+% In Matlab 8.5 need to use "delete(gcp('nocreate'))"</code></pre>
+<hr />
+<h2 id="matlab-and-array-jobs">MATLAB and Array Jobs</h2>
+<p>An example for combining MATLAB and job arrays is as follows:</p>
+<pre class="highlight"><code class="language-shell">#!/bin/csh
+#$ -N testarray
+#$ -t 1-4:1
+#$ -M afs_id@nd.edu
+#$ -m ae
+
+setenv MATLABPATH directory_path_to_your_files.m:other_user_contrib_directory_path
+
+matlab -nodisplay -nosplash -nojvm -r "myFunction(${SGE_TASK_ID});exit"</code></pre>
+<p>The myfunction.m will receive respectively for each task 1,2,3 and 4 as an input parameter.</p>
+<hr />
+<h2 id="memory-profiling">Memory Profiling</h2>
+<p>User can use the builtin MATLAB profiler to understand memory usage in your scripts. To enable memory profiling add the following line to your scripts:</p>
+<pre class="highlight"><code class="language-shell">profile -memory on;</code></pre>
+<hr />
+<h2 id="license-information">License Information</h2>
+<ul>
+<li>Matlab Parallel Computing Toolbox can be currently configured up to 64 cores (SMP) per simulation.</li>
+<li>We currently do not support a license for MATLAB Distributed Computing</li>
+</ul>
+<hr />
+<h2 id="tutorials-and-training">Tutorials and Training</h2>
+<ul>
+<li>For more information, please visit the official Matlab training <a href="https://www.mathworks.com/academia/student_center/tutorials/launchpad.html?s_cid=0210_desp_na_224077">page</a> for a wealth of video tutorials and training content.</li>
+</ul>
+<hr />
+<h2 id="known-issue-with-parpool-and-matlabpool">Known issue with <em>parpool</em> and <em>matlabpool</em></h2>
+<p>There is a known issue when submitting multiple jobs that use either of the Matlab pool commands. Basically, if more than one task is started close to another task, they may both try and write to the same temporary file and cause problems. One solution involves changing the name of the default file Matlab writes pool information to as described in this link:</p>
+<p><a href="https://www.mathworks.com/matlabcentral/answers/97141-why-am-i-unable-to-start-a-local-matlabpool-from-multiple-matlab-sessions-that-use-a-shared-preferen">Matlab Pool Solution</a>.</p>
+<hr />
+<h2 id="dynare-support">Dynare Support</h2>
+<p>Looking to use Matlab with <code>dynare</code>? Simply load the <code>dynare</code> module, this will automatically bring in all dependencies. You can check which versions of dynare are available with:</p>
+<pre class="highlight"><code>module avail dynare</code></pre>
+<h2 id="further-information">Further Information</h2>
+<p>See the official site: <a href="https://www.mathworks.com/products/matlab/">MATLAB</a></p>
+<p>Default help files for version "X.Y" (replace X and Y with desired version) may be found at:</p>
+<pre class="highlight"><code class="language-shell">/afs/crc.nd.edu/x86_64_linux/m/matlab/X.Y/help</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../resources/caml/" class="btn btn-neutral float-left" title="CAML"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../python/" class="btn btn-neutral float-right" title="Python">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/crcresearch/ndcmsT3" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../../resources/caml/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../python/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

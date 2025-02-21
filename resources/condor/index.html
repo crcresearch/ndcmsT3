@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://crcresearch.github.io/ndcmsT3/resources/condor/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>HTCondor - CMS Tier 3 at University of Notre Dame</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "HTCondor";
+        var mkdocs_page_input_path = "resources/condor.md";
+        var mkdocs_page_url = "/ndcmsT3/resources/condor/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../images/crc_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">HOME</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NEW USER INFO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/obtain_account/">Obtaining a CRC account</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/quick_start/">Quick Start Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/connecting_to_crc/">Connecting to CRC Servers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/linux_guide/">Basic Linux Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/modules/">Modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/introductory_videos/">Introductory Videos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/training/">Training Events</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">HELP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/faq/">FAQ</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/help/">Getting Help</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CRC INFRASTRUCTURE</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/resources/">CRC Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/software/">CRC Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/available_hardware/">Available Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/storage/">Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/crc_uge_env/">UGE Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/faculty_infrastructure/">Faculty Cluster Partnership Program</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/landing/">Maintenance</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RESOURCES</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../gpu/">GPU</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">HTCondor</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#visual-status-of-the-nd-condor-pool">Visual Status of the ND Condor Pool</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#online-short-course">Online Short Course</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#about-condor">About Condor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started-with-condor-at-notre-dame">Getting Started With Condor at Notre Dame</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#important-note-about-afs">Important note about AFS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#submitting-large-numbers-of-jobs">Submitting Large Numbers of Jobs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#to-submit-multicore-smp-jobs-to-the-nd-condor-pool">To Submit Multicore SMP jobs to the ND Condor Pool</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example-of-submitting-10-matlab-jobs">Example of Submitting 10 Matlab jobs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example-of-submitting-an-amber-job-to-a-gpu-node">Example of Submitting an Amber job to a GPU node</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#condor-status">Condor Status</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#more-information">More Information</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../globus/">Globus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ndcms/">NDCMS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity/">Apptainer/Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../caml/">CAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">POPULAR MODULES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/matlab/">Matlab</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/r/">R</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/tensorflow/">Tensorflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/conda/">Conda</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CMS Tier 3 at University of Notre Dame</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">RESOURCES</li>
+      <li class="breadcrumb-item active">HTCondor</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/crcresearch/ndcmsT3/edit/master/docs/resources/condor.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="htcondor">HTCondor</h1>
+<p>The University of Notre Dame has a Condor pool which harnesses the idle computational cycles from workstations and servers all over campus to run batch jobs. Condor provides access to over 20,000 cores. The Condor pool is maintained by the Notre Dame Cooperative Computing Lab (CCL) and CRC; most of the information in this article is taken directly from the <a href="https://ccl.cse.nd.edu/">CCL website</a>.</p>
+<h2 id="visual-status-of-the-nd-condor-pool">Visual Status of the ND Condor Pool</h2>
+<p><a href="http://condor.cse.nd.edu/condor_matrix.cgi">ND Condor Utilization Matrix</a></p>
+<hr />
+<h2 id="online-short-course">Online Short Course</h2>
+<p><a href="https://www3.nd.edu/~dthain/courses/disc/">Short Course In Data Centric Computing</a></p>
+<hr />
+<h2 id="about-condor">About Condor</h2>
+<p>Condor is a distributed batch computing system used at many institutions around the world. Condor allows many users to share their computing resources, thus giving everyone access to more computing power than any one person could afford to buy. In particular, Condor is good at harnessing idle cycles from under-used servers.</p>
+<p>Users that submit jobs to Condor can specify their own requirements on what machines to use. You can require the use of one particular machine, or any from a particular cluster, or any with a certain amount of memory or processor type. Of course, if you are borrowing machines owned by other people, then you must accept the possibility that some jobs may be kicked off and must run elsewhere.</p>
+<p>For more information about Condor, please visit the Condor project page at:</p>
+<ul>
+<li><a href="https://research.cs.wisc.edu/htcondor/">https://research.cs.wisc.edu/htcondor/</a>.</li>
+</ul>
+<hr />
+<h2 id="getting-started-with-condor-at-notre-dame">Getting Started With Condor at Notre Dame</h2>
+<p>Log into <code>condorfe.crc.nd.edu</code> to submit jobs.</p>
+<p>To submit a batch job to Condor, you must create a submission file and then run the <code>condor_submit</code> command. Try creating this sample submit file in <code>/tmp/YOURNAME/test.submit</code>.</p>
+<pre class="highlight"><code class="language-shell">universe = vanilla
+executable = /bin/echo
+arguments = hello condor
+output = test.output
+should_transfer_files = yes
+when_to_transfer_output = on_exit
+log = test.logfile
+queue</code></pre>
+<p>Now, to submit the job to Condor, execute:</p>
+<pre class="highlight"><code class="language-shell">cd /tmp/YOURNAME
+condor_submit test.submit
+Submitting job(s)...
+1 job(s) submitted to cluster 2.</code></pre>
+<p>Once the job is submitted, you can use <code>condor_q</code> to look at the status of the jobs in your queue. If you run <code>condor_q</code> quickly enough, you will see your job idle:</p>
+<pre class="highlight"><code class="language-shell">-- Submitter: hedwig.cse.nd.edu : &lt;129.74.154.241:33593&gt; : hedwig.cse.nd.edu
+ ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
+   2.0   dthain          8/26 17:21   0+00:00:00 I  0   0.0  echo hello world</code></pre>
+<p>If you job remains in state I 'idle' for a significant amount of time you should check to see why it has not started. There is most likely a problem matching your request with an available resource which will be shown with the following command.</p>
+<pre class="highlight"><code class="language-shell">condor_q  yourjobnumberhere  -better-analyze</code></pre>
+<p>The command below shows the relative priority of everyone who has recently run jobs. Those with lower priority numbers have their waiting jobs start before others.</p>
+<pre class="highlight"><code class="language-shell">condor_userprio</code></pre>
+<p>If you decide to cancel a job, use <code>condor_rm</code> and the job id:</p>
+<pre class="highlight"><code class="language-shell">condor_rm 2.0
+Job 2.0 marked for removal.</code></pre>
+<blockquote>
+<p>[!NOTE]
+Despite what the Condor manual says, you will NOT receive email when a job is complete. This feature has been disabled at Notre Dame due to our email security configuration.</p>
+</blockquote>
+<hr />
+<h2 id="important-note-about-afs">Important note about AFS</h2>
+<p>In the example above, the submit file and all of the job's details were stored in <code>/tmp/YOURNAME</code> on your local disk. Condor simply moved the necessary files back and forth in order to run your jobs. If instead you store your data files in AFS (i.e. your home directory), Condor cannot access them because it will not have your AFS token or Kerberos ticket.</p>
+<p>If you want Condor to be able to <strong>read</strong> any data out of AFS, you must change the ACLs on the necessary directories to allow the security group <strong>nd_campus to read</strong> the data. Note that this will allow anyone with a valid account to read the data within the directory.</p>
+<p>Here's how:</p>
+<pre class="highlight"><code class="language-shell">fs setacl ~/my/data/directory nd_campus read</code></pre>
+<p>If you want Condor to be able to <strong>write</strong> to AFS, you must change the ACLs to the following:</p>
+<pre class="highlight"><code class="language-shell">fs setacl ~/my/data/directory nd_campus rlidw</code></pre>
+<p>Because AFS permissions are hierarchical, in both of these examples nd_campus must have at least lookup 'l' permission in the destination directory's parent directories. For example,</p>
+<pre class="highlight"><code class="language-shell">fs setacl ~/my nd_campus l</code></pre>
+<pre class="highlight"><code class="language-shell">fs setacl ~/my/data nd_campus l</code></pre>
+<p>If there are several directories, the <code>find</code> command may be used to set ACLs recursively:</p>
+<pre class="highlight"><code class="language-shell">find ~/my -type d -exec fs setacl {} nd_campus read \; </code></pre>
+<hr />
+<h2 id="submitting-large-numbers-of-jobs">Submitting Large Numbers of Jobs</h2>
+<p>Because you will certainly want to run many jobs at once via Condor, you can easily modify your submit file to run a program with tens or hundreds of variations. Change the <code>queue</code> command to queue several jobs at once, and the <code>$(PROCESS)</code> macro to modify the parameters with the job number.</p>
+<pre class="highlight"><code class="language-shell">universe = vanilla
+executable = /bin/echo
+arguments = hello $(PROCESS)
+output = test.output.$(PROCESS)
+error = test.error.$(PROCESS)
+should_transfer_files = yes
+when_to_transfer_output = on_exit
+log = test.logfile
+queue 10</code></pre>
+<p>Now, when you run condor_submit, you should see something like this:</p>
+<pre class="highlight"><code class="language-shell">condor_submit test.submit
+Submitting job(s)..........
+10 job(s) submitted to cluster 9.</code></pre>
+<p>Note in this case that "cluster" means "a bunch of jobs", where each job is named 9.0, 9.1, 9.2, and so forth. In this next example, <code>condor_q</code> shows that cluster 9 is halfway complete, with job 9.5 currently running.</p>
+<pre class="highlight"><code class="language-shell">condor_q
+
+-- Submitter: hedwig.cse.nd.edu : &lt;129.74.154.241:33593&gt; : hedwig.cse.nd.edu
+
+    ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
+   9.5   dthain          8/26 17:46   0+00:00:01 R  0   0.0  echo hello 5
+   9.6   dthain          8/26 17:46   0+00:00:00 I  0   0.0  echo hello 6
+   9.7   dthain          8/26 17:46   0+00:00:00 I  0   0.0  echo hello 7
+   9.8   dthain          8/26 17:46   0+00:00:00 I  0   0.0  echo hello 8
+   9.9   dthain          8/26 17:46   0+00:00:00 I  0   0.0  echo hello 9</code></pre>
+<hr />
+<h2 id="to-submit-multicore-smp-jobs-to-the-nd-condor-pool">To Submit Multicore SMP jobs to the ND Condor Pool</h2>
+<p>The condor pool is configured to enable dynamic slots. Therefore, if you want to submit multi-threaded or multicore SMP Condor jobs (e.g. using OpenMP), you can add below lines in your Condor job script:</p>
+<pre class="highlight"><code class="language-shell">...
+environment = OMP_NUM_THREADS=4;LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
+request_cpus = 4
+...</code></pre>
+<p>For example, if you compile below hellow_world.c:</p>
+<pre class="highlight"><code class="language-shell">#include &lt;omp.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+int main (int argc, char *argv[]) {
+
+int nthreads, tid;
+
+/* Fork a team of threads giving them their own copies of variables */
+#pragma omp parallel private(nthreads, tid)
+
+     {
+
+     /* Obtain thread number */
+     tid = omp_get_thread_num();
+     printf("Hello World from thread = %d\n", tid);
+
+     /* Only master thread does this */
+     if (tid == 0)
+     {
+      nthreads = omp_get_num_threads();
+     printf("Number of threads = %d\n", nthreads);
+     }
+
+     } /* All threads join master thread and disband */
+
+}</code></pre>
+<p>with</p>
+<pre class="highlight"><code class="language-shell">icc -openmp hello_world.c -o hello_world.x</code></pre>
+<p>and then submit your Condor job script with</p>
+<pre class="highlight"><code class="language-shell">executable = hello_world.x</code></pre>
+<p>and above options, then you will get an output, for example, like:</p>
+<pre class="highlight"><code class="language-shell">Hello World from thread =            0
+Hello World from thread =            1
+Hello World from thread =            3
+Hello World from thread =            2
+Number of threads =                  4</code></pre>
+<hr />
+<h2 id="example-of-submitting-10-matlab-jobs">Example of Submitting 10 Matlab jobs</h2>
+<p>Following is a Condor submission script template for running Matlab with 4 cores:</p>
+<pre class="highlight"><code class="language-shell">universe = vanilla
+getenv = true
+executable = Path_to_your_executable_file/executable.sh
+output = test.output
+error = test.error
+request_cpus = 4
+should_transfer_files = yes
+when_to_transfer_output = on_exit
+log = logfile
+queue 10</code></pre>
+<p>with 'executable.sh':</p>
+<pre class="highlight"><code class="language-shell">#!/bin/bash
+
+if [ -r /opt/crc/Modules/current/init/bash ]; then
+    source /opt/crc/Modules/current/init/bash
+fi
+
+module load matlab
+
+# If needed, specify the location of additional .m files.  Note that Condor must be able to read this directory.
+export MATLABPATH=/path/to/your/matlab/files
+
+#  Substitute your ID below to ensure Matlab can write configuration files to a unique directory:
+export MATLAB_PREFDIR=/tmp/AFS_ID
+export TMPDIR=/tmp/AFS_ID
+
+# Determine the full path to a matlab version
+export MLAB=`which matlab`
+
+${MLAB} -nodisplay -nosplash -nojvm -r "myFunction('$1');exit"</code></pre>
+<hr />
+<h2 id="example-of-submitting-an-amber-job-to-a-gpu-node">Example of Submitting an Amber job to a GPU node</h2>
+<p>Following is a Condor submission script template for running Amber with 1 GPU:</p>
+<pre class="highlight"><code class="language-shell">universe = vanilla
+getenv = true
+executable = Path_to_your_executable_file/executable.sh
+output = test.output
+error = test.error
+request_gpus   = 1
+should_transfer_files = yes
+when_to_transfer_output = on_exit
+log = logfile
+queue 1</code></pre>
+<p>with 'executable.sh':</p>
+<pre class="highlight"><code class="language-shell">#!/bin/bash
+
+if [ -r /opt/crc/Modules/current/init/bash ]; then
+    source /opt/crc/Modules/current/init/bash
+fi
+
+cd  Path_to_your_executable_file
+
+module load amber
+pmemd.cuda -O -i mdin -o mdout -p prmtop -c inpcrd</code></pre>
+<hr />
+<h2 id="condor-status">Condor Status</h2>
+<p>You can view the total number of CPUs currently in the Condor pool <a href="http://condor.cse.nd.edu/condor_totals.cgi">here</a> or you can view a list of all the machines in the pool <a href="http://condor.cse.nd.edu/condor_machines.cgi">here</a>.</p>
+<p>In addition, you can view information about users with jobs currently in the queue <a href="http://condor.cse.nd.edu/condor_queues.cgi">here</a>, and you can view a list of all the machines currently running jobs <a href="http://condor.cse.nd.edu/condor_running.cgi">here</a>.</p>
+<p>For a full visual status of the Condor pool, please see the Condor Visual Status Page, located <a href="https://ccl.cse.nd.edu/viz/">here</a> (requires Java).</p>
+<p>More information about the status of the Condor pool, including historical data, can be found at the CCL web page, located <a href="http://condor.cse.nd.edu/">here</a>.</p>
+<hr />
+<h2 id="more-information">More Information</h2>
+<p>For a more in-depth tutorial, please take a look at the <a href="http://www.cse.nd.edu/~dthain/talks/condor-crc-april-2009.ppt">full tutorial</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../gpu/" class="btn btn-neutral float-left" title="GPU"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../globus/" class="btn btn-neutral float-right" title="Globus">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/crcresearch/ndcmsT3" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../gpu/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../globus/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

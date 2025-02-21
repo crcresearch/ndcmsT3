@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://crcresearch.github.io/ndcmsT3/modules/r/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>R - CMS Tier 3 at University of Notre Dame</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "R";
+        var mkdocs_page_input_path = "modules/r.md";
+        var mkdocs_page_url = "/ndcmsT3/modules/r/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../images/crc_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">HOME</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NEW USER INFO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/obtain_account/">Obtaining a CRC account</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/quick_start/">Quick Start Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/connecting_to_crc/">Connecting to CRC Servers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/linux_guide/">Basic Linux Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/modules/">Modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/introductory_videos/">Introductory Videos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/training/">Training Events</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">HELP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/faq/">FAQ</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/help/">Getting Help</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CRC INFRASTRUCTURE</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/resources/">CRC Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/software/">CRC Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/available_hardware/">Available Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/storage/">Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/crc_uge_env/">UGE Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/faculty_infrastructure/">Faculty Cluster Partnership Program</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/landing/">Maintenance</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RESOURCES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/gpu/">GPU</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/condor/">HTCondor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/globus/">Globus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/ndcms/">NDCMS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/singularity/">Apptainer/Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/caml/">CAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">POPULAR MODULES</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../matlab/">Matlab</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">R</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#sample-r-job">Sample R Job</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-local-packages">Installing Local Packages</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installing-packages-within-r">Installing packages within R</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#installing-r-packages-from-source-code">Installing R packages from source code</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#profiling-r-code">Profiling R Code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parallel-computing-in-r">Parallel Computing in R</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#test-for-rmpi">Test for Rmpi</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#related-software">Related Software</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#further-information">Further Information</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tensorflow/">Tensorflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../conda/">Conda</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CMS Tier 3 at University of Notre Dame</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">POPULAR MODULES</li>
+      <li class="breadcrumb-item active">R</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/crcresearch/ndcmsT3/edit/master/docs/modules/r.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="r">R</h1>
+<p><img alt="image" src="../../images/RLogo.png" /></p>
+<p>R is a language and environment for statistical computing and graphics. It is a GNU project which is similar to the S language and environment which was developed at Bell Laboratories (formerly AT&amp;T, now Lucent Technologies) by John Chambers and colleagues. R can be considered as a different implementation of S. There are some important differences, but much code written for S runs unaltered under R.</p>
+<p>R provides a wide variety of statistical (linear and nonlinear modelling, classical statistical tests, time-series analysis, classification, clustering, ...) and graphical techniques, and is highly extensible. The S language is often the vehicle of choice for research in statistical methodology, and R provides an Open Source route to participation in that activity.</p>
+<hr />
+<h2 id="sample-r-job">Sample R Job</h2>
+<pre class="highlight"><code class="language-shell">#!/bin/bash
+#$ -M afs_id@nd.edu
+#$ -m abe
+
+module load R
+R CMD BATCH  your_input_R_file.r  your_output_R_file.out</code></pre>
+<hr />
+<h2 id="installing-local-packages">Installing Local Packages</h2>
+<p>Due to the wide range of packages available for <strong>R</strong>, we are unable to install every one. Fortunately, it is easy for users to install additional libraries. To begin with, load the <strong>R</strong> module. If the default version is sufficient, this can be done with the command:</p>
+<pre class="highlight"><code class="language-shell">module load R</code></pre>
+<p>For convenience, although not necessary, we suggest making a central directory to hold this and any future packages:</p>
+<pre class="highlight"><code class="language-shell">mkdir ~/myRlibs</code></pre>
+<p>Next, there are two different ways of installing R packages:</p>
+<hr />
+<h3 id="installing-packages-within-r">Installing packages within R</h3>
+<p>Open an R shell and execute the following command:</p>
+<pre class="highlight"><code class="language-shell">install.packages("package_name", lib="install_location", repos="mirror_location")
+library('package_name', lib.loc='install_location')</code></pre>
+<p>For our example, this would be:</p>
+<pre class="highlight"><code class="language-shell">install.packages("bizdays", lib="~/myRlibs",repos='https://cran.us.r-project.org')
+library('bizdays', lib='~/myRlibs')</code></pre>
+<p>To avoid having to specify the installation location every time you use this library, you can create an <code>.Renviron</code> file in your home directory using any text editor. Then, add the following line to it:</p>
+<pre class="highlight"><code class="language-shell">R_LIBS=install_location</code></pre>
+<p>For our example, this would be:</p>
+<pre class="highlight"><code class="language-shell">R_LIBS=~/myRlibs</code></pre>
+<p>Now, we can simply do:</p>
+<pre class="highlight"><code class="language-shell">install.packages("bizdays")
+library(bizdays)</code></pre>
+<hr />
+<h3 id="installing-r-packages-from-source-code">Installing R packages from source code</h3>
+<p>You will need to obtain the source code for the package you want to install. The most common repository of these are at <a href="https://cran.r-project.org/">The Comprehensive R Archive Network (CRAN)</a>. A simple method to get the package to the CRC is to copy the location of the file, usually through a right click sub-menu, and then use the ''wget'' command:</p>
+<pre class="highlight"><code class="language-shell">wget https://cran.r-project.org/src/contrib/bizdays_1.0.1.tar.gz</code></pre>
+<p>Once we have the package, we will need to decide where to install it.</p>
+<p>Now, issue the following command to install the package:</p>
+<pre class="highlight"><code class="language-shell">R CMD INSTALL -l install_location package_name</code></pre>
+<p>For our example, this would be:</p>
+<pre class="highlight"><code class="language-shell">R CMD INSTALL -l ~/myRlibs bizdays_1.0.1.tar.gz</code></pre>
+<p>The last step is to tell <strong>R</strong> the location of our new installation. In a CSH environment, this is:</p>
+<pre class="highlight"><code class="language-shell">setenv R_LIBS install_location</code></pre>
+<p>If you are using BASH, it would be:</p>
+<pre class="highlight"><code class="language-shell">export R_LIBS=install_location</code></pre>
+<p>Add this command to your .cshrc or .bashrc file, respectively, to permanently set it.</p>
+<hr />
+<h2 id="profiling-r-code">Profiling R Code</h2>
+<p>Profiling R code can help determine which sections in the R code need to be optimized for better performance. In order to profile the R code, one needs to use the <strong>Rprof()</strong> function. <strong>Rprof()</strong> records how many seconds have been spent on each function of the R code. The functions that get timed are the ones that get executed after the <strong>Rprof()</strong> function gets declared. Any function before the <strong>Rprof()</strong> declaration will not be timed. One needs to pass a parameter to Rprof. The parameter is the name of the file that will contain the results.</p>
+<p>If only a section of the R code needs to be profiled, one can use the <strong>Rprof()</strong> to specify when to start profiling the functions and when to stop profiling the functions. To start profiling the functions, one should place <strong>Rprof("file_name")</strong> before the functions that need to be profiled get executed. In order to stop profiling the rest of the R Code, one needs to place <strong>Rprof(NULL)</strong> to stop profiling the rest of the R Code that does not need to be profiled. The following is an example on how <strong>RProf()</strong> is used in an actual R script.</p>
+<pre class="highlight"><code class="language-shell"># load sources
+dyn.load("readbfile3_crc.so")
+source("readbfile.r")
+source("snpsel24_data.r")
+
+Rprof("test1b.out")             #Begin profiling functions
+
+# try to read in data
+dat.M &lt;- read.bfile("hapmap_sim_chr1_test.bed")
+
+# try to run snpsel
+selmat.M &lt;- snp_sel(dat.M,k=300,b=10,t=.1)
+
+Rprof(NULL)                    #Stop profiling functions
+
+# write selmat for reference
+write.table(selmat.M,file="test_selmat_v1.txt",quote=F,sep=" ",col.names=F,row.names=F)</code></pre>
+<p>In the example above, the functions read.bfile() and snp_sel() as well a the functions within these functions will be profiled. The function write.table() will not be profiled by <strong>Rprof()</strong>.</p>
+<hr />
+<h2 id="parallel-computing-in-r">Parallel Computing in R</h2>
+<p>R itself does not provide parallel execution. Therefore, in order to realize parallel computing in R, an appropriate parallel R package should be invoked.</p>
+<h2 id="test-for-rmpi">Test for Rmpi</h2>
+<p>Here is an Rmpi test file:</p>
+<pre class="highlight"><code class="language-shell"># Load the Rmpi pacakge:
+library(Rmpi)
+
+# Spawn N-1 workers ==&gt; Don't need this on UGE so that commented out, by ISS on 04012019
+# mpi.spawn.Rslaves(nslaves=mpi.universe.size()-1)
+
+# The command we want to run on all the nodes/processors we have
+mpi.remote.exec(paste("I am ", mpi.comm.rank(), " of ", mpi.comm.size(), " on ", Sys.info() [c("nodename")]))
+
+# Tell all slaves to close down, and exit the program
+mpi.close.Rslaves()
+mpi.quit()</code></pre>
+<p>and save this with "Rmpi-test-on-CRC.R". A job script file for this Rmpi parallel test on the CRC Grid Engine:</p>
+<pre class="highlight"><code class="language-shell">#!/bin/tcsh
+#
+#$ -M Your_NetID@nd.edu
+#$ -m abe
+#
+#$ -pe mpi-24 48
+#
+# Specify a queue name, for example,
+#$ -q debug
+#
+
+module load R/4.2.0
+
+mpirun -np ${NSLOTS} Rscript Rmpi-test-on-CRC.R &gt; Rmpi-test-on-CRC.out</code></pre>
+<p>The R/4.2.0 version in the CRC R modules supports "foreach", "parallel", "doParallel", "snow", "snowfall",... parallel packages as a default. For a single node SMP parallel, you can easily download/install on your own space.</p>
+<p>For example, you can invoke the library with:</p>
+<pre class="highlight"><code class="language-shell">&gt;library(parallel)</code></pre>
+<p>in your R script and then can specify a number of core you want. Typically, we set the <code>cores</code> variable to the same value as that we set in our <code>#$ -pe smp</code> flag via an environment variable, <code>NSLOTS</code>. For example,</p>
+<pre class="highlight"><code class="language-shell">&gt;options(cores = Sys.getenv("NSLOTS"))
+&gt;getOption('cores')</code></pre>
+<p>Here is a typical example to compare single-core and multi-core parallel computing in R:</p>
+<pre class="highlight"><code class="language-shell">module load R
+
+R
+
+&gt; library(parallel)
+&gt; detectCores()
+[1] 24
+&gt; options(cores = 24)
+&gt; getOption('cores')
+[1] 24
+
+&gt; test &lt;- lapply(1:10,function(x) rnorm(100000))
+
+&gt; system.time(x &lt;- lapply(test,function(x) loess.smooth(x,x)))      &lt;&lt;&lt;== single-core running
+
+&gt; system.time(x &lt;- mclapply(test,function(x) loess.smooth(x,x)))    &lt;&lt;&lt;== multi-core (24-core) running</code></pre>
+<hr />
+<h2 id="related-software">Related Software</h2>
+<p>For a GUI IDE for R, see <code>rstudio</code>.</p>
+<hr />
+<h2 id="further-information">Further Information</h2>
+<p>See the official website: <a href="https://cran.r-project.org/">R</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../python/" class="btn btn-neutral float-left" title="Python"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../tensorflow/" class="btn btn-neutral float-right" title="Tensorflow">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/crcresearch/ndcmsT3" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../python/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../tensorflow/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

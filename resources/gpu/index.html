@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://crcresearch.github.io/ndcmsT3/resources/computing/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://crcresearch.github.io/ndcmsT3/resources/gpu/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Computing Resources - CMS Tier 3 at University of Notre Dame</title>
+    <title>GPU - CMS Tier 3 at University of Notre Dame</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,9 +13,9 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Computing Resources";
-        var mkdocs_page_input_path = "resources/computing.md";
-        var mkdocs_page_url = "/ndcmsT3/resources/computing/";
+        var mkdocs_page_name = "GPU";
+        var mkdocs_page_input_path = "resources/gpu.md";
+        var mkdocs_page_url = "/ndcmsT3/resources/gpu/";
       </script>
     
     <!--[if lt IE 9]>
@@ -87,8 +87,22 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">RESOURCES</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../gpu/">GPU</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">GPU</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#job-submission-example">Job Submission Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-software-on-a-gpu-machine">Installing Software on a GPU machine</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cuda-and-cudnn-modules-avalability">CUDA And cuDNN Modules' Avalability</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#available-hardware-for-general-access">Available Hardware For General Access</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resource-and-job-monitoring">Resource and Job Monitoring</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#other-resources-for-gpu-jobs">Other Resources For GPU Jobs</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../condor/">HTCondor</a>
                   </li>
@@ -128,9 +142,10 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Computing Resources</li>
+          <li class="breadcrumb-item">RESOURCES</li>
+      <li class="breadcrumb-item active">GPU</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/crcresearch/ndcmsT3/edit/master/docs/resources/computing.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/crcresearch/ndcmsT3/edit/master/docs/resources/gpu.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -138,10 +153,81 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="computing-resources">Computing Resources</h1>
+                <h1 id="gpu">GPU</h1>
+<hr />
+<h2 id="job-submission-example">Job Submission Example</h2>
+<p>In order to submit a job to a GPU server, you need to use the <code>gpu</code> queue and specify the number of GPU cards you wish to use. The following is a job script example for running GROMACS accelerated with GPU:</p>
+<pre class="highlight"><code class="language-shell">#!/bin/bash
+
+#$ -M netid@nd.edu   # Email address for job notification
+#$ -m abe            # Send mail when job begins, ends and aborts
+#$ -pe smp 1         # Specify parallel environment and legal core size
+#$ -q gpu            # Run on the GPU cluster
+#$ -l gpu_card=1     # Run on 1 GPU card
+#$ -N job_name       # Specify job name
+
+module load gromacs  # Required modules
+
+export OMP_NUM_THREADS=$NSLOTS
+gmx mdrun -ntomp $OMP_NUM_THREADS -nb gpu -pin on -v -s input.tpr # Run with 16 MPI tasks and 1 GPU devices</code></pre>
+<blockquote>
+<p>[!NOTE]
+* If the <code>-pe</code> parallel environment is not defined in the job script, the default value is <code>smp 1</code>. Please always make sure to request enough cores for your GPU jobs. * Please note that the runtime limit for GPU systems is 7 days. * <strong>Each job must have at least 1 GPU and 1 core to run.</strong></p>
+</blockquote>
+<hr />
+<h2 id="installing-software-on-a-gpu-machine">Installing Software on a GPU machine</h2>
+<p>In some cases, it is necessary to use a GPU server to install the software you wish to use for your GPU jobs.</p>
+<blockquote>
+<p>[!NOTE]
+* Please note that the CRC does not provide any front end machines with GPUs.</p>
+</blockquote>
+<p>For the installation an interactive session is necessary on a GPU node. The following is an example for starting an interactive session on a GPU system with 1 GPU card and 1 core:</p>
+<pre class="highlight"><code class="language-shell">qrsh -q gpu -l gpu_card=1 -pe smp 1</code></pre>
+<p>Once the connection is established, the required software may be installed.</p>
+<blockquote>
+<p>[!NOTE]
+* If your research lab or faculty advisor has purchased a machine(s), there is most likely a host group you can target. For the installation you can target GPUs in a specific host group by using the <code>gpu@@hostgroupname</code> queue. * Before installing and using a software for GPU jobs, please make sure that the software can take advantage of GPUs.</p>
+</blockquote>
+<h2 id="cuda-and-cudnn-modules-avalability">CUDA And cuDNN Modules' Avalability</h2>
+<p>Usually, for the installation the <strong>CUDA</strong> (Compute Unified Device Architecture) library is necessary and in some cases the <strong>cuDNN</strong> (CUDA for Deep Neural Network) library too. Many versions of these libraries are available on the CRC system:</p>
+<pre class="highlight"><code class="language-shell">$ module avail cuda
+----------------------------------- /afs/crc.nd.edu/x86_64_linux/Modules/modules/development_tools_and_libraries ------------------------------------
+cuda/10.0  cuda/10.2  cuda/11.0  cuda/11.2  cuda/11.6
+$ module avail cudnn
+----------------------------------- /afs/crc.nd.edu/x86_64_linux/Modules/modules/development_tools_and_libraries ------------------------------------
+cudnn/7.4  cudnn/8.0.4  cudnn/v7.0</code></pre>
+<blockquote>
+<p>[!NOTE]
+* If you wish to use a CUDA/cuDNN version which is not installed on the CRC system, you may install other versions with <code>conda</code>.</p>
+</blockquote>
+<hr />
+<h2 id="available-hardware-for-general-access">Available Hardware For General Access</h2>
+<p>You can find a list of the CRC owned GPU systems on <code>available_hardware</code>.</p>
+<blockquote>
+<p>[!NOTE]
+* These machines have typically 24 cores and 4 GPUs per node. * Each GPU has an ID within the machine, this ID can be 0, 1, 2 or 3.</p>
+</blockquote>
+<hr />
+<h2 id="resource-and-job-monitoring">Resource and Job Monitoring</h2>
+<p>You can monitor the status and availability of GPU resources with the <code>free_gpus.sh</code> script.</p>
+<pre class="highlight"><code class="language-shell">free_gpus.sh @crc_gpu        # For general access
+free_gpus.sh @crc_1080ti     # You can target host groups</code></pre>
+<p>The <a href="https://mon.crc.nd.edu/xymon/">Xymon monitoring system</a> can be used to analyze the behavior of processes on a given GPU machine.</p>
+<p>You can check your job's GPU usage. In order to do that, knowing the GPU ID is necessary. You can check the ID with the following command:</p>
+<pre class="highlight"><code class="language-shell">qstat -j jobID</code></pre>
+<p>You can find it under the <code>resource map</code>. Here is an example, the GPU ID is the number in brackets:</p>
+<pre class="highlight"><code class="language-shell">resource map          1:    gpu_card=qa-1080ti-004.crc.nd.edu=(1)</code></pre>
+<hr />
+<h2 id="other-resources-for-gpu-jobs">Other Resources For GPU Jobs</h2>
+<p>If you wish to run large number of GPU jobs, you may want to consider submitting your jobs via Condor. You can find detailed documentation and examples on <code>condor</code>.</p>
+<p>If you wish to use GPUs for Machine Learning, you may want to consider using CAML ND. You can find detailed documentation and examples on <code>caml</code>.</p>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../crc_infra/landing/" class="btn btn-neutral float-left" title="Maintenance"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../condor/" class="btn btn-neutral float-right" title="HTCondor">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -167,6 +253,10 @@
         </span>
     
     
+      <span><a href="../../crc_infra/landing/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../condor/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

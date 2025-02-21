@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://crcresearch.github.io/ndcmsT3/resources/ndcms/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>NDCMS - CMS Tier 3 at University of Notre Dame</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "NDCMS";
+        var mkdocs_page_input_path = "resources/ndcms.md";
+        var mkdocs_page_url = "/ndcmsT3/resources/ndcms/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../images/crc_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">HOME</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NEW USER INFO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/obtain_account/">Obtaining a CRC account</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/quick_start/">Quick Start Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/connecting_to_crc/">Connecting to CRC Servers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/linux_guide/">Basic Linux Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/modules/">Modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/introductory_videos/">Introductory Videos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/training/">Training Events</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">HELP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/faq/">FAQ</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/help/">Getting Help</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CRC INFRASTRUCTURE</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/resources/">CRC Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/software/">CRC Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/available_hardware/">Available Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/storage/">Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/crc_uge_env/">UGE Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/faculty_infrastructure/">Faculty Cluster Partnership Program</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/landing/">Maintenance</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RESOURCES</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../gpu/">GPU</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../condor/">HTCondor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../globus/">Globus</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">NDCMS</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#logging-in-and-setting-up-your-software-environment">Logging In and Setting up your Software Environment</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#setting-up-environment">Setting up environment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#add-your-proxy-dn-and-notre-dame-username-your-username-on-earthcrcndedu">Add your proxy DN and Notre Dame username (your username on earth.crc.nd.edu)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#if-you-forgot-to-set-your-afs-permissions-at-first-login">If You Forgot to Set Your AFS Permissions at First Login</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#phedex">PhEDEx</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#requesting-a-phedex-transfer-to-the-notre-dame-tier-3-site-us_t3_notredame">Requesting a PhEDEx Transfer to the Notre Dame Tier 3 Site (US_T3_NotreDame)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#monitoring-tier-3-components-and-jobs">Monitoring Tier 3 components and Jobs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#htcondor-monitoring">HTCondor Monitoring</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#htcondor-job-monitoring">HTCondor Job Monitoring</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#storage">Storage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#home-area">Home Area</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scratch-space">Scratch Space</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#accessing-the-scratch-space-from-grid-jobs">Accessing the scratch space from grid jobs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hadoop-space">Hadoop Space</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lobster-working-storage">Lobster Working Storage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#storage-space-for-phedex">Storage space for PhEDEx</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../singularity/">Apptainer/Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../caml/">CAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">POPULAR MODULES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/matlab/">Matlab</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/r/">R</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/tensorflow/">Tensorflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/conda/">Conda</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CMS Tier 3 at University of Notre Dame</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">RESOURCES</li>
+      <li class="breadcrumb-item active">NDCMS</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/crcresearch/ndcmsT3/edit/master/docs/resources/ndcms.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ndcms">NDCMS</h1>
+<p>The page contains information pertaining to the <a href="https://physics.nd.edu/research/research-groups/the-high-energy-elementary-particle-physics-group/">Notre Dame High Energy Physics Research Group</a>. Below you will find navigation links to all content within this page.</p>
+<p>Page Navigation</p>
+<blockquote>
+<p>[!NOTE]
+All of this documentation is specific to our NDCMS T3 cluster. It is written and maintained by the users of that cluster, which includes <strong>you.</strong> Please help us keep this up-to-date. The most important way in which you can do this is to send e-mail to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#78;&#68;&#84;&#51;&#64;&#108;&#105;&#115;&#116;&#115;&#101;&#114;&#118;&#46;&#110;&#100;&#46;&#101;&#100;&#117;">&#78;&#68;&#84;&#51;&#64;&#108;&#105;&#115;&#116;&#115;&#101;&#114;&#118;&#46;&#110;&#100;&#46;&#101;&#100;&#117;</a> if you try any of the documentation here and find it's out of date. Not on the mailing list? Contact <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#108;&#97;&#110;&#110;&#111;&#110;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#107;&#108;&#97;&#110;&#110;&#111;&#110;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a> to get added.</p>
+</blockquote>
+<h2 id="logging-in-and-setting-up-your-software-environment">Logging In and Setting up your Software Environment</h2>
+<p>From inside the ND network (being physically on campus or via VPN) or at CERN, one can log directly into the interactive head node:</p>
+<pre class="highlight"><code class="language-shell">ssh -Y *username*@earth.crc.nd.edu</code></pre>
+<p>Alternatively, if that doesn't work, try:</p>
+<pre class="highlight"><code class="language-shell">/usr/bin/ssh -Y -l username@earth.crc.nd.edu</code></pre>
+<p>From a remote location (e.g. off campus, etc.), one must <em>first</em> log into the VPN. More information is available in the section <code>off-campus-connect</code>.</p>
+<pre class="highlight"><code class="language-shell">crcfe01.crc.nd.edu
+crcfe02.crc.nd.edu</code></pre>
+<p>Tip: Don't forget the <code>-Y</code> option for both ssh commands if you want any X windows to show up on your screen (i.e. opening TBrowsers, histograms, etc.)</p>
+<p>For more comfort, you can create the file ".ssh/config" on your local computer and insert an entry like</p>
+<pre class="highlight"><code class="language-shell">Host earth, crcfe01, crcfe02
+    HostName        %h.crc.nd.edu
+    User            *your_username*
+    ForwardX11      yes
+    ForwardX11Trusted yes
+    ControlMaster   auto
+    ControlPath     ~/.ssh/control-%r@%h:%p</code></pre>
+<p>The last two lines are optional. They set up ssh to allow a second session to "tunnel" through the first one. As long as you have one ssh session open, further connections to earth do not require you to enter your password again. This should only be done for Notre Dame, as normally Kerberos authentication and ssh keys work better.</p>
+<p>With this setup, you may type just "ssh earth" to log into earth, and likewise for crcfe01 and crcfe02.</p>
+<hr />
+<h3 id="setting-up-environment">Setting up environment</h3>
+<blockquote>
+<p>[!NOTE]
+Only the earth.crc.nd.edu machine has the software required to use CMSSW, CRAB, etc.</p>
+</blockquote>
+<p><em>First login or when experiencing trouble with Condor:</em> The first time you log into earth, set the AFS permissions of a directory to use for Condor as follows:</p>
+<p>Your home directory needs to be readable by anyone on campus because Condor doesn't run the jobs under your username. In your home directory, do the following:</p>
+<pre class="highlight"><code class="language-shell">cd ~
+fs sa . nd_campus rl
+fs sa . system:authuser rl</code></pre>
+<p>If you have any subdirectories which you plan to use for Condor, you'll need to add read permissions for them as well. If you have a large number of subdirectories to modify see [[#If You Forgot to Set Your AFS Permissions at First Login|here]].</p>
+<p>For the directory where CRAB is going to write outputs, you need to give write permission to any user on campus. Be careful doing this. You don't want to do this for directories where someone else could make a mistake and delete important files (like your home directory). Assuming your condor directory is called "my condor_directory", then you should do the following:</p>
+<pre class="highlight"><code class="language-shell">cd my_condor_directory/
+fs sa . nd_campus rlidwk
+fs sa . system:administrators rlidwka
+fs sa . system:authuser rlidwk</code></pre>
+<p>You'll have to configure Condor so that any output files are stored in the specific directory to which you've granted write permissions. This will avoid possible problems in which condor does not have the correct permissions to launch jobs from your AFS space.</p>
+<blockquote>
+<p>[!WARNING]
+If you didn't do this the first time you logged in or created your Condor directory, this <em>is</em> fixable. See <code>here &lt;if-you-forgot&gt;</code></p>
+</blockquote>
+<hr />
+<h3 id="add-your-proxy-dn-and-notre-dame-username-your-username-on-earthcrcndedu">Add your proxy DN and Notre Dame username (your username on earth.crc.nd.edu)</h3>
+<p>1)  Please add your proxy DN and ND username in the google doc below:</p>
+<p><a href="https://docs.google.com/document/d/1piHU3tvAdPEXis-evx1mzOD8YwyQ59SbgeLUZR4U1cE/edit">https://docs.google.com/document/d/1piHU3tvAdPEXis-evx1mzOD8YwyQ59SbgeLUZR4U1cE/edit</a></p>
+<p>2)  Let us know that you've added your DN to the shared google doc file, please email <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#106;&#111;&#104;&#110;&#115;&#111;&#49;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#105;&#106;&#111;&#104;&#110;&#115;&#111;&#49;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a> and CC <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#104;&#117;&#114;&#116;&#97;&#100;&#111;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#107;&#104;&#117;&#114;&#116;&#97;&#100;&#111;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a></p>
+<blockquote>
+<p>[!NOTE]
+If you would like to switch to a more modern shell, such as bash, you need to contact the CRC to have your shell changed in their database.**</p>
+</blockquote>
+<hr />
+<h3 id="if-you-forgot-to-set-your-afs-permissions-at-first-login">If You Forgot to Set Your AFS Permissions at First Login</h3>
+<p>You can go back and set your AFS permissions recursively after the fact using the "find" command carefully:</p>
+<p>Starting in your home directory or one of your subdirectories, you can do the following to set read permissions for all subdirectories below.</p>
+<pre class="highlight"><code class="language-shell">find . -type d -exec fs sa {} nd_campus rl \;
+find . -type d -exec fs sa {} system:authuser rl \;</code></pre>
+<p>For the Condor directory and any of its subdirectories, you can use the following to set permissions correctly:</p>
+<pre class="highlight"><code class="language-shell">cd my_condor_directory
+find . -type d -exec fs sa {} nd_campus rlidwk \;
+find . -type d -exec fs sa {} system:administrators rlidwka \;
+find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
+<hr />
+<h2 id="phedex">PhEDEx</h2>
+<p>Back to <code>Top of the Page &lt;ndcms&gt;</code>.</p>
+<p>The CMS experiment is managing hundreds petabytes of data recorded by the detector and simulated physics events. Data are transferred to distributed CMS sites for storage, processing and analysis. PhEDEx (Physics Experiment Data Export) maintains the knowledge of data replicas locations and manages data transfers between the sites.</p>
+<h3 id="requesting-a-phedex-transfer-to-the-notre-dame-tier-3-site-us_t3_notredame">Requesting a PhEDEx Transfer to the Notre Dame Tier 3 Site (US_T3_NotreDame)</h3>
+<ol>
+<li>use DAS <a href="https://cmsweb.cern.ch/das/]">https://cmsweb.cern.ch/das/]</a> to find the dataset you're interested in transferring</li>
+</ol>
+<p>In the search field, use this format to search for your favorite dataset:</p>
+<pre class="highlight"><code class="language-shell">dataset dataset=/Tau/Run2011A-PromptReco-v4/AOD</code></pre>
+<p>Click on "Subscribe to PhEDEx"</p>
+<ol>
+<li>Request a transfer to the US_T3_NotreDame site</li>
+</ol>
+<p>Under "Destinations" check the box next to</p>
+<pre class="highlight"><code class="language-shell">T3_US_NotreDame</code></pre>
+<p>At the bottom of the page, click "Submit Request", and click "confirm" on the following page. You will receive an email notification with a link to the status of your request.</p>
+<ol>
+<li>You will receive a confirmation email when your request is approved by the site admin.</li>
+</ol>
+<hr />
+<h2 id="monitoring-tier-3-components-and-jobs">Monitoring Tier 3 components and Jobs</h2>
+<p>Back to <code>Top of the Page &lt;ndcms&gt;</code>.</p>
+<p>Below are a collection of links that can be used to try to monitor the health of the Tier 3 components. If you see unexpected behavior--fewer than normal running jobs, slower job I/O, failing file transfers, etc.--please check here for indications of what might be wrong.</p>
+<p>Note: Unless otherwise noted, the links below only work for those on campus or connected with a VPN.</p>
+<h3 id="htcondor-monitoring">HTCondor Monitoring</h3>
+<p>To check the general status of HTCondor within the CRC, you can view the <a href="http://condor.cse.nd.edu/condor_matrix.cgi">HTCondor utilization matrix</a>, for more information on HTCondor itself view the <code>HTCondor &lt;condor&gt;</code> page.</p>
+<ul>
+<li>The official documentation for conodr command line utilities can be found <a href="http://www.cs.wisc.edu/condor/manual/v7.0/9_Command_Reference.html">here</a>.</li>
+</ul>
+<h4 id="htcondor-job-monitoring">HTCondor Job Monitoring</h4>
+<p>To view the status of all jobs in the condor queue (or for a specific user), use the following command:</p>
+<pre class="highlight"><code class="language-shell">condor_q username</code></pre>
+<p><em>Note: if you have submitted jobs from outside ND, condor maps your username to "uscms01".</em></p>
+<p>If you have jobs in the "Idle" state, you can ask condor why they are not running, using the following command:</p>
+<pre class="highlight"><code class="language-shell">condor_q -better {jobID}</code></pre>
+<p>This command will give you a list of all the reasons a job can be rejected, and tell you how many of the 600 nodes are rejecting your job for that reason.</p>
+<p>It is possible to manually abort your jobs using the following command:</p>
+<pre class="highlight"><code class="language-shell">condor_rm (jobID or username)</code></pre>
+<p>However, it is recommended to cancel the jobs via CRAB, because CRAB will often get confused if its jobs suddenly disappear. To abort jobs using CRAB, use:</p>
+<pre class="highlight"><code class="language-shell">crab -kill (job_range or "all")</code></pre>
+<p>The memory restriction per node on the condor queue is set to 1 GB by default. This is measured against the virtual memory of the process, meaning once a job's image size (virtual memory) becomes larger than 1 GB it could be idled indefinitely. Many CMSSW jobs tend to accumulate much more virtual memory than physical memory (up to 2x in some cases). This causes jobs to be idled when they don't necessarily need to be. You can change the default 1 GB memory restriction through the command condor_qedit. If you choose to change this value, try to be reasonably sure that your jobs won't be using more than 1 GB of real memory as this could cause problems for the machine the job is running on (including possibly crashing it). In order to change the memory limit, do the following:</p>
+<p>1)  find the job requirements string for one of your jobs:</p>
+<pre class="highlight"><code class="language-shell">&gt; condor_q -l  &lt;condor_job_id&gt; | grep Requirements</code></pre>
+<p>2)  copy the string in quotes that comes after "Requirements = " in the output.</p>
+<p>The requirements string will have an element like</p>
+<pre class="highlight"><code class="language-shell">( ( TARGET.Memory * 1024 ) &gt;= ImageSize )</code></pre>
+<p>Since we can't edit the value of 'TARGET.Memory', we'll have to change the proportionality factor...from 1024 to, say, 2048.</p>
+<p>3)  reset the Requirements string for a job or group of jobs, using the old requirements string with the new proportionality factor.</p>
+<pre class="highlight"><code class="language-shell">&gt; condor_qedit  &lt;user/condor_job_id&gt; Requirements &lt;new_req_string&gt;</code></pre>
+<p>Note that since the default string contains double quotation marks (""), you'll need to surround your \&lt;new_req_string&gt; with single qoutes (''). In addition, if you copy and paste the output from step one, you'll need to remove the space in "&gt; =" to have instead "&gt;=".</p>
+<p>Remember that 'condor_qedit' will work on a specific job ID (xxx.y), a job cluster ID (xxx), or a username.</p>
+<hr />
+<h2 id="storage">Storage</h2>
+<p>Back to <code>Top of the Page &lt;ndcms&gt;</code>.</p>
+<p>Users have access to a variety of storage locations. The key is knowing the tradeoffs of each, so you can identify what's the right resource for you to use. If you don't have a directory in any of the spaces listed, ask for help at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
+<h3 id="home-area">Home Area</h3>
+<p>Each user has a home directory on <code>/afs/crc.nd.edu/user</code> with 100GB of personal disk space that is backed up nightly. This is where you should keep software that you're developing, papers that you're writing, your thesis draft, etc. Basically, use this for anything that you would be very sad to have to recreate if it were accidentally deleted or lost due to hardware failure.</p>
+<p>To check the quota use <code>fs lq</code> (short for “fileservice listquota”)</p>
+<hr />
+<h3 id="scratch-space">Scratch Space</h3>
+<p>Also users get 500GB of non-backed up space in <code>/scratch365/&lt;username&gt;</code> and non-backed up space for small files in <code>/store/smallfiles</code>. There is no quota on <code>/store/smallfiles</code> but the total space is 80 TB and must be shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use <code>/store/smallfiles</code> as the performance degrades severely. In that case, either use <code>/scratch365</code> or <code>/hadoop/store/user</code> (see below).</p>
+<hr />
+<h4 id="accessing-the-scratch-space-from-grid-jobs">Accessing the scratch space from grid jobs</h4>
+<p>Grid jobs running at ND (e.g: via CMS Connect) need to prepend <code>/cms</code> to the /scratch365 and /store/smallfiles directories (<code>/cms/scratch365/&lt;username&gt;</code> and <code>/cms/store/smallfiles</code>) due to standard requirements in the CMS Global Pool for singularity-enabled sites for non-hadoop storage spaces to be visible, but they point to the same storage location.</p>
+<hr />
+<h3 id="hadoop-space">Hadoop Space</h3>
+<p>Hadoop is mounted at <code>/hadoop/store/user</code>. The Hadoop file system (hdfs) is a different sort of files system than most. Hadoop breaks your data up into blocks of ~128 MB and scatters two copies of each block across multiple physical disks. It does this for two reasons: The replication makes the system more resilient against hardware failures and it also provides better performance when many different jobs are reading or writing to the system. Like <code>/store/smallfiles</code>, Hadoop doesn't have per user quotas, and there is a lot of space available (at the time of this writing, 644 TB of raw space, but remember that every TB you store takes up ~2 TB of space because of replication). Hadoop is also the file system that is accessible with CMS/grid tools like gfal and XRootD. You should use Hadoop whenever you have very large datasets, when you need to access your data using gfal or XRootD, or when you will be accessing your data with many parallel running jobs (anything more than 100). There are some caveats: * Hadoop doesn't handle very small files well. If you write large numbers of files with sizes on the order of MB, don't use Hadoop. For files in that size range, use <code>/store/smallfiles</code> or <code>/scratch365</code> * Hadoop doesn't provide posix access directly. This means that normally you can't use commands like ''ls'' or ''cp''. We use something called FUSE to provide posix access to Hadoop, but FUSE can be broken if you try to read too much data too quickly. So, when running many batch jobs, its better to access the data directly using hdfs commands, or to use a tool, like XRootD or Lobster that does this for you. If you're running jobs on data in <code>/hadoop</code> and they are getting stuck or having Input/Output errors, you've probably crashed FUSE on some of the nodes. If this happens, ask for help [<a href="mailto:ndt3-list@nd.edu">mailto:ndt3-list@nd.edu</a> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>]. * ROOT cannot write directly into <code>/hadoop/store/user</code>. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to <code>/hadoop/store/user</code> (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
+<hr />
+<h3 id="lobster-working-storage">Lobster Working Storage</h3>
+<p>Lobster doesn't do well working out of your AFS home directory. When you run Lobster jobs, you should tell Lobster to make your working area in <code>/tmpscratch/users/&lt;username&gt;</code>. Space is limited and there are no user quotas, so monitor carefully and clean up old files. We reserve the right to clean out this space if someone is using too much and not playing nice with others!</p>
+<blockquote>
+<p>[!NOTE]
+To Add you proxy DN and Notre Dame username, go to: <a href="https://wiki.crc.nd.edu/w/index.php/NDCMS_SettingUpEnvironment#Add_you_proxy_DN_and_Notre_Dame_username_.28your_username_on_earth.crc.nd.edu.29">https://wiki.crc.nd.edu/w/index.php/NDCMS_SettingUpEnvironment#Add_you_proxy_DN_and_Notre_Dame_username_.28your_username_on_earth.crc.nd.edu.29</a></p>
+</blockquote>
+<hr />
+<h3 id="storage-space-for-phedex">Storage space for PhEDEx</h3>
+<p>All CMS data are stored using the /store convention, Therefore we only need to map:</p>
+<pre class="highlight"><code class="language-shell">/+store/(.*)</code></pre>
+<p>Translation rules for PFN to LFN (Physical File Name to Logical File Name):</p>
+<pre class="highlight"><code class="language-shell">/hadoop/store ==&gt; /store</code></pre>
+<p>To see how much space is available in the hadoop /store area, you can type the following from earth:</p>
+<pre class="highlight"><code class="language-shell">hadoop fs -df -h /store</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../globus/" class="btn btn-neutral float-left" title="Globus"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../singularity/" class="btn btn-neutral float-right" title="Apptainer/Singularity">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/crcresearch/ndcmsT3" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../globus/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../singularity/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

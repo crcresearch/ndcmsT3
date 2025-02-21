@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://crcresearch.github.io/ndcmsT3/crc_infra/storage/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Storage - CMS Tier 3 at University of Notre Dame</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Storage";
+        var mkdocs_page_input_path = "crc_infra/storage.md";
+        var mkdocs_page_url = "/ndcmsT3/crc_infra/storage/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../images/crc_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">HOME</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NEW USER INFO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/obtain_account/">Obtaining a CRC account</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/quick_start/">Quick Start Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/connecting_to_crc/">Connecting to CRC Servers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/linux_guide/">Basic Linux Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/modules/">Modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/introductory_videos/">Introductory Videos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/training/">Training Events</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">HELP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/faq/">FAQ</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/help/">Getting Help</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CRC INFRASTRUCTURE</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../resources/">CRC Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../software/">CRC Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../available_hardware/">Available Hardware</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Storage</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#afs-storage">AFS Storage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#afs-limitations-and-notes">AFS Limitations and Notes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#afs-group-storage">AFS Group Storage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#afs-website">AFS Website</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#afs-permissions-acls">AFS Permissions / ACLs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#panasas-scratch-storage">Panasas (scratch) Storage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#panasas-best-practices">Panasas Best Practices</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#local-tmp-space">Local /tmp Space</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#storage-backups">Storage Backups</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#storage-comparison">Storage Comparison</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../crc_uge_env/">UGE Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../faculty_infrastructure/">Faculty Cluster Partnership Program</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../landing/">Maintenance</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RESOURCES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/gpu/">GPU</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/condor/">HTCondor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/globus/">Globus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/ndcms/">NDCMS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/singularity/">Apptainer/Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/caml/">CAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">POPULAR MODULES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/matlab/">Matlab</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/r/">R</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/tensorflow/">Tensorflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/conda/">Conda</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CMS Tier 3 at University of Notre Dame</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">CRC INFRASTRUCTURE</li>
+      <li class="breadcrumb-item active">Storage</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/crcresearch/ndcmsT3/edit/master/docs/crc_infra/storage.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="storage">Storage</h1>
+<p>All storage is allocated to users and attributed to their account sponsor (faculty advisor). To see the storage used by a particular faculty advisor simply type their ND ID into the <a href="http://www.crc.nd.edu/info/storage.html">storage reporting tool</a>.</p>
+<h2 id="afs-storage">AFS Storage</h2>
+<p>The CRC's AFS cell consists of several different AFS servers. Both user home storage and research group storage space resides within the CRC AFS cell. Some note:</p>
+<ul>
+<li>
+<p>All storage allocation is tracked per faculty sponsor.</p>
+</li>
+<li>
+<p>Default of 100 GB user space per account.</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>This can be increased through request. Any amount higher than 500GB must be confirmed by the faculty sponsor of the account.</li>
+</ul>
+</blockquote>
+<h3 id="afs-limitations-and-notes">AFS Limitations and Notes</h3>
+<p>There are a few limitations to be aware of within AFS.</p>
+<ul>
+<li>A single directory can only contain a certain number of files. This number depends on the length of the filenames of each file within said directory. For example, ~32,000 is generally an average number of files which can be within a single directory. If filenames are long, this max number will be smaller.</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<p>If you hit the maximum number of files within a single directory, you'll see an error such as:</p>
+<p>touch: cannot touch 'path/to/dir/file_name.txt': File too large</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>
+<p>A single volume within AFS can be at a maximum of 2 TB. Should you need more than 2 TB, multiple volumes will have to be created and any data will need to be split between multiple volumes.</p>
+</li>
+<li>
+<p>If you have a running job, you will not see the results of creation / deletion etc of files from your job until it completes. If you would like to see file updates in real time, see the <code>synchronizing_files_afs</code> page.</p>
+</li>
+</ul>
+<h3 id="afs-group-storage">AFS Group Storage</h3>
+<p>Often research teams require a shared access storage space. The two primary considerations in this regard are understanding the file structure respective of quotas and the access list.</p>
+<p>We can mount volumes anywhere in the directory tree thus quotas only map to the volume mount point. In this example any file or subdirectory you place in directory researchgroupname will be part of the associated 2TB quota EXCEPT the dataset01 sub-directory which has a separate 2TB quota because it is the mount point of a new volume.</p>
+<p>Thus 10TB could be allocated as:</p>
+<pre class="highlight"><code>/afs/crc.nd.edu/group/researchgroupname/dataset01
+
+/afs/crc.nd.edu/group/researchgroupname/dataset02
+
+/afs/crc.nd.edu/group/researchgroupname/dataset03
+
+/afs/crc.nd.edu/group/researchgroupname/dataset04</code></pre>
+<p>with each <code>dataset0X</code> directory having 2TB of quota and the parent directory having capacity for 2TB of files in addition to the 4 <code>dataset0X</code> directories.</p>
+<h3 id="afs-website">AFS Website</h3>
+<p>If you would like to obtain a CRC AFS website (e.g. crc.nd.edu/~NETID), please send a request for one to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a> from your netID email address. You will also need to make sure that there is a folder with the name www within your CRC Home directory.</p>
+<blockquote>
+<p>[!WARNING]
+All websites within the CRC AFS webspace should be considered to be INSECURE and are world-readable. You should not place any sensitive or confidential material in your webspace. Anything placed in your webspace can be viewed by anyone in the world.</p>
+</blockquote>
+<h3 id="afs-permissions-acls">AFS Permissions / ACLs</h3>
+<p>AFS does not use normal POSIX file permissions. To manage access to your files / directories, you must apply ACLs (Access Control Lists). For details on single user ACLs and the creation of ACL groups (better for labs etc), see the <code>user_acls</code>.</p>
+<hr />
+<h2 id="panasas-scratch-storage">Panasas (scratch) Storage</h2>
+<p>For high performance scratch space, the CRC utilizes Panasas ActiveStor. To obtain scratch space, please send a request to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>. Some important notes about scratch365:</p>
+<ul>
+<li>Your scratch directory is located at <code>/scratch365/$USER</code>.</li>
+<li>scratch365 is designed to be <strong>TEMPORARY</strong> storage space and it is very important that you understand this space is <strong>NOT BACKED UP</strong>. A failure in the scratch filesystem could result in permanent data loss.</li>
+<li>scratch365 is subject to a 365 day <strong>PURGE POLICY</strong>. Data older than 365 days will automatically <strong>BE DELETED</strong> from the filesystem.</li>
+<li>Important data and results that you wish to keep should be moved to AFS and/or downloaded to a local computer as soon possible. We recommend doing this at least once a week for files that are frequently updated.</li>
+</ul>
+<h3 id="panasas-best-practices">Panasas Best Practices</h3>
+<p>The Panasas resource is shared among several hundred users. In order to minimize the impact of your simulations on others please try to follow these guidelines. We encourage you to reach out to us if you have any questions or concerns.</p>
+<ul>
+<li>Delete temporary or intermediate files that are not needed for future analysis. This also applies to data that can easily be regenerated.</li>
+<li>Avoid using <code>--color</code> options to <code>ls</code> and other similar programs when working in scratch. While color output can be very helpful, programs like <code>ls</code> that offer this option put extra load on the filesystem as each file in the directory must have its contents examined in order to determine the file type and other attributes. Many people set up aliases for <code>ls</code> and other commands to automatically include color options. When in doubt, use the full path like so:</li>
+</ul>
+<pre class="highlight"><code class="language-shell">/bin/ls -l /scratch365/$USER</code></pre>
+<ul>
+<li>Use the <code>tar</code> command to store large amounts of data as a single file. Panasas and other high performance file systems excel at storing large files, particularly in lieu of thousands (or millions) of small files. The <code>tar</code> command allows you to efficiently replace many files and directories with a single, combined file.</li>
+</ul>
+<pre class="highlight"><code class="language-shell">#  Create a tar file named mydata.tar and remove existing files after adding them to the .tar:
+tar --remove-files --verbose --create -f mydata.tar ./directory-with-lots-of-files other-file different-file
+
+#  See the contents of an existing tar file:
+tar --list -f mydata.tar
+
+#  To unpack a tar file named mydata.tar and then remove the existing tar file:
+tar --verbose --extract -f mydata.tar; rm -i mydata.tar</code></pre>
+<ul>
+<li>Minimize the number of files in a single directory, preferably with no more than 5,000 files per directory. Many commands that work on files must parse the entire contents of a directory before the command is able to complete. This is usually a linear process, so the more files there are in a directory the longer and more resources the action will take.</li>
+<li>It is much more efficient to have 100 directories that contain 1,000 files each rather than a single directory with 100,000 files.</li>
+<li>If you must have thousands of files per directory, consider using the command <code>tar</code> to encapsulate them into a single file when they are not actively being used.</li>
+<li>When you are writing your own applications that include file I/O:</li>
+<li>Only <code>open()</code> and <code>close()</code> files a single time inside of your application and never inside of loops.</li>
+<li>Try to avoid using file I/O operations inside of operational <code>for()</code> or <code>while()</code> loops.<ul>
+<li>If this is necessary, program your application to read and write your data in large <strong>chunks</strong>. Use local variables to store many values.</li>
+<li>It is much more efficient to read or write 10 operations of 2 megabytes each than 1,000 operations of 20 kilobytes each.</li>
+</ul>
+</li>
+<li>Potentially make use of the local hard drive.</li>
+<li>Every compute node has a local hard drive in it with a writable folder located in /tmp. You may find that copying files to a unique directory in /tmp and running your program from there will improve performance of your job and/or reduce load on the Panasas.</li>
+</ul>
+<pre class="highlight"><code class="language-shell">#  Create a temporary directory on /tmp, do some work, copy the data out of /tmp, then remove the directory.
+MY_TEMP=$(mktemp -d)
+cp /scratch365/$USER/collection_of_small_files.tar "$MY_TEMP"
+# do work here
+cp /$MY_TEMP/results /scratch365/$USER
+/bin/rm -r $MY_TEMP</code></pre>
+<p>Danger</p>
+<p>Note that the local hard drive, /tmp, typically only has a couple 100 GBs of available storage. Filling up the local hard drive will cause the server to crash, so it is important to use the space sparingly and remove any files that you create there.</p>
+<hr />
+<h2 id="local-tmp-space">Local /tmp Space</h2>
+<p>Every compute host has a local disk which contains the OS and a small amount of space available to users. This local disk will normally be faster for higher I/O bound jobs, in addition to relieving network congestion to the other networked file systems available.</p>
+<p>The amount of storage available on the local disk varies by which machine the job is running on. Some note:</p>
+<ul>
+<li>Local disk is mounted on <code>/tmp</code>. Anyone can use this area.</li>
+<li>File and directory access is controlled by normal Unix permissions.</li>
+<li>If you plan on using this space be sure to clean up after yourself.</li>
+<li>Be mindful of the amount of space used on <code>/tmp</code>, if it runs out the machine will crash.</li>
+</ul>
+<h2 id="storage-backups">Storage Backups</h2>
+<p>Backup in this context refers to an independent copy of user files regularly changing in either a distributed filesystem (AFS) or local filesystem on a dedicated research machine. This is an automated cyclic process where changing data is incrementally backed up (daily, weekly, monthly). Backups are only maintained for 3 months (not persistent).</p>
+<p>For backups, the CRC utilizes a <a href="https://spectralogic.com/products/spectra-t950/">SpectraLogic T950 system</a>.</p>
+<hr />
+<h2 id="storage-comparison">Storage Comparison</h2>
+<p>Below is a scrollable comparison between the different storage options within the CRC.</p>
+<p>[TABLE]</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../available_hardware/" class="btn btn-neutral float-left" title="Available Hardware"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../crc_uge_env/" class="btn btn-neutral float-right" title="UGE Environment">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/crcresearch/ndcmsT3" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../available_hardware/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../crc_uge_env/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

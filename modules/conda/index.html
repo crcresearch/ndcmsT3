@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://crcresearch.github.io/ndcmsT3/modules/conda/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Conda - CMS Tier 3 at University of Notre Dame</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Conda";
+        var mkdocs_page_input_path = "modules/conda.md";
+        var mkdocs_page_url = "/ndcmsT3/modules/conda/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../images/crc_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">HOME</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NEW USER INFO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/obtain_account/">Obtaining a CRC account</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/quick_start/">Quick Start Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/connecting_to_crc/">Connecting to CRC Servers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/linux_guide/">Basic Linux Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/modules/">Modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/introductory_videos/">Introductory Videos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/training/">Training Events</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">HELP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/faq/">FAQ</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/help/">Getting Help</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CRC INFRASTRUCTURE</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/resources/">CRC Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/software/">CRC Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/available_hardware/">Available Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/storage/">Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/crc_uge_env/">UGE Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/faculty_infrastructure/">Faculty Cluster Partnership Program</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/landing/">Maintenance</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RESOURCES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/gpu/">GPU</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/condor/">HTCondor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/globus/">Globus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/ndcms/">NDCMS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/singularity/">Apptainer/Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/caml/">CAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">POPULAR MODULES</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../matlab/">Matlab</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../r/">R</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tensorflow/">Tensorflow</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Conda</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#general-description">General Description</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#initial-setup">Initial setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#environment-management">Environment Management</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#package-management">Package Management</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#python-management">Python Management</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#channel-management">Channel Management</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#job-submission-using-conda-environments">Job Submission Using Conda Environments</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CMS Tier 3 at University of Notre Dame</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">POPULAR MODULES</li>
+      <li class="breadcrumb-item active">Conda</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/crcresearch/ndcmsT3/edit/master/docs/modules/conda.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="conda">Conda</h1>
+<p><img alt="image" src="../../images/conda.png" /></p>
+<h2 id="general-description">General Description</h2>
+<p>Conda is a popular package management system used in machine learning and artificial intelligence research. It is built as a part of Anaconda distribution and provides a useful alternative for the pip package manager. Conda allows users to create many different environments containing different packages without there being any overlap or crossover that may occur when using pip. Each environment may be customized to a specific program’s needs and therefore allows for easy package management and access.</p>
+<blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p>In order to use <code>conda</code>, you must be using <code>bash</code> as your shell. If you have an account created after May of 2018, your default shell is bash. To check your shell, type: <code>echo $0</code>. If your shell is tcsh and you'd like it to be bash, email us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
+</blockquote>
+<hr />
+<h2 id="initial-setup">Initial setup</h2>
+<p>If you have never used Conda on the CRC before or want to start from scratch after removing any existing Conda files, you will likely need to first load the Conda module. After the initial configuration is setup, you will no longer need this step.</p>
+<pre class="highlight"><code class="language-shell">module load conda 
+conda init
+source ~/.bashrc
+module unload conda</code></pre>
+<p>To verify that conda was successfully installed and to check the version of conda installed you may run the following.</p>
+<pre class="highlight"><code class="language-shell">conda info </code></pre>
+<hr />
+<h2 id="environment-management">Environment Management</h2>
+<p>In Conda you are able to create multiple, unique environments. Each environment will be able to be filled with packages specifically suited for various different problems.</p>
+<p>To view what environments are already created you may run the following code. ''Note that there will already be a base environment installed.''</p>
+<pre class="highlight"><code class="language-shell">conda info --envs </code></pre>
+<p>To add to this list of environments you may create a new environment by using the following</p>
+<pre class="highlight"><code class="language-shell">conda create -n ENVNAME </code></pre>
+<p>Keep in mind that environments will be installed by default into the envs directory in your conda directory. You can specify a different path if you would like with the <code>--prefix=</code> option.</p>
+<pre class="highlight"><code class="language-shell">conda create --prefix=~/env_name</code></pre>
+<p>After an environment is created it is essentially dormant until activated. When you activate you are jumping into that environment and therefore will then have access to all the packages associated with that environment. You may activate any of your environments using the following</p>
+<pre class="highlight"><code class="language-shell">conda activate ENVNAME </code></pre>
+<p>If this throws an error, try directly sourcing the activate script within the environments directory.</p>
+<pre class="highlight"><code class="language-shell">source ~/env_name/bin/activate</code></pre>
+<p>If you would like to jump out of your currently loaded environment you may use the following command to bring you back to the base environment.</p>
+<pre class="highlight"><code class="language-shell">conda deactivate </code></pre>
+<p>If you would like to create an exact copy of an environment you may use the following</p>
+<pre class="highlight"><code class="language-shell">conda create -n nameofnewenvironment --clone nameoforiginalenvironment </code></pre>
+<p>If you would like to delete an environment you may use the following.</p>
+<pre class="highlight"><code class="language-shell">conda remove -n ENVNAME --all </code></pre>
+<hr />
+<h2 id="package-management">Package Management</h2>
+<p>In each environment within conda you may load different packages into the environment. Each package is a different piece of software that you may find to be useful in solving whatever problem you may have.</p>
+<p>To view what packages may be available use the following command</p>
+<pre class="highlight"><code class="language-shell">conda list </code></pre>
+<p>If you are looking for a specific package simply use the following search command</p>
+<pre class="highlight"><code class="language-shell">conda search PKGNAME </code></pre>
+<p>The above search only searches among the default channel. However, if you would like to search across all channels then use the following</p>
+<pre class="highlight"><code class="language-shell">anaconda search PKGNAME </code></pre>
+<p>For more specific information about all of the package versions use the following</p>
+<pre class="highlight"><code class="language-shell">conda search PKGNAME--info </code></pre>
+<p>Once you have found the name of the package you want to install you may install use the following code to install it into an environment.</p>
+<pre class="highlight"><code class="language-shell">conda install -n ENVNAME PKGNAME </code></pre>
+<blockquote>
+<p>[!NOTE]
+If you omit the “-n ENVNAME” portion of code the package will be installed in your current environment. All installs must be executed in a specific conda environment, not the base environment. This means that (ENVNAME) must appear to the left of your [username]. This ensures that no base packages are uninstalled, for example pip or python.''</p>
+</blockquote>
+<p>When you need to update one of your packages you may use the following update command.</p>
+<pre class="highlight"><code class="language-shell">conda update PKGNAME </code></pre>
+<p>If you need to update all of your packages in your currently loaded environment simply use the following</p>
+<pre class="highlight"><code class="language-shell">conda --update-all </code></pre>
+<p>If you would like to delete a package from your environment you may do so with the following uninstall command</p>
+<pre class="highlight"><code class="language-shell">conda uninstall PKGNAME </code></pre>
+<hr />
+<h2 id="python-management">Python Management</h2>
+<p>Many times when using conda for machine learning applications we will be using python. To look for the specific versions of python available for install use the following</p>
+<pre class="highlight"><code class="language-shell">conda search -f python </code></pre>
+<p>Once you have found the specific version of python you want to install you may use the following install command to specify which python you need.</p>
+<pre class="highlight"><code class="language-shell">conda install -n ENVNAME python=3.4 </code></pre>
+<p>To verify which version of python your current environment is using, use the following</p>
+<pre class="highlight"><code class="language-shell">python --version </code></pre>
+<hr />
+<h2 id="channel-management">Channel Management</h2>
+<p>There are several main channels available for use in Anaconda. These include, anaconda, conda-forge, r, and bioconda. Each channel contains different packages that may be installed into your environment. None of these channels are more important than another, but instead are there for organization of packages. By default, all users are on the default channel. If there is a specific package that you are looking to install that is not available on this default channel, then you can search for that package on another channel.</p>
+<p>For example, the bioconda channel is a Conda channel that provides bioinformatic packages. If we wanted to switch to the bioconda channel and install a bioconda specific package we would do so using the following</p>
+<pre class="highlight"><code class="language-shell">conda config --add channels bioconda
+conda config --set channel_priority strict </code></pre>
+<p>When adding this channel using the “add” command we are telling Conda to add the channel at the top, or highest priority of the channels accessible to our manager. The order of channels in your Conda matters due to the potential of channel collisions. To circumvent this issue and ensure that we do not encounter any channel collisions from duplicate packages we use the second line of code above. This ensures that all of the dependencies come from the bioconda channel as opposed to the default channel.</p>
+<p>If we wanted to set the priority back to our default channel we would have to edit the ~/.condarc file so that defaults is the first channel shown. The ~/.condarc file is only created upon creation of a new channel.</p>
+<pre class="highlight"><code class="language-shell">channels:
+defaults
+bioconda </code></pre>
+<p>Then we must run these lines of code in the command-line</p>
+<pre class="highlight"><code class="language-shell">conda config --set channel_priority true
+conda update --all</code></pre>
+<p>This will allow us to make changes to our default channel, without interfering with the previously made changes in the bioconda channel.</p>
+<p>We would recommend only using the default channel unless absolutely necessary, in order to ensure no channel collisions. If you only need one or two packages from another channel that may not exist in the default channel then you should use the following</p>
+<pre class="highlight"><code class="language-shell">conda config --append channels bioconda </code></pre>
+<p>This will push the bioconda channel to the bottom of the priority list, ensuring that there are no conflicts in dependencies with the default channel.</p>
+<p>Once the desired channel is installed we must use the following to install a package from that specific package</p>
+<pre class="highlight"><code class="language-shell">conda install bioconda::PKGNAME </code></pre>
+<hr />
+<h2 id="job-submission-using-conda-environments">Job Submission Using Conda Environments</h2>
+<p>Since your environments are saved in a unique file path on your node all of the packages will already be installed in the referenced environment, allowing you to customize your environment before submitting your job. Once the job is submitted it will be referencing the packages in your environment, meaning that you don’t need to redo any of your previous installations.</p>
+<p>To load your environment use the following code, keeping in mind that the first three lines are example job submission code. Everything after those initial three lines will be as if you are running the same code in your node.</p>
+<blockquote>
+<p>[!NOTE]
+Unlike many software packages at the CRC, you generally should never load the conda module in your job scripts or configuration files after the initial configuration is complete.</p>
+</blockquote>
+<pre class="highlight"><code class="language-shell">#!/bin/bash
+#$ -q long
+#$ -pe smp 1
+#$ -N jobname
+
+conda activate ENVNAME
+python3 example.py </code></pre>
+<p>This will run your python code in the environment that you specify, allowing you access to whatever packages you have previously loaded. If you would like to run multiple jobs at once then you should refer to the <code>submitting_batch_jobs</code> page.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../tensorflow/" class="btn btn-neutral float-left" title="Tensorflow"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/crcresearch/ndcmsT3" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../tensorflow/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://crcresearch.github.io/ndcmsT3/resources/computing/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://crcresearch.github.io/ndcmsT3/modules/tensorflow/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Computing Resources - CMS Tier 3 at University of Notre Dame</title>
+    <title>Tensorflow - CMS Tier 3 at University of Notre Dame</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,9 +13,9 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Computing Resources";
-        var mkdocs_page_input_path = "resources/computing.md";
-        var mkdocs_page_url = "/ndcmsT3/resources/computing/";
+        var mkdocs_page_name = "Tensorflow";
+        var mkdocs_page_input_path = "modules/tensorflow.md";
+        var mkdocs_page_url = "/ndcmsT3/modules/tensorflow/";
       </script>
     
     <!--[if lt IE 9]>
@@ -88,30 +88,42 @@
               </ul>
               <p class="caption"><span class="caption-text">RESOURCES</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../gpu/">GPU</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/gpu/">GPU</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../condor/">HTCondor</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/condor/">HTCondor</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../globus/">Globus</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/globus/">Globus</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../ndcms/">NDCMS</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/ndcms/">NDCMS</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../singularity/">Apptainer/Singularity</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/singularity/">Apptainer/Singularity</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../caml/">CAML</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/caml/">CAML</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">POPULAR MODULES</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../modules/matlab/">Matlab</a>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../matlab/">Matlab</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../modules/python/">Python</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../modules/r/">R</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../r/">R</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../modules/tensorflow/">Tensorflow</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Tensorflow</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#general-description">General Description</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tensorflow-python">Tensorflow Python</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installing-python-packages-locally">Installing Python Packages Locally</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../modules/conda/">Conda</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../conda/">Conda</a>
                   </li>
               </ul>
       </div>
@@ -128,9 +140,10 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Computing Resources</li>
+          <li class="breadcrumb-item">POPULAR MODULES</li>
+      <li class="breadcrumb-item active">Tensorflow</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/crcresearch/ndcmsT3/edit/master/docs/resources/computing.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/crcresearch/ndcmsT3/edit/master/docs/modules/tensorflow.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -138,10 +151,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="computing-resources">Computing Resources</h1>
+                <h1 id="tensorflow">Tensorflow</h1>
+<h2 id="general-description">General Description</h2>
+<p>TensorFlow™ is an open source software library for high performance numerical computation. Its flexible architecture allows easy deployment of computation across a variety of platforms (CPUs and GPUs), and from desktops to clusters of servers to mobile and edge devices. Originally developed by researchers and engineers from the Google Brain team within Google’s AI organization, it comes with strong support for machine learning and deep learning and the flexible numerical computation core is used across many other scientific domains.</p>
+<hr />
+<h2 id="basic-usage">Basic Usage</h2>
+<p>CRC version of Tensorflow support both GPU and CPU. The following is an example of UGE job submission script requesting 1 GPU</p>
+<pre class="highlight"><code class="language-shell">#!/bin/bash
+
+#$ -M netid@nd.edu      # Email address for job notification
+#$ -m abe               # Send mail when job begins, ends and aborts
+#$ -q gpu               # Specify queue
+#$ -l gpu_card=1        # Specify number of GPU cards to use.
+#$ -N TFjob             # Specify job name
+
+module load tensorflow
+
+python3  pythonscript.py</code></pre>
+<hr />
+<h2 id="tensorflow-python">Tensorflow Python</h2>
+<p>As you can see above, no python module manually loaded for a tensorflow job. The tensorflow module itself will bring it's own version of python with several necessary packages preconfigured to use the CRC infrastructure.</p>
+<pre class="highlight"><code class="language-shell">$ module list
+Currently Loaded Modulefiles:
+ 1) CRC_default/1.1
+$ python3 --version
+Python 3.6.8
+$ module load tensorflow
+$ python3 --version
+Python 3.9.5</code></pre>
+<hr />
+<h3 id="installing-python-packages-locally">Installing Python Packages Locally</h3>
+<p>If a python package is not installed with the CRC version of Tensorflow, you can easily install it locally in your personal AFS space using pip.</p>
+<pre class="highlight"><code class="language-shell">module load tensorflow
+
+pip3 install --user package_name</code></pre>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../r/" class="btn btn-neutral float-left" title="R"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../conda/" class="btn btn-neutral float-right" title="Conda">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -167,6 +217,10 @@
         </span>
     
     
+      <span><a href="../r/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../conda/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

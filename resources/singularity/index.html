@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://crcresearch.github.io/ndcmsT3/resources/singularity/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Apptainer/Singularity - CMS Tier 3 at University of Notre Dame</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Apptainer/Singularity";
+        var mkdocs_page_input_path = "resources/singularity.md";
+        var mkdocs_page_url = "/ndcmsT3/resources/singularity/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../images/crc_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">HOME</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NEW USER INFO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/obtain_account/">Obtaining a CRC account</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/quick_start/">Quick Start Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/connecting_to_crc/">Connecting to CRC Servers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/linux_guide/">Basic Linux Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/modules/">Modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/introductory_videos/">Introductory Videos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../new_user/training/">Training Events</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">HELP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/faq/">FAQ</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/help/">Getting Help</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CRC INFRASTRUCTURE</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/resources/">CRC Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/software/">CRC Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/available_hardware/">Available Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/storage/">Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/crc_uge_env/">UGE Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/faculty_infrastructure/">Faculty Cluster Partnership Program</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/landing/">Maintenance</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RESOURCES</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../gpu/">GPU</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../condor/">HTCondor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../globus/">Globus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ndcms/">NDCMS</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Apptainer/Singularity</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#why-use-apptainer">Why Use Apptainer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#downloading-apptainer">Downloading Apptainer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#obtaining-containers">Obtaining Containers</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#create-your-own-custom-container">Create Your Own Custom Container</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#using-pre-built-containers">Using Pre-Built Containers</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#accessing-containers">Accessing Containers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-apptainer-in-batch-jobs">Using Apptainer in Batch Jobs</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#apptainer-on-gpu-nodes">Apptainer on GPU Nodes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-apptainer-within-afs">Using Apptainer within AFS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-modules-within-apptainer-containers">Using Modules within Apptainer containers</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#important-notes">Important Notes</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#helpful-resources">Helpful Resources</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../caml/">CAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">POPULAR MODULES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/matlab/">Matlab</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/r/">R</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/tensorflow/">Tensorflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/conda/">Conda</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CMS Tier 3 at University of Notre Dame</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">RESOURCES</li>
+      <li class="breadcrumb-item active">Apptainer/Singularity</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/crcresearch/ndcmsT3/edit/master/docs/resources/singularity.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="apptainersingularity">Apptainer/Singularity</h1>
+<p><img alt="image" src="../../images/ApptainerLogo.png" /></p>
+<hr />
+<p>Apptainer/Singularity is a software application that allow users to have ‘full control’ over their operating system without the need for any ‘super-user’ privileges using the notion of containers or images, the two words are used interchangeably. A container is simply an empty room that the users can configure and customize as it suits their needs. It is intended to provide portability, such that it may be run on any flavor of Linux distribution, and its containers can be shared and shipped easily.</p>
+<hr />
+<h2 id="why-use-apptainer">Why Use Apptainer</h2>
+<p>Oftentimes, it is the case that our users would need to use some software packages that we do not have installed in our systems. As a result, they would need to submit a request for software installation. However, with Apptainer, users will be able to configure their own environments in their containers, then ship it to one of our front-end machines and be able to run any software they have installed in it. Hence, this gives the user more convenience and flexibility.</p>
+<hr />
+<h2 id="downloading-apptainer">Downloading Apptainer</h2>
+<p>There are multiple ways to download and install Apptainer in your local machines, and they are very well explained at <a href="https://apptainer.org/docs/user/main/quick_start.html#quick-installation-steps">Apptainer’s main website</a>.</p>
+<p>Apptainer is already installed on CRC frontends and compute nodes. There is no module, simply run <code>apptainer --help</code>.</p>
+<hr />
+<h2 id="getting-started">Getting Started</h2>
+<p>Below is a brief summary of the basics for Apptainer. For a more in depth review, see the <a href="https://apptainer.org/docs/user/main/quick_start.html">Quick Start Guide</a> and other pages from Apptainer's documentation.</p>
+<hr />
+<h3 id="obtaining-containers">Obtaining Containers</h3>
+<p>Once you have successfully installed Apptainer on your local machine, then there are two ways to get started. One is to use pre-built containers that are available from different sources such as SingularityHub or Docker, and another option is create your own customized containers. Note that you must be on your own machine where you have root / sudo to build a apptainer container. You do not need root to pull a prebuilt container while on CRC resources.</p>
+<hr />
+<h4 id="create-your-own-custom-container">Create Your Own Custom Container</h4>
+<p>The command <code>build</code> is used to create containers. To create your own defined containers, you need to first create a recipe file. A recipe file is used to define a custom container. A basic example recipe file example is:</p>
+<pre class="highlight"><code class="language-shell">Bootstrap: docker
+From: ubuntu:16.04
+
+%post
+    apt-get -y update
+    apt-get -y install fortune cowsay lolcat
+
+%environment
+    export LC_ALL=C
+    export PATH=/usr/games:$PATH
+
+%runscript
+    fortune | cowsay | lolcat</code></pre>
+<p>If this recipe file is saved as "ubuntuBuild", a apptainer container can be built with the command:</p>
+<pre class="highlight"><code class="language-shell">$ sudo apptainer build myOwn.img ubuntuBuild</code></pre>
+<p>Running the above command will create a container titled "myOwn.img" with the specifications in the build script. Utilizing a recipe file, a container can be created from a starting point such as any container on apptainer hub or any docker container. For more information on recipe files, see <a href="https://apptainer.org/docs/user/main/definition_files.html?highlight=definition%20file#definition-files">apptainer definition file docs.</a> Apptainer defaults to creating images in SIF format, which is read only. To create a writable image, there are two options. An image could be created as writeable:</p>
+<pre class="highlight"><code class="language-shell">$ sudo apptainer build --writable myImg.img myrecipeFile</code></pre>
+<p>Or, an image could be created as a sandbox directory:</p>
+<pre class="highlight"><code class="language-shell">$ sudo apptainer build --sandbox myImg.img myrecipeFile</code></pre>
+<blockquote>
+<p>[!NOTE]
+Building containers must be done on a machine <em>not</em> managed by the CRC as you will need admin access.</p>
+</blockquote>
+<hr />
+<h4 id="using-pre-built-containers">Using Pre-Built Containers</h4>
+<p>To obtain and use a prebuilt container use the <code>pull</code> command to apptainer. The <code>pull</code> command can be used to obtain containers directly on CRC machines. The below example shows how to obtain a basic CentOS 7.8 container from dockerhub:</p>
+<pre class="highlight"><code class="language-shell">$ apptainer pull CentOS_7.8.sif docker://centos:centos7.8.2003</code></pre>
+<p>You can pull images from the Sylabs <code>Container Library</code>, <code>dockerhub</code>, or <code>apptainer-hub</code>. Examples for each are below:</p>
+<pre class="highlight"><code>$ apptainer pull alpine.sif library://alpine:latest
+$ apptainer pull CentOS_7.8.sif docker://centos:centos7.8.2003
+$ apptainer pull apptainer-images.sif shub://vsoch/apptainer-images</code></pre>
+<p>Once you pull an image once you do not have to pull it again as it will be stored wherever you tell apptainer to put it. If the container will be stored in AFS, review <code>apptainer_afs_note</code>.</p>
+<p>For more information see <a href="https://apptainer.org/docs/user/main/cli/apptainer_pull.html">Apptainer pull documentation</a>.</p>
+<p>Once you pull a pre-built container you can use it a base to build upon with your own custom definition file or simply use the container as is.</p>
+<hr />
+<h2 id="accessing-containers">Accessing Containers</h2>
+<p>Once you have a container there are multiple ways you may access/use it:</p>
+<ul>
+<li><a href="https://apptainer.org/docs/user/main/cli/apptainer_shell.html">apptainer shell</a> - used to access the container interactively, more like a mini virtual machine. This command is very useful as it will run a shell that would allow you to manipulate and navigate through the container. You may use this command as follows:</li>
+</ul>
+<pre class="highlight"><code class="language-shell">$ apptainer shell myContainer.img</code></pre>
+<ul>
+<li><a href="https://apptainer.org/docs/user/main/cli/apptainer_run.html">apptainer run</a> - used to execute the runscript of the container. This requires a runscript definition within the build file of the container. Using the command may be as follows:</li>
+</ul>
+<pre class="highlight"><code class="language-shell">$ apptainer run myContainer.img</code></pre>
+<ul>
+<li><a href="https://apptainer.org/docs/user/main/cli/apptainer_exec.html">apptainer exec</a> - used to execute a particular command within the container, and it can be used as follows:</li>
+</ul>
+<pre class="highlight"><code class="language-shell">$ apptainer exec myContainer.sif /usr/bin/myCommand</code></pre>
+<hr />
+<h2 id="using-apptainer-in-batch-jobs">Using Apptainer in Batch Jobs</h2>
+<p>The first thing you will need to do is to transfer the container/image to your /scratch365 space. To do so, you may execute the following command on the machine that has the container:</p>
+<pre class="highlight"><code class="language-shell">scp myContainer.img username@crcefe01.crc.nd.edu:/scratch365/username</code></pre>
+<p>If you're using <code>mobaxterm</code> you can transfer the image using the panel on the left.</p>
+<p>Once the container is in your space, the apptainer container can be used in our batch systems as follows:</p>
+<ol>
+<li>Create a job submission file.</li>
+<li>Add the below content to the submission file. Keep in mind to change the content accordingly for your own specific needs.</li>
+</ol>
+<pre class="highlight"><code class="language-shell">#!/bin/bash
+#$ -q debug
+#$ -M crcuser@nd.edu
+#$ -m abe
+#$ -N example-job
+
+apptainer exec path/to/container/myContainer.img runme</code></pre>
+<p>Where runme is the command being executed within the container. This assumes the container is executable. The script is now ready to be submitted with qsub. Be sure to change the netid, container path, and queue for your own needs.</p>
+<p>For further details on how to submit jobs, please visit <code>submitting_batch_jobs</code>.</p>
+<h3 id="apptainer-on-gpu-nodes">Apptainer on GPU Nodes</h3>
+<p>If you plan on using a container with a GPU, you'll need the extra flag <code>--nv</code> assuming the use of <code>run</code>, <code>shell</code>, or <code>exec</code>.</p>
+<p>The <code>--nv</code> flag will setup the basics with CUDA are setup properly for use within a container. For example, a job with a container to run on a GPU could look as:</p>
+<pre class="highlight"><code class="language-shell">#!/bin/bash
+#$ -q gpu
+#$ -l gpu=1
+#$ -M crcuser@nd.edu
+#$ -m abe
+#$ -N example-job
+
+export SINGULARITYENV_CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}
+
+apptainer exec --nv tensorflow_latest-gpu.sif my_scipt.py</code></pre>
+<h3 id="using-apptainer-within-afs">Using Apptainer within AFS</h3>
+<p>Apptainer doesn't play nicely with symlinks, within AFS there is a symlink that sometimes causes obscure transient errors with executing a apptainer container. There are a few hacks which may get around this. If you'd like to use a apptainer container within your AFS space, try adding the flags:</p>
+<pre class="highlight"><code>apptainer shell -B /afs --no-home my_img.simg
+singulairty exec -B /afs --no-home my_img.simg mycommand</code></pre>
+<p>The flags <code>-B /afs --no-home</code> trick singulairty into remounting AFS within the container. Note that your home space will still be mounted within the container as it lives within afs.</p>
+<p>The following error is a transient issue seen from time to time while using apptainer images within AFS:</p>
+<pre class="highlight"><code>failed to mount squashfs filesystem: input/output error</code></pre>
+<p>Should you begin to see this error, removing the apptainer cache can solve the issue.</p>
+<pre class="highlight"><code class="language-shell">rm -rf ~/.apptainer/cache</code></pre>
+<h3 id="using-modules-within-apptainer-containers">Using Modules within Apptainer containers</h3>
+<p>Sometimes your container needs to access a CRC module, if this is the case then you need to bind the path to where modules live in the file system to the proper place with in your container. For this to work, you <em>cannot</em> have <code>/opt/crc</code> used within your containers.</p>
+<blockquote>
+<p>[!NOTE]
+For the most part, to use modules within a container the container will need to match the <code>RHEL</code> version of the CRC nodes with a compatible <code>CentOS</code> container. You can find the RHEL version with <code>$ cat /etc/redhat-relase</code> For example:</p>
+<p>Bootstrap: docker From: centos:centos7.8.2003 .</p>
+</blockquote>
+<p>To gain access to modules, add <code>-B /opt/crc</code> flags when calling apptainer and <code>APPTAINERENV_PATH=${PATH} APPTAINERENV_LD_LIBRARY_PATH=${LD_LIBRARY_PATH}</code> <em>before</em> calling apptainer as below.</p>
+<pre class="highlight"><code class="language-shell">#!/bin/bash
+#$ -q debug
+#$ -M crcuser@nd.edu
+#$ -m abe
+#$ -N example-job
+
+module load julia gcc
+
+apptainer exec -B /afs /-B /opt/crc --no-home path/to/container/myContainer.img my_command</code></pre>
+<hr />
+<h2 id="important-notes">Important Notes</h2>
+<p>There are a few things that our users should keep in mind when using apptainer.</p>
+<ul>
+<li>"To be root <strong>inside</strong> the container, you must be root <strong>outside</strong> the container". In other words, all operations that need a super-user access must be done on a machine where you have <strong>root</strong> access (not the CRC machines).</li>
+<li>All of the apptainer container configuration must be done on a local machine, where the user has root access. Then, they should copy the container to their /scratch365 or AFS space. This is because users will not have root access on our front-end machines. Using prebuilt containers from <code>dockerhub</code>, the sylabs <code>container library</code>, or <code>apptainer-hub</code> will be fine to use, see <code>Using Pre-Built Containers &lt;using_prebuilt_containers&gt;</code>.</li>
+<li>It is helpful to double check the permissions of the folders and files on the container that the user intends to manipulate when moved into the cluster. Make sure that needed files and directories have the right permission sets to allow for reading, writing, and executing for all users. This is because once the container is moved to the cluster, the user will lose all super-user privileges.</li>
+<li>It is recommended that you move the containers to /scratch365 space, or copy containers first to /tmp of a front end before moving into AFS space. See <code>apptainer_afs_note</code> for more info if you'd like to run out of AFS.</li>
+</ul>
+<hr />
+<h3 id="helpful-resources">Helpful Resources</h3>
+<p>There is plenty that can be done with these containers and below are a few sources that can be helpful for any additional information:</p>
+<ul>
+<li><a href="https://apptainer.org/docs/user/main/index.html">https://apptainer.org/docs/user/main/index.html</a></li>
+<li><a href="https://hub.docker.com/">https://hub.docker.com/</a></li>
+<li><a href="https://singularityhub.github.io/">https://singularityhub.github.io/</a></li>
+<li><a href="https://singularityhub.github.io/singularity-catalog/">https://singularityhub.github.io/singularity-catalog/</a></li>
+</ul>
+<p>Very well put together tutorial for CSE Grad Student's tutorial meeting by Brian DuSell.</p>
+<ul>
+<li><a href="https://github.com/bdusell/singularity-tutorial">Apptainer/Singularity-tutorial</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ndcms/" class="btn btn-neutral float-left" title="NDCMS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../caml/" class="btn btn-neutral float-right" title="CAML">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/crcresearch/ndcmsT3" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../ndcms/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../caml/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://crcresearch.github.io/ndcmsT3/new_user/quick_start/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Quick Start Guide - CMS Tier 3 at University of Notre Dame</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Quick Start Guide";
+        var mkdocs_page_input_path = "new_user/quick_start.md";
+        var mkdocs_page_url = "/ndcmsT3/new_user/quick_start/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../images/crc_logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">HOME</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">NEW USER INFO</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../obtain_account/">Obtaining a CRC account</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Quick Start Guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#cluster-computing-format">Cluster Computing Format</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#front-end-systems">Front End Systems</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#proper-front-end-usage">Proper Front End Usage</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#logging-in">Logging in</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#utilizing-front-ends">Utilizing Front Ends</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#available-software">Available Software</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-systems">File Systems</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#afs">AFS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#panasas">Panasas</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-transfers">File Transfers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#job-scripts">Job Scripts</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#parallel-environments">Parallel Environments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#queues">Queues</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#host-groups">Host Groups</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#job-submission-and-monitoring">Job Submission and Monitoring</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#why-is-my-job-waiting-in-the-queue">Why is my job waiting in the Queue?</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parallel-jobs">Parallel Jobs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#job-deletion">Job Deletion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#job-resource-monitoring">Job Resource Monitoring</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#job-arrays">Job Arrays</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../connecting_to_crc/">Connecting to CRC Servers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../linux_guide/">Basic Linux Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../introductory_videos/">Introductory Videos</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../training/">Training Events</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">HELP</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/faq/">FAQ</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../help/help/">Getting Help</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CRC INFRASTRUCTURE</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/resources/">CRC Resources</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/software/">CRC Software</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/available_hardware/">Available Hardware</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/storage/">Storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/crc_uge_env/">UGE Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/faculty_infrastructure/">Faculty Cluster Partnership Program</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../crc_infra/landing/">Maintenance</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">RESOURCES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/gpu/">GPU</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/condor/">HTCondor</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/globus/">Globus</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/ndcms/">NDCMS</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/singularity/">Apptainer/Singularity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resources/caml/">CAML</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">POPULAR MODULES</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/matlab/">Matlab</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/python/">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/r/">R</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/tensorflow/">Tensorflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../modules/conda/">Conda</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CMS Tier 3 at University of Notre Dame</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">NEW USER INFO</li>
+      <li class="breadcrumb-item active">Quick Start Guide</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/crcresearch/ndcmsT3/edit/master/docs/new_user/quick_start.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="quick-start-guide">Quick Start Guide</h1>
+<p>Detailed below are common methodologies and good practices for access and using the CRC's resources.</p>
+<h2 id="cluster-computing-format">Cluster Computing Format</h2>
+<p>The organization of a super-computer or cluster is quite different from traditional desktop computing. Instead of all commands executing on the machine in front of you, everything is executed on a remote server, at times with no user interaction. A typical connection will look like:</p>
+<pre class="highlight"><code>Cluster
++---+---+---+---+---+---+
++----&gt;+-------+           |   |   |   |   |   |   |
+|     | Front |           |   |   |   |   |   |   |
+|     |  End  |           |   |   |   |   |   |   |
+|     +---+---+           |   |   |   |   |   |   |
+Internet       |         |               +---+---+-------+---+---+
+Connection     |         |                           ^
+|         |                           |
+|         +---------------------------+
+____|______
+\+--+------+
+\|Personal |
+\|Computer |
+\+---------+</code></pre>
+<p>To access the CRC infrastructure, you will connect to a Front end or Head node where you can prepare, submit, check on, and delete your batch jobs. Most jobs executed on CRC servers are batch jobs, which are non-interactive well-defined jobs which are queued and executed on a compute host when resources are available.</p>
+<hr />
+<h2 id="front-end-systems">Front End Systems</h2>
+<blockquote>
+<p>[!NOTE]
+For users connecting from off campus, please review the section <code>off-campus-connect</code> first.</p>
+</blockquote>
+<p>In order to submit and run jobs on CRC servers, the first step is to connect to a front end machine. This machine will facilitate connections to the job manager which will handle your job from submission to execution.</p>
+<p>The CRC provides the following front-end machines for compilation and job submission. Each machine is configured with <em>identical</em> software stacks.</p>
+<ul>
+<li>crcfe01.crc.nd.edu (2 12 core Intel(R) Haswell processors with 256 GB RAM)</li>
+<li>crcfe02.crc.nd.edu (2 12 core Intel(R) Haswell processors with 256 GB RAM)</li>
+</ul>
+<blockquote>
+<p>[!WARNING]
+Front-Ends are NOT for large long running (&gt;1hr) jobs. For such jobs please using the queuing system and compute nodes. Any long running on a public front end machine may be killed.</p>
+</blockquote>
+<p>To see how to connect to a front end from your favorite OS, see <code>connecting_to_crc</code>.</p>
+<hr />
+<h3 id="proper-front-end-usage">Proper Front End Usage</h3>
+<p>The front end machines are the interface to the the rest of the computing resources of the CRC. There are both faculty owned and public front ends, the majority of information found here will pertain to public front ends. The public front ends are shared by all of campus and external collaborators to perform a wide variety of tasks related to research.</p>
+<hr />
+<h4 id="logging-in">Logging in</h4>
+<p>There are 2 general access front ends available.</p>
+<pre class="highlight"><code class="language-shell">crcfe01.crc.nd.edu
+crcfe02.crc.nd.edu</code></pre>
+<p>The primary interface to these machines is through SSH. To connect to either of these machines, you'd start either a terminal (Mac and Linux) or an ssh client on Windows. For Windows we recommend <code>MobaXterm</code>. You'd then either follow the instructions on the ssh client or enter the following command in a terminal, replacing "X" with the desired machine (1 or 2) and replacing "netid" with your Notre Dame NetID:</p>
+<pre class="highlight"><code class="language-shell">ssh netid@crcfe0X.crc.nd.edu</code></pre>
+<p>If you are having troubles logging in and have a new account, be sure to read the welcome email which was sent on the activation of your CRC account:</p>
+<ul>
+<li>
+<p>First login to <a href="https://okta.nd.edu">okta.nd.edu</a>.</p>
+</li>
+<li>
+<p>If you continue to have trouble logging in:</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>Check all spelling</li>
+<li>Be sure your ssh client and OS are updated/patched.</li>
+</ul>
+</blockquote>
+<p>If all else fails, notify us via email at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a> and please provide the following details:</p>
+<ul>
+<li>ND netid</li>
+<li>Which machine you're trying to connect to</li>
+<li>Your computer's Operating System (Windows, Mac, Linux, etc)</li>
+<li>The ssh client you're using (Putty, MobaXterm, terminal, etc).</li>
+</ul>
+<blockquote>
+<p>[!NOTE]
+If you intend on using <code>HTCondor</code> for job submissions, the front end machine to connect to is <code>condorfe.crc.nd.edu</code> If you need to compile code with infiniband support, connect to <code>epycfe.crc.nd.edu</code>.</p>
+</blockquote>
+<hr />
+<h4 id="utilizing-front-ends">Utilizing Front Ends</h4>
+<p>Once connected to a front end, you may begin preparing jobs for submission to either UGE or HTCondor (on <code>condorfe.crc.nd.edu</code>). There are a few important notes about operating within the front end environment:</p>
+<ul>
+<li>There will be other users connected to this machine, any disruptive behaviour will be addressed.</li>
+<li>Any task / process running longer than 1 (ONE) hour may be removed / killed by an administrator. Submit long running jobs to the batch system.</li>
+<li>Do not launch large mpi or smp processes on a front end.</li>
+<li>More information on the queues and UGE can be found on the <code>crc_uge_env</code> page.</li>
+<li>When logged in, you will be within your user AFS space. Initially, there will be a few directories there. <strong>DO NOT</strong> remove your <code>Public</code> directory, this contains important login scripts.</li>
+<li>The default shell is <code>BASH</code>. If you have an older account, your login shell may be <code>tcsh</code>. If you'd like to request bash as your default, email <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</li>
+<li>Software which is not included in an install of RHEL, can be accessed through the <code>modules</code>.</li>
+<li>Small processing which is not disruptive/resource intensive can be done on the front ends. This is normally pre-processing or post-processing after completion of UGE jobs.</li>
+<li>All CRC systems are a Linux variant. For tip on Linux commands, see <code>Linux Coding Cheat Sheet &lt;doc/fwunixref.pdf&gt;</code></li>
+</ul>
+<hr />
+<p>For submitting jobs to UGE, please see <code>submitting_batch_jobs</code>. More sample scripts/submissions can normally be found on a module/software's page. Search for the module in question in the search bar on the top left of the page.</p>
+<h2 id="available-software">Available Software</h2>
+<p>The software environment on CRC servers is managed utilizing <code>modules</code>. A module is a an easy way to manage the necessary environmental paths and changes to utilize different pieces of software. You can easily modify your programming and/or application environment by simply loading and removing the required modules. The most common module commands are:</p>
+<pre class="highlight"><code>module avail
+
+module list
+
+module load module_name</code></pre>
+<p>More information on the CRC Modules can be found on the <code>modules</code> page.</p>
+<hr />
+<h2 id="file-systems">File Systems</h2>
+<p>The CRC provides two complimentary file systems for storing programs and data.</p>
+<h3 id="afs">AFS</h3>
+<ul>
+<li>Distributed file system</li>
+<li>Initial 100GB allocation</li>
+<li>Longer-term storage; backup taken daily</li>
+<li>User file system, your home directory lives here</li>
+<li>You can check your current AFS usage with the following command:</li>
+</ul>
+<pre class="highlight"><code class="language-shell">quota</code></pre>
+<h3 id="panasas">Panasas</h3>
+<ul>
+<li>High-performance parallel file system</li>
+<li>To obtain an allocation on /scratch365, send us a request at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</li>
+<li>Used for runtime working storage; no backup, purged yearly.</li>
+<li>You can check your current /scratch365 usage with the following command:</li>
+</ul>
+<pre class="highlight"><code class="language-shell">pan_df –H /scratch365/netid</code></pre>
+<p>Further info: <code>storage</code></p>
+<hr />
+<h2 id="file-transfers">File Transfers</h2>
+<p>To transfer files from your local desktop MacOS filesystem to your CRC filesystem space we recommend installing and using the following file transfer (GUI) client: <code>cyberduck</code></p>
+<p>For Windows users, we recommend using <code>mobaxterm</code> as both an SSH client and a file transfer client.</p>
+<p>If you would like to transfer data between the CRC servers and Google Drive, we recommend the <code>rclone</code> tool.</p>
+<hr />
+<h2 id="job-scripts">Job Scripts</h2>
+<p>A typical batch job is a simple script which contains the commands necessary to execute the job which needs to be accomplished whether this is an R, Matlab, or Python script or a compiled executable.</p>
+<p>Jobs are submitted to the compute nodes via the Univa Grid Engine (UGE) batch submission system. Basic UGE batch scripts should conform to the following template:</p>
+<pre class="highlight"><code>#!/bin/bash
+
+#$ -M netid@nd.edu   # Email address for job notification
+#$ -m abe        # Send mail when job begins, ends and aborts
+#$ -pe smp 24    # Specify parallel environment and legal core size
+#$ -q long       # Specify queue
+#$ -N job_name   # Specify job name
+
+module load xyz  # Required modules
+
+mpirun -np $NSLOTS ./app # Application to execute</code></pre>
+<p>Further info: <code>submitting_batch_jobs</code></p>
+<hr />
+<h3 id="parallel-environments">Parallel Environments</h3>
+<p>To use more than one core in a job, you must specify a parallel environment. A parallel environment is a way to specify whether to use multiple cores on one machine or to use multiple nodes (more than 1 server). The two parallel environments are below.</p>
+<p>[TABLE]</p>
+<blockquote>
+<p>[!NOTE]
+* If no parallel environment is requested (i.e. you do not specify a -<strong>pe</strong> parameter), then the default execution environment is a single-core serial job. * <strong>Every machine has one thread per core!</strong></p>
+</blockquote>
+<p>Further info: <code>crc_uge_env</code></p>
+<hr />
+<h3 id="queues">Queues</h3>
+<p>CRC provides two general-purpose queues for the submission of jobs (using the <strong>-q</strong> parameter):</p>
+<p>Below you'll find a summarization of the available queues.</p>
+<p>[TABLE]</p>
+<blockquote>
+<p>[!NOTE]
+In the above table, the long queue and gpu queue can include any faculty / lab owned machines you have access to. The runtime limit and example machines will most likely be different from the table above. Speak to your lab-mates, PI, or email us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a> if you'd like to know specifics of those machines.</p>
+</blockquote>
+<p>If you wish to target a specific architecture for your jobs, then you can specify a <code>host group</code> instead of a general-purpose queue.</p>
+<hr />
+<h3 id="host-groups">Host Groups</h3>
+<p>If you wish to target machines in a finer granularity than queues, there are host groups. For example, the general access machines are the "@crc_d32cepyc" host group. If your research lab or faculty advisor has purchased a machine(s), there is most likely a host group you can target.</p>
+<p>Monitoring the status and availability of resources at a glance can be done with the <strong>free_nodes.sh</strong> script.</p>
+<pre class="highlight"><code class="language-shell">free_nodes.sh -G              # For general access
+free_nodes.sh -D              # For Debug nodes
+free_nodes.sh @crc_d32cepyc    # You can target host groups</code></pre>
+<p>For further resource monitoring, consult the help information: <code>free_nodes.sh --help</code></p>
+<hr />
+<h2 id="job-submission-and-monitoring">Job Submission and Monitoring</h2>
+<p>Job scripts can be submitted to the SGE batch submission system using the <code>qsub</code> command:</p>
+<pre class="highlight"><code class="language-shell">qsub job.script</code></pre>
+<p>Once your job script is submitted, you will receive a numerical <code>job id</code> from the batch submission system, which you can use to monitor the progress of the job.</p>
+<p>Job scripts that are determined by UGE to have made valid resource requests will enter the queuing system with a queue-waiting <code>qw</code> status (once the requested resources become available, the job will enter the running <code>(r)</code> status). Job scripts that are determined not to be valid will enter the queuing system with an error queue-waiting <code>(Eqw)</code> status.</p>
+<p>To see the status of your job submissions, use the <code>qstat</code> command with your username (netid) and observe the status column:</p>
+<pre class="highlight"><code class="language-shell">qstat –u username</code></pre>
+<p>For a complete overview of your job submission, invoke the qstat command with the job id:</p>
+<pre class="highlight"><code class="language-shell">qstat –j job_id</code></pre>
+<p>To see all pending and running jobs, simply type <code>qstat</code> without any options</p>
+<pre class="highlight"><code class="language-shell">qstat</code></pre>
+<p>The main reasons for invalid job scripts (i.e. having Eqw status) typically are:</p>
+<ul>
+<li>Illegal specification of parallel environments and/or core size requests</li>
+<li>Illegal queue specification</li>
+<li>Copying job scripts from a Windows OS environment to the Linux OS environment on the front-end machines (invisible Windows control code-blocks are not parsed correctly by UGE). This can be fixed by running the script through the <code>dos2unix</code> command</li>
+</ul>
+<h3 id="why-is-my-job-waiting-in-the-queue">Why is my job waiting in the Queue?</h3>
+<p>The first reason a job could be waiting in a queue is simply because there are no resources available yet for your job to begin running. Note that for the most part (especially if you are using the general access machines), you are sharing resources with every other CRC user.</p>
+<p>The first item to check if if there are available resources at the moment for your job, you can use the <code>free_nodes.sh</code> script to check, for example:</p>
+<pre class="highlight"><code>free_nodes.sh -G</code></pre>
+<p>Note that even if there resource shown as available, the scheduler could be freeing up space for a larger job with higher priority than yours. There is also a maximum number of concurrent jobs to avoid overloading the systems with one person's jobs, this number fluctuates during the year depending on system utilization.</p>
+<ul>
+<li>If you need to push a large amount of jobs consisting of less than 4 cores each, perhaps <code>condor</code> is a good fit for you.</li>
+</ul>
+<h4 id="parallel-jobs">Parallel Jobs</h4>
+<p>If you requested a parallel environment with your job, be sure that requested environment adheres to the target resources.</p>
+<p>For example, be sure the machines you're targeting through <code>smp</code> can support the number of cores requested, a request of <code>smp 75</code> will never be served on the general access or <code>@crc_d32cepyc</code> host group.</p>
+<p>If you're requesting an <code>mpi-X Y</code> environment, be sure the <code>Y</code> value is a multiple of <code>X</code>, and be sure <code>X</code> is a valid number for the targeted machines. For example, <code>mpi-64 128</code> is the correct requested environment of 2 machines out of the general access queue.</p>
+<hr />
+<h3 id="job-deletion">Job Deletion</h3>
+<p>To delete a running or queued (e.g. submissions with <code>Eqw</code> status) job, use the following command:</p>
+<pre class="highlight"><code class="language-shell">qdel –j job_id</code></pre>
+<hr />
+<h3 id="job-resource-monitoring">Job Resource Monitoring</h3>
+<p>To better understand the resource usage (e.g. memory, CPU and I/O utilization) of your running jobs, you can monitor the runtime behavior of your job’s tasks as they execute on the compute nodes.</p>
+<p>To determine the nodes on which your tasks are running, enter the following <code>qstat</code> command along with your username. Record the machine names (e.g. d12chas400.crc.nd.edu) associated with each task (both MASTER and SLAVE):</p>
+<pre class="highlight"><code class="language-shell">qstat -u username -g t</code></pre>
+<p>There are two methods for analyzing the behavior of tasks (once you have a machine name):</p>
+<ul>
+<li>Xymon GUI Tool (detailed breakdown per task on a given machine)</li>
+</ul>
+<blockquote>
+<p>Xymon is a GUI tool to analyze the behavior of processes on a given CRC machine. It can be accessed on <a href="https://mon.crc.nd.edu">CRC Xymon</a>. Note that you will need to be on the ND network to see this site.</p>
+<p>Use Xymon to navigate to the specific machine and then view the runtime resource usage of tasks on the machine.</p>
+</blockquote>
+<ul>
+<li><code>qhost</code> command (aggregate summary across all tasks on a given machine)</li>
+</ul>
+<blockquote>
+<p>You can summarize the resource utilization of all tasks on a given machine using the following qhost command:</p>
+</blockquote>
+<pre class="highlight"><code class="language-shell">qhost -h machine_name</code></pre>
+<hr />
+<h3 id="job-arrays">Job Arrays</h3>
+<blockquote>
+<p>[!NOTE]
+If you find that you need to frequently submit 50 or more different jobs, we request that you implement those tasks within a job array. Grid engine is able to handle arrays much more efficiently than tens or hundreds of individual scripts from a single user. Fewer individual tasks reduces load on the job scheduler and improves overall performance.</p>
+</blockquote>
+<p>If you have a large number of job scripts to run that are largely identical in terms of executable and processing tasks, (e.g. a parameter sweep where only the input changes per run) then you may want to use a <code>job array</code> to submit your job. You specify how many copies of the script that you need to run with the <code>-t</code> parameter. For example, specifying:</p>
+<pre class="highlight"><code>#$ -t 1-3</code></pre>
+<p>will run 3 identical job scripts. Job arrays use an internal environment variable, <code>$SGE_TASK_ID</code>, to dinstinguish between the different jobs and this can also be used as input to your job.:</p>
+<pre class="highlight"><code>#!/bin/bash
+
+#$ -pe smp 1           # Specify parallel environment and legal core size
+#$ -q long             # Specify queue 
+#$ -N job_name         # Specify job name
+#$ -t 1-3              # Specify number of tasks in array
+
+module load python
+
+# Note that different tasks will use different input files.
+python analyze.py &lt; data.$SGE_TASK_ID</code></pre>
+<p>If your tasks do not map directly to consecutive integer numbers, you may use a shell array within the script to do the mapping for you. In this example, we specify three different input strings that are then passed as an argument to the Python script:</p>
+<pre class="highlight"><code>#!/bin/bash
+
+#$ -pe smp 1           # Specify parallel environment and legal core size
+#$ -q long             # Specify queue 
+#$ -N job_name         # Specify job name
+#$ -t 1-3              # Specify number of tasks in array
+
+module load python
+
+fruits=( "orange" "apple" "pair" )
+
+# Note that different tasks will use different input parameters.
+python pie_recipe.py ${fruits[$SGE_TASK_ID-1]}</code></pre>
+<blockquote>
+<p>[!WARNING]
+To avoid extraneous emails, please do not use email notification options (-M and -m) when submitting an array job.</p>
+</blockquote>
+<p>More detailed information about job arrays is available from the manual page:</p>
+<pre class="highlight"><code>man qsub</code></pre>
+<p>or from this website: <a href="https://gridscheduler.sourceforge.net/htmlman/htmlman1/qsub.html">qsub manual</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../obtain_account/" class="btn btn-neutral float-left" title="Obtaining a CRC account"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../connecting_to_crc/" class="btn btn-neutral float-right" title="Connecting to CRC Servers">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/crcresearch/ndcmsT3" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../obtain_account/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../connecting_to_crc/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
