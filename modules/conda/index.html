@@ -158,13 +158,11 @@
                 <h1 id="conda">Conda</h1>
 <p><img alt="image" src="../../images/conda.png" /></p>
 <h2 id="general-description">General Description</h2>
-<p>Conda is a popular package management system used in machine learning and artificial intelligence research. It is built as a part of Anaconda distribution and provides a useful alternative for the pip package manager. Conda allows users to create many different environments containing different packages without there being any overlap or crossover that may occur when using pip. Each environment may be customized to a specific program’s needs and therefore allows for easy package management and access.</p>
-<blockquote>
+<p>Conda is a popular package management system used in machine learning and artificial intelligence research. It is built as a part of Anaconda distribution and provides a useful alternative for the pip package manager. Conda allows users to create many different environments containing different packages without there being any overlap or crossover that may occur when using pip. Each environment may be customized to a specific program's needs and therefore allows for easy package management and access.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-</div>
 <p>In order to use <code>conda</code>, you must be using <code>bash</code> as your shell. If you have an account created after May of 2018, your default shell is bash. To check your shell, type: <code>echo $0</code>. If your shell is tcsh and you'd like it to be bash, email us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
-</blockquote>
+</div>
 <hr />
 <h2 id="initial-setup">Initial setup</h2>
 <p>If you have never used Conda on the CRC before or want to start from scratch after removing any existing Conda files, you will likely need to first load the Conda module. After the initial configuration is setup, you will no longer need this step.</p>
@@ -206,10 +204,10 @@ module unload conda</code></pre>
 <pre class="highlight"><code class="language-shell">conda search PKGNAME--info </code></pre>
 <p>Once you have found the name of the package you want to install you may install use the following code to install it into an environment.</p>
 <pre class="highlight"><code class="language-shell">conda install -n ENVNAME PKGNAME </code></pre>
-<blockquote>
-<p>[!NOTE]
-If you omit the “-n ENVNAME” portion of code the package will be installed in your current environment. All installs must be executed in a specific conda environment, not the base environment. This means that (ENVNAME) must appear to the left of your [username]. This ensures that no base packages are uninstalled, for example pip or python.''</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you omit the "-n ENVNAME" portion of code the package will be installed in your current environment. All installs must be executed in a specific conda environment, not the base environment. This means that (ENVNAME) must appear to the left of your [username]. This ensures that no base packages are uninstalled, for example pip or python.</p>
+</div>
 <p>When you need to update one of your packages you may use the following update command.</p>
 <pre class="highlight"><code class="language-shell">conda update PKGNAME </code></pre>
 <p>If you need to update all of your packages in your currently loaded environment simply use the following</p>
@@ -230,7 +228,7 @@ If you omit the “-n ENVNAME” portion of code the package will be installed i
 <p>For example, the bioconda channel is a Conda channel that provides bioinformatic packages. If we wanted to switch to the bioconda channel and install a bioconda specific package we would do so using the following</p>
 <pre class="highlight"><code class="language-shell">conda config --add channels bioconda
 conda config --set channel_priority strict </code></pre>
-<p>When adding this channel using the “add” command we are telling Conda to add the channel at the top, or highest priority of the channels accessible to our manager. The order of channels in your Conda matters due to the potential of channel collisions. To circumvent this issue and ensure that we do not encounter any channel collisions from duplicate packages we use the second line of code above. This ensures that all of the dependencies come from the bioconda channel as opposed to the default channel.</p>
+<p>When adding this channel using the "add" command we are telling Conda to add the channel at the top, or highest priority of the channels accessible to our manager. The order of channels in your Conda matters due to the potential of channel collisions. To circumvent this issue and ensure that we do not encounter any channel collisions from duplicate packages we use the second line of code above. This ensures that all of the dependencies come from the bioconda channel as opposed to the default channel.</p>
 <p>If we wanted to set the priority back to our default channel we would have to edit the ~/.condarc file so that defaults is the first channel shown. The ~/.condarc file is only created upon creation of a new channel.</p>
 <pre class="highlight"><code class="language-shell">channels:
 defaults
@@ -246,12 +244,12 @@ conda update --all</code></pre>
 <pre class="highlight"><code class="language-shell">conda install bioconda::PKGNAME </code></pre>
 <hr />
 <h2 id="job-submission-using-conda-environments">Job Submission Using Conda Environments</h2>
-<p>Since your environments are saved in a unique file path on your node all of the packages will already be installed in the referenced environment, allowing you to customize your environment before submitting your job. Once the job is submitted it will be referencing the packages in your environment, meaning that you don’t need to redo any of your previous installations.</p>
+<p>Since your environments are saved in a unique file path on your node all of the packages will already be installed in the referenced environment, allowing you to customize your environment before submitting your job. Once the job is submitted it will be referencing the packages in your environment, meaning that you don't need to redo any of your previous installations.</p>
 <p>To load your environment use the following code, keeping in mind that the first three lines are example job submission code. Everything after those initial three lines will be as if you are running the same code in your node.</p>
-<blockquote>
-<p>[!NOTE]
-Unlike many software packages at the CRC, you generally should never load the conda module in your job scripts or configuration files after the initial configuration is complete.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike many software packages at the CRC, you generally should never load the conda module in your job scripts or configuration files after the initial configuration is complete.</p>
+</div>
 <pre class="highlight"><code class="language-shell">#!/bin/bash
 #$ -q long
 #$ -pe smp 1

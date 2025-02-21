@@ -207,11 +207,11 @@ Loading / Unloading commands:
 <li>general_software</li>
 <li>development_tools_and_libraries.</li>
 </ul>
-<blockquote>
-<p>[!IMPORTANT]
-Modules within the restricted_software category cannot be used without first receiving permission to access those pieces of software.</p>
-<p>The deprecated category contains modules which are out of date or no longer being supported after the next biannual outage. The date of the next biannual outage can be found on the <a href="../index.html">main page</a> . These modules can still be used, however it is recommended to move your application to a newer version of the deprecated module.</p>
-</blockquote>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Modules within the restricted_software category cannot be used without first receiving permission to access those pieces of software.</p>
+<p>The deprecated category contains modules which are out of date or no longer being supported after the next biannual outage. The date of the next biannual outage can be found on the <a href="../../">main page</a> . These modules can still be used, however it is recommended to move your application to a newer version of the deprecated module.</p>
+</div>
 <hr />
 <h2 id="using-modules">Using Modules</h2>
 <p>After using "module avail", there will be a list of programs from which you can use. Let's say we need to use matlab, the "load" option to the module command can be used to bring matlab into our environment. Simply type:</p>
@@ -235,10 +235,10 @@ Modules within the restricted_software category cannot be used without first rec
 <hr />
 <h2 id="user-created-modules">User Created Modules</h2>
 <p>There are some cases where a module is desired for software which is installed into local user space. Local modules can coexist with CRC modules and being user space installed software, these modules will not become deprecated and removed over time by CRC administrators. Creating a local or private module can be straightforward once a piece of software is installed into user space.</p>
-<blockquote>
-<p>[!NOTE]
-For the rest of these instructions, it is assumed the software a module is intended for is already installed.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the rest of these instructions, it is assumed the software a module is intended for is already installed.</p>
+</div>
 <p>For more information on the module command itself, see <code>Module Command</code>.</p>
 <hr />
 <h3 id="creating-a-private-module">Creating a Private Module</h3>

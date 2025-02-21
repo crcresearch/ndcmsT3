@@ -271,10 +271,10 @@
 <p>You may need to login to see the form. All questions regarding the <em>Affiliate</em> are for your collaborator's information. You may ignore or select <em>No</em> on questions regarding Departmental Access.</p>
 <p>If the form is not visible, it can be searched for in the search bar. This will bring you to the form where you may enter in the information. Note that you will need the individual's date of birth and their NDID#. The latter may be obtained by calling Human Resources. If the applicant has never had a Notre Dame account, you may place zeros in the form.</p>
 <h3 id="how-can-i-maintain-my-crc-account-after-graduatingleaving-notre-dame">How Can I Maintain My CRC Account After Graduating/Leaving Notre Dame?</h3>
-<blockquote>
-<p>[!NOTE]
-The university disables staff accounts on the final day of employment, while graduating student accounts are disabled at the conclusion of the current semester.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The university disables staff accounts on the final day of employment, while graduating student accounts are disabled at the conclusion of the current semester.</p>
+</div>
 <p>If you have research related to work here at Notre Dame and are able to justify continued access, you may request a faculty member sponsor your account as an external affiliate. These accounts are valid for up to one year, but may be renewed annualy. This process can be initiated by having your sponsor complete an <code>external account request &lt;Request External Account&gt;</code>. To avoid losing your CRC account and all associated data, please complete this process prior to your account being disabled.</p>
 <h3 id="i-am-getting-a-module-command-not-found-message-when-i-log-in-to-my-crc-account">I am Getting A "Module: Command Not Found" Message When I Log In To My CRC Account</h3>
 <p>This message generally indicates that you have deleted/corrupted your shell configuration scripts which prevent the Module environment from initializing correctly. To repair your scripts please see the <code>login_scripts</code> page for instructions.</p>
@@ -325,10 +325,10 @@ The university disables staff accounts on the final day of employment, while gra
 <p>Many software packages can be installed in your local home directory and we're happy to assist with this process. Please email <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#114;&#99;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#99;&#114;&#99;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a> with your request and include any information you have about obtaining the installation package for the software you are interested in.</p>
 <h3 id="how-do-i-request-a-software-module-to-be-installedupdated">How Do I Request A Software Module To Be Installed/Updated?</h3>
 <p>Software that is installed globally through our <code>modules</code> tool must undergo license review by the Notre Dame legal department. For this reason, all requests to add a new module must come from Notre Dame faculty. Please submit a <a href="https://docs.google.com/a/nd.edu/forms/d/e/1FAIpQLSdzy-F9X6wykK1KhRdsT-8QtlcPvs8nwPLid6fnGXD-QAjQCg/viewform">Software Request Form</a> and review the attached CRC Software Policy. The software policy also contains information on licensing and cost sharing with CRC.</p>
-<blockquote>
-<p>[!NOTE]
-This process can take up to 7 business days from receipt of the software request. If you require an expedited service, please make that apparent on your request form.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This process can take up to 7 business days from receipt of the software request. If you require an expedited service, please make that apparent on your request form.</p>
+</div>
 <h3 id="notes-on-sudoroot-access">Notes on sudo/root access</h3>
 <p>Many websites will give instructions for installing software that uses a command called <code>sudo</code>. This command gives the user full adminstrator privileges and along with it the ability to make system wide changes, including altering other user's files. On a personal computer this is rarely a problem, but our systems are shared among more than 2000 students and staff. Attempting to run the <code>sudo</code> command will result in a message be sent to CRC staff so that we might help you find an alternate solution.</p>
 <hr />
@@ -394,9 +394,9 @@ find: WARNING: Hard link count is wrong for .: this may be a bug in your file sy
 <p>By default, UGE applies strict validation of resource requests within your submission script including checks for legal queue names and core counts that match valid parallel environments (pe). These checks are very useful in preventing erroneous jobs entering the batch system and immediately falling into (Eqw) error states.</p>
 <p>If an invalid resource request is identified by this validation procedure, your submission script will be rejected immediately with the "Unable to run job:" error message.</p>
 <p>For example the mpi-8 machines (machines with 8 cores) are either faculty owned (restricted) or on a restricted access list for codes which require an Infiniband interconnect. Standard user scripts will fail when specifying mpi-8. In the case the user should use mpi-12 as the majority of systems available for general access are 12 core machines.</p>
-<blockquote>
-<p>[!NOTE]
-Scripts that contain the '''mem_free=''' resource request i.e.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Scripts that contain the '''mem_free=''' resource request i.e.</p>
 <blockquote>
 <p>#\$ -l mem_free=X</p>
 </blockquote>
@@ -404,7 +404,7 @@ Scripts that contain the '''mem_free=''' resource request i.e.</p>
 <blockquote>
 <p>#\$ -w n</p>
 </blockquote>
-</blockquote>
+</div>
 <h3 id="how-can-i-monitor-the-behavior-of-my-running-jobs">How Can I Monitor The Behavior Of My Running Jobs?</h3>
 <p>The behavior of running jobs can monitored using the \&lt;font color=red&gt;Xymon\&lt;/font&gt; online tool. After using <code>qstat</code> to identify the server(s) on which your jobs are running, use the Xymon link below to locate the specific server name. Associated with each server is a series of sub-links that you can use to monitor CPU status, memory usage, communication statistics etc.</p>
 <p><a href="https://mon.crc.nd.edu/xymon">CRC Xymon</a></p>

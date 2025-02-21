@@ -180,10 +180,10 @@
 * mpi-32 (multi [32 core per] machine processing in 32 core increments)
 
 * mpi-64 (multi [64 core per] machine processing in 64 core increments)</code></pre>
-<blockquote>
-<p>[!NOTE]
-Increments (24,48,64) are mapped to total cores per server. A server with 24 cores will not accept mpi-32 requests.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Increments (24,48,64) are mapped to total cores per server. A server with 24 cores will not accept mpi-32 requests.</p>
+</div>
 <p>PEs are specified in your submit script with the syntax:</p>
 <pre class="highlight"><code>#$ -pe mpi-64 128
 

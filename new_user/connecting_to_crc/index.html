@@ -160,10 +160,10 @@
                 <h1 id="connecting-to-crc-servers">Connecting to CRC Servers</h1>
 <p>All activity performed on the CRC infrastructure occurs on remote servers, this requires an <code>ssh</code> (Secure Shell) connection to a head node at the very least. Below are instructions for creating an <code>ssh</code> session to a head node specific to each popular OS.</p>
 <p>For more information on the Public head nodes see the <code>front_end_workflow</code> page.</p>
-<blockquote>
-<p>[!NOTE]
-For users connecting from off campus, please review the section <code>off-campus-connect</code> first.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For users connecting from off campus, please review the section <code>off-campus-connect</code> first.</p>
+</div>
 <hr />
 <h2 id="connecting-from-linux">Connecting from Linux</h2>
 <p>Most distributions of Linux are shipped with a terminal available. Most likely, <code>ssh</code> will already be installed. Open a terminal, the process for doing so can very from distro to distro. Popular key-bindings are "CTRL + Alt + T", or "Alt + F2". From here you can simply use the <code>ssh</code> command to connect:</p>
@@ -181,10 +181,10 @@ For users connecting from off campus, please review the section <code>off-campus
 <p>If you plan on using a GUI (Graphical User Interface), you will need to first download a program called <code>XQuartz</code>. Go to the <a href="https://www.xquartz.org/">XQuartz download page</a>. It will install like most other macOS applications.</p>
 <p>Once <code>XQuartz</code> is installed, you can use the <code>-Y</code> flag to <code>ssh</code> within a terminal to connect to a head node.</p>
 <pre class="highlight"><code class="language-shell">ssh -Y netid@crcfe01.crc.nd.edu</code></pre>
-<blockquote>
-<p>[!NOTE]
-Development of <code>XQuartz</code> has lagged quite behind macOS. A number of issues with it has been reported to us. It may be easier to use <code>fastx</code> for Mac users.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Development of <code>XQuartz</code> has lagged quite behind macOS. A number of issues with it has been reported to us. It may be easier to use <code>fastx</code> for Mac users.</p>
+</div>
 <hr />
 <h2 id="connecting-from-windows">Connecting from Windows</h2>
 <p>For all versions of Windows, we recommend using MobaXterm. Detailed instructions on how to connect from Windows see the <code>mobaxterm</code> page.</p>

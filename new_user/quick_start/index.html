@@ -215,20 +215,20 @@ ____|______
 <p>To access the CRC infrastructure, you will connect to a Front end or Head node where you can prepare, submit, check on, and delete your batch jobs. Most jobs executed on CRC servers are batch jobs, which are non-interactive well-defined jobs which are queued and executed on a compute host when resources are available.</p>
 <hr />
 <h2 id="front-end-systems">Front End Systems</h2>
-<blockquote>
-<p>[!NOTE]
-For users connecting from off campus, please review the section <code>off-campus-connect</code> first.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For users connecting from off campus, please review the section <code>off-campus-connect</code> first.</p>
+</div>
 <p>In order to submit and run jobs on CRC servers, the first step is to connect to a front end machine. This machine will facilitate connections to the job manager which will handle your job from submission to execution.</p>
 <p>The CRC provides the following front-end machines for compilation and job submission. Each machine is configured with <em>identical</em> software stacks.</p>
 <ul>
 <li>crcfe01.crc.nd.edu (2 12 core Intel(R) Haswell processors with 256 GB RAM)</li>
 <li>crcfe02.crc.nd.edu (2 12 core Intel(R) Haswell processors with 256 GB RAM)</li>
 </ul>
-<blockquote>
-<p>[!WARNING]
-Front-Ends are NOT for large long running (&gt;1hr) jobs. For such jobs please using the queuing system and compute nodes. Any long running on a public front end machine may be killed.</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Front-Ends are NOT for large long running (&gt;1hr) jobs. For such jobs please using the queuing system and compute nodes. Any long running on a public front end machine may be killed.</p>
+</div>
 <p>To see how to connect to a front end from your favorite OS, see <code>connecting_to_crc</code>.</p>
 <hr />
 <h3 id="proper-front-end-usage">Proper Front End Usage</h3>
@@ -262,10 +262,10 @@ crcfe02.crc.nd.edu</code></pre>
 <li>Your computer's Operating System (Windows, Mac, Linux, etc)</li>
 <li>The ssh client you're using (Putty, MobaXterm, terminal, etc).</li>
 </ul>
-<blockquote>
-<p>[!NOTE]
-If you intend on using <code>HTCondor</code> for job submissions, the front end machine to connect to is <code>condorfe.crc.nd.edu</code> If you need to compile code with infiniband support, connect to <code>epycfe.crc.nd.edu</code>.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you intend on using <code>HTCondor</code> for job submissions, the front end machine to connect to is <code>condorfe.crc.nd.edu</code> If you need to compile code with infiniband support, connect to <code>epycfe.crc.nd.edu</code>.</p>
+</div>
 <hr />
 <h4 id="utilizing-front-ends">Utilizing Front Ends</h4>
 <p>Once connected to a front end, you may begin preparing jobs for submission to either UGE or HTCondor (on <code>condorfe.crc.nd.edu</code>). There are a few important notes about operating within the front end environment:</p>
@@ -336,20 +336,22 @@ mpirun -np $NSLOTS ./app # Application to execute</code></pre>
 <h3 id="parallel-environments">Parallel Environments</h3>
 <p>To use more than one core in a job, you must specify a parallel environment. A parallel environment is a way to specify whether to use multiple cores on one machine or to use multiple nodes (more than 1 server). The two parallel environments are below.</p>
 <p>[TABLE]</p>
-<blockquote>
-<p>[!NOTE]
-* If no parallel environment is requested (i.e. you do not specify a -<strong>pe</strong> parameter), then the default execution environment is a single-core serial job. * <strong>Every machine has one thread per core!</strong></p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>If no parallel environment is requested (i.e. you do not specify a -<strong>pe</strong> parameter), then the default execution environment is a single-core serial job. * <strong>Every machine has one thread per core!</strong></li>
+</ul>
+</div>
 <p>Further info: <code>crc_uge_env</code></p>
 <hr />
 <h3 id="queues">Queues</h3>
 <p>CRC provides two general-purpose queues for the submission of jobs (using the <strong>-q</strong> parameter):</p>
 <p>Below you'll find a summarization of the available queues.</p>
 <p>[TABLE]</p>
-<blockquote>
-<p>[!NOTE]
-In the above table, the long queue and gpu queue can include any faculty / lab owned machines you have access to. The runtime limit and example machines will most likely be different from the table above. Speak to your lab-mates, PI, or email us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a> if you'd like to know specifics of those machines.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the above table, the long queue and gpu queue can include any faculty / lab owned machines you have access to. The runtime limit and example machines will most likely be different from the table above. Speak to your lab-mates, PI, or email us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#67;&#82;&#67;&#83;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a> if you'd like to know specifics of those machines.</p>
+</div>
 <p>If you wish to target a specific architecture for your jobs, then you can specify a <code>host group</code> instead of a general-purpose queue.</p>
 <hr />
 <h3 id="host-groups">Host Groups</h3>
@@ -395,7 +397,7 @@ free_nodes.sh @crc_d32cepyc    # You can target host groups</code></pre>
 <pre class="highlight"><code class="language-shell">qdel –j job_id</code></pre>
 <hr />
 <h3 id="job-resource-monitoring">Job Resource Monitoring</h3>
-<p>To better understand the resource usage (e.g. memory, CPU and I/O utilization) of your running jobs, you can monitor the runtime behavior of your job’s tasks as they execute on the compute nodes.</p>
+<p>To better understand the resource usage (e.g. memory, CPU and I/O utilization) of your running jobs, you can monitor the runtime behavior of your job's tasks as they execute on the compute nodes.</p>
 <p>To determine the nodes on which your tasks are running, enter the following <code>qstat</code> command along with your username. Record the machine names (e.g. d12chas400.crc.nd.edu) associated with each task (both MASTER and SLAVE):</p>
 <pre class="highlight"><code class="language-shell">qstat -u username -g t</code></pre>
 <p>There are two methods for analyzing the behavior of tasks (once you have a machine name):</p>
@@ -415,10 +417,10 @@ free_nodes.sh @crc_d32cepyc    # You can target host groups</code></pre>
 <pre class="highlight"><code class="language-shell">qhost -h machine_name</code></pre>
 <hr />
 <h3 id="job-arrays">Job Arrays</h3>
-<blockquote>
-<p>[!NOTE]
-If you find that you need to frequently submit 50 or more different jobs, we request that you implement those tasks within a job array. Grid engine is able to handle arrays much more efficiently than tens or hundreds of individual scripts from a single user. Fewer individual tasks reduces load on the job scheduler and improves overall performance.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you find that you need to frequently submit 50 or more different jobs, we request that you implement those tasks within a job array. Grid engine is able to handle arrays much more efficiently than tens or hundreds of individual scripts from a single user. Fewer individual tasks reduces load on the job scheduler and improves overall performance.</p>
+</div>
 <p>If you have a large number of job scripts to run that are largely identical in terms of executable and processing tasks, (e.g. a parameter sweep where only the input changes per run) then you may want to use a <code>job array</code> to submit your job. You specify how many copies of the script that you need to run with the <code>-t</code> parameter. For example, specifying:</p>
 <pre class="highlight"><code>#$ -t 1-3</code></pre>
 <p>will run 3 identical job scripts. Job arrays use an internal environment variable, <code>$SGE_TASK_ID</code>, to dinstinguish between the different jobs and this can also be used as input to your job.:</p>
@@ -447,10 +449,10 @@ fruits=( "orange" "apple" "pair" )
 
 # Note that different tasks will use different input parameters.
 python pie_recipe.py ${fruits[$SGE_TASK_ID-1]}</code></pre>
-<blockquote>
-<p>[!WARNING]
-To avoid extraneous emails, please do not use email notification options (-M and -m) when submitting an array job.</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To avoid extraneous emails, please do not use email notification options (-M and -m) when submitting an array job.</p>
+</div>
 <p>More detailed information about job arrays is available from the manual page:</p>
 <pre class="highlight"><code>man qsub</code></pre>
 <p>or from this website: <a href="https://gridscheduler.sourceforge.net/htmlman/htmlman1/qsub.html">qsub manual</a></p>

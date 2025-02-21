@@ -160,12 +160,12 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="python">Python</h1>
-<p><img alt="image" src="images/python-logo-master-v3-TM.png" /></p>
+<p><img alt="image" src="../../images/python-logo-master-v3-TM.png" /></p>
 <p>Python is an interpreted, interactive, object-oriented programming language. It incorporates modules, exceptions, dynamic typing, very high level dynamic data types, and classes. Python combines remarkable power with very clear syntax. It has interfaces to many system calls and libraries, as well as to various window systems, and is extensible in C or C++. It is also usable as an extension language for applications that need a programmable interface. Finally, Python is portable: it runs on many Unix variants, on the Mac, and on PCs under MS-DOS, Windows, Windows NT, and OS/2.</p>
-<blockquote>
-<p>[!WARNING]
-Starting in May, 2019, the CRC Python module defaults to <code>Python 3</code>. If you are using code based on <code>Python 2</code>, we highly recommend moving to the 3.X branch of Python. Python 2 stopped being maintained in January of 2020 and have been completely removed from RHEL8.</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Starting in May, 2019, the CRC Python module defaults to <code>Python 3</code>. If you are using code based on <code>Python 2</code>, we highly recommend moving to the 3.X branch of Python. Python 2 stopped being maintained in January of 2020 and have been completely removed from RHEL8.</p>
+</div>
 <hr />
 <h2 id="basic-usage">Basic Usage</h2>
 <p>A default version of Python is available on any of our machines that run Redhat Enterprise Linux. The default version is considered to be extremely stable, but does tend to be several iterations behind the most recent version. You can check the version number with the following command:</p>
@@ -211,10 +211,10 @@ pip3 install --user package_name</code></pre>
 <pre class="highlight"><code class="language-shell">module load python</code></pre>
 <p>Next, install the virtualenv package into your user space:</p>
 <pre class="highlight"><code class="language-shell">pip3 install --user virtualenv</code></pre>
-<blockquote>
-<p>[!NOTE]
-The virtualenv executable will not be automatically added to your path.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The virtualenv executable will not be automatically added to your path.</p>
+</div>
 <p>Next, you will need to create a folder named whatever you like and move into it:</p>
 <pre class="highlight"><code class="language-shell">mkdir virtualProject
 cd virtualProject</code></pre>
