@@ -1,4 +1,4 @@
-# ndcms-docs
+# ndcmsT3
 Documentation for the ND CMS T3 Infrastructure
 
 
@@ -63,7 +63,7 @@ Visit `http://localhost:8000` to preview your documentation.
 
 ## 6. Deploy your documentation to GitHub Pages
 
-Your documentation will be available at `https://YOUR-USERNAME.github.io/ndcms-docs/`
+Your documentation will be available at `https://YOUR-USERNAME.github.io/ndcmsT3/`
 
 
 # Converting reStructuredText to Markdown
