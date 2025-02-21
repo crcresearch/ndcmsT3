@@ -11,13 +11,39 @@ extra_css:
 
 # Navigation bar to be updated upon new pages
 nav:
-  - Home: index.md
-  - Research:
-    - Projects: research/projects.md
-    - Publications: research/publications.md
-  - Resources:
-    - Computing: resources/computing.md
-    - Data: resources/data.md
+  - HOME: index.md
+  - NEW USER INFO:
+    - Obtaining a CRC account: new_user/obtain_account.md
+    - Quick Start Guide: new_user/quick_start.md
+    - Connecting to CRC Servers: new_user/connecting_to_crc.md
+    - Basic Linux Guide: new_user/linux_guide.md
+    - Modules: new_user/modules.md
+    - Introductory Videos: new_user/introductory_videos.md
+    - Training Events: new_user/training.md
+  - HELP:
+    - FAQ: help/faq.md
+    - Getting Help: help/help.md
+  - CRC INFRASTRUCTURE:
+    - CRC Resources: crc_infra/resources.md
+    - CRC Software: crc_infra/software.md
+    - Available Hardware: crc_infra/available_hardware.md
+    - Storage: crc_infra/storage.md
+    - UGE Environment: crc_infra/crc_uge_env.md
+    - Faculty Cluster Partnership Program: crc_infra/faculty_infrastructure.md
+    - Maintenance: crc_infra/landing.md
+  - RESOURCES:
+    - GPU: resources/gpu.md
+    - HTCondor: resources/condor.md
+    - Globus: resources/globus.md
+    - NDCMS: resources/ndcms.md
+    - Apptainer/Singularity: resources/singularity.md
+    - CAML: resources/caml.md
+  - POPULAR MODULES:
+    - Matlab: modules/matlab.md
+    - Python: modules/python.md
+    - R: modules/r.md
+    - Tensorflow: modules/tensorflow.md
+    - Conda: modules/conda.md
 
 # Enable git revision date from git history
 plugins:
