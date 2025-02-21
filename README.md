@@ -1,5 +1,5 @@
 # ndcmsT3
-Documentation for the ND CMS T3 Infrastructure
+Repository with the documentation for the ND CMS T3 Infrastructure, which is automatically built and deployed to GitHub Pages at https://crcresearch.github.io/ndcmsT3/.
 
 
 ## How to use this documentation repository
