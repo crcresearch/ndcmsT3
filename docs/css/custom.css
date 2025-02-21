@@ -1,0 +1,19 @@
+/* Change top left panel background color to match the side panel */
+.wy-side-nav-search {
+    background-color: #343131 !important;
+}
+
+/* Keep the text white for better visibility on dark background */
+.wy-side-nav-search > a {
+    color: #ffffff !important;
+}
+
+/* Keep the version text visible */
+.wy-side-nav-search > div.version {
+    color: #ffffff !important;
+}
+
+/* Style the search box */
+.wy-side-nav-search input[type="text"] {
+    border-color: #2472a4;
+} 

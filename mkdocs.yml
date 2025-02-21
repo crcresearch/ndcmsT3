@@ -1,0 +1,34 @@
+site_name: CMS Tier 3 at University of Notre Dame
+theme:
+  name: readthedocs
+  logo: images/crc_logo.png
+
+extra_css:
+  - css/custom.css
+
+# Navigation bar to be updated upon new pages
+nav:
+  - Home: index.md
+  - Research:
+    - Projects: research/projects.md
+    - Publications: research/publications.md
+  - Resources:
+    - Computing: resources/computing.md
+    - Data: resources/data.md
+
+# Enable git revision date from git history
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+      enable_creation_date: true
+      fallback_to_build_date: true
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - footnotes
