@@ -99,8 +99,38 @@ pandoc --wrap=none -f rst -t gfm input.rst -o output.md
 pandoc --wrap=none --from=rst --to=gfm-raw_html input.rst -o output.md
 ```
 
-Note: After conversion, you may need to manually adjust:
-- Table of contents (toctree directives)
-- Sphinx-specific roles and directives
-- Cross-references
-- Code block language specifications
+Note: After conversion, you will likely need to manually adjust the following elements:
+
+1. Sphinx-specific directives:
+   - `.. toctree::` directives (table of contents)
+   - `.. note::`, `.. warning::`, etc. (admonitions)
+   - `.. code-block::` with complex options
+   - Custom Sphinx directives
+
+2. Cross-references and links:
+   - `:ref:` references
+   - `:doc:` references
+   - Internal document links
+   - Custom role references
+
+3. Advanced formatting:
+   - Complex tables with merged cells
+   - Sidebar content
+   - Figure directives with options
+   - Math equations (may need reformatting)
+
+4. Code blocks:
+   - Language specifications
+   - Line highlighting
+   - Line number references
+   - Code block captions
+
+5. Extensions and custom roles:
+   - Domain-specific roles (e.g., `:py:class:`)
+   - Custom extension directives
+   - Substitutions and replacements
+
+6. Meta information:
+   - Document metadata
+   - Version information
+   - Copyright notices in special formats

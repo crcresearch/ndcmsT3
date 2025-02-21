@@ -38,8 +38,8 @@ If the form is not visible, it can be searched for in the search bar. This will 
 
 ### How Can I Maintain My CRC Account After Graduating/Leaving Notre Dame?
 
-> [!NOTE]
-> The university disables staff accounts on the final day of employment, while graduating student accounts are disabled at the conclusion of the current semester.
+!!! note
+    The university disables staff accounts on the final day of employment, while graduating student accounts are disabled at the conclusion of the current semester.
 
 If you have research related to work here at Notre Dame and are able to justify continued access, you may request a faculty member sponsor your account as an external affiliate. These accounts are valid for up to one year, but may be renewed annualy. This process can be initiated by having your sponsor complete an `external account request <Request External Account>`. To avoid losing your CRC account and all associated data, please complete this process prior to your account being disabled.
 
@@ -114,8 +114,8 @@ Many software packages can be installed in your local home directory and we're h
 
 Software that is installed globally through our `modules` tool must undergo license review by the Notre Dame legal department. For this reason, all requests to add a new module must come from Notre Dame faculty. Please submit a [Software Request Form](https://docs.google.com/a/nd.edu/forms/d/e/1FAIpQLSdzy-F9X6wykK1KhRdsT-8QtlcPvs8nwPLid6fnGXD-QAjQCg/viewform) and review the attached CRC Software Policy. The software policy also contains information on licensing and cost sharing with CRC.
 
-> [!NOTE]
-> This process can take up to 7 business days from receipt of the software request. If you require an expedited service, please make that apparent on your request form.
+!!! note
+    This process can take up to 7 business days from receipt of the software request. If you require an expedited service, please make that apparent on your request form.
 
 ### Notes on sudo/root access
 
@@ -247,14 +247,14 @@ If an invalid resource request is identified by this validation procedure, your 
 
 For example the mpi-8 machines (machines with 8 cores) are either faculty owned (restricted) or on a restricted access list for codes which require an Infiniband interconnect. Standard user scripts will fail when specifying mpi-8. In the case the user should use mpi-12 as the majority of systems available for general access are 12 core machines.
 
-> [!NOTE]
-> Scripts that contain the '''mem_free=''' resource request i.e.
->
-> > \#\$ -l mem_free=X
->
-> will unfortunately always fail the validation test (due to lack of memory information at the time the validation is undertaken). To overcome this situation, please disable the validation process in your submission script by adding the following line:
->
-> > \#\$ -w n
+!!! note
+    Scripts that contain the '''mem_free=''' resource request i.e.
+    
+    > \#\$ -l mem_free=X
+    
+    will unfortunately always fail the validation test (due to lack of memory information at the time the validation is undertaken). To overcome this situation, please disable the validation process in your submission script by adding the following line:
+    
+    > \#\$ -w n
 
 ### How Can I Monitor The Behavior Of My Running Jobs?
 

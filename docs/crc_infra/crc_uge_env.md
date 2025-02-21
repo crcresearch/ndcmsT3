@@ -42,8 +42,8 @@ Common Parallel Environments include:
 
     * mpi-64 (multi [64 core per] machine processing in 64 core increments)
 
-> [!NOTE]
-> Increments (24,48,64) are mapped to total cores per server. A server with 24 cores will not accept mpi-32 requests.
+!!! note
+    Increments (24,48,64) are mapped to total cores per server. A server with 24 cores will not accept mpi-32 requests.
 
 PEs are specified in your submit script with the syntax:
 

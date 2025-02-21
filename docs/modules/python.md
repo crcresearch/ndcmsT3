@@ -1,11 +1,11 @@
 # Python
 
-![image](images/python-logo-master-v3-TM.png)
+![image](../images/python-logo-master-v3-TM.png)
 
 Python is an interpreted, interactive, object-oriented programming language. It incorporates modules, exceptions, dynamic typing, very high level dynamic data types, and classes. Python combines remarkable power with very clear syntax. It has interfaces to many system calls and libraries, as well as to various window systems, and is extensible in C or C++. It is also usable as an extension language for applications that need a programmable interface. Finally, Python is portable: it runs on many Unix variants, on the Mac, and on PCs under MS-DOS, Windows, Windows NT, and OS/2.
 
-> [!WARNING]
-> Starting in May, 2019, the CRC Python module defaults to `Python 3`. If you are using code based on `Python 2`, we highly recommend moving to the 3.X branch of Python. Python 2 stopped being maintained in January of 2020 and have been completely removed from RHEL8.
+!!! warning
+    Starting in May, 2019, the CRC Python module defaults to `Python 3`. If you are using code based on `Python 2`, we highly recommend moving to the 3.X branch of Python. Python 2 stopped being maintained in January of 2020 and have been completely removed from RHEL8.
 
 ------------------------------------------------------------------------
 
@@ -105,8 +105,8 @@ Next, install the virtualenv package into your user space:
 pip3 install --user virtualenv
 ```
 
-> [!NOTE]
-> The virtualenv executable will not be automatically added to your path.
+!!! note
+    The virtualenv executable will not be automatically added to your path.
 
 Next, you will need to create a folder named whatever you like and move into it:
 

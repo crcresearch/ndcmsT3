@@ -4,8 +4,8 @@ All activity performed on the CRC infrastructure occurs on remote servers, this 
 
 For more information on the Public head nodes see the `front_end_workflow` page.
 
-> [!NOTE]
-> For users connecting from off campus, please review the section `off-campus-connect` first.
+!!! note
+    For users connecting from off campus, please review the section `off-campus-connect` first.
 
 ------------------------------------------------------------------------
 
@@ -49,8 +49,8 @@ Once `XQuartz` is installed, you can use the `-Y` flag to `ssh` within a termina
 ssh -Y netid@crcfe01.crc.nd.edu
 ```
 
-> [!NOTE]
-> Development of `XQuartz` has lagged quite behind macOS. A number of issues with it has been reported to us. It may be easier to use `fastx` for Mac users.
+!!! note
+    Development of `XQuartz` has lagged quite behind macOS. A number of issues with it has been reported to us. It may be easier to use `fastx` for Mac users.
 
 ------------------------------------------------------------------------
 

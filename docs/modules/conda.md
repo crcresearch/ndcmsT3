@@ -4,10 +4,10 @@
 
 ## General Description
 
-Conda is a popular package management system used in machine learning and artificial intelligence research. It is built as a part of Anaconda distribution and provides a useful alternative for the pip package manager. Conda allows users to create many different environments containing different packages without there being any overlap or crossover that may occur when using pip. Each environment may be customized to a specific program’s needs and therefore allows for easy package management and access.
+Conda is a popular package management system used in machine learning and artificial intelligence research. It is built as a part of Anaconda distribution and provides a useful alternative for the pip package manager. Conda allows users to create many different environments containing different packages without there being any overlap or crossover that may occur when using pip. Each environment may be customized to a specific program's needs and therefore allows for easy package management and access.
 
-> !!! warning
-> In order to use `conda`, you must be using `bash` as your shell. If you have an account created after May of 2018, your default shell is bash. To check your shell, type: `echo $0`. If your shell is tcsh and you'd like it to be bash, email us at <CRCSupport@nd.edu>.
+!!! warning
+    In order to use `conda`, you must be using `bash` as your shell. If you have an account created after May of 2018, your default shell is bash. To check your shell, type: `echo $0`. If your shell is tcsh and you'd like it to be bash, email us at <CRCSupport@nd.edu>.
 
 ------------------------------------------------------------------------
 
@@ -118,8 +118,8 @@ Once you have found the name of the package you want to install you may install 
 conda install -n ENVNAME PKGNAME 
 ```
 
-> [!NOTE]
-> If you omit the “-n ENVNAME” portion of code the package will be installed in your current environment. All installs must be executed in a specific conda environment, not the base environment. This means that (ENVNAME) must appear to the left of your \[username\]. This ensures that no base packages are uninstalled, for example pip or python.''
+!!! note
+    If you omit the "-n ENVNAME" portion of code the package will be installed in your current environment. All installs must be executed in a specific conda environment, not the base environment. This means that (ENVNAME) must appear to the left of your [username]. This ensures that no base packages are uninstalled, for example pip or python.
 
 When you need to update one of your packages you may use the following update command.
 
@@ -174,7 +174,7 @@ conda config --add channels bioconda
 conda config --set channel_priority strict 
 ```
 
-When adding this channel using the “add” command we are telling Conda to add the channel at the top, or highest priority of the channels accessible to our manager. The order of channels in your Conda matters due to the potential of channel collisions. To circumvent this issue and ensure that we do not encounter any channel collisions from duplicate packages we use the second line of code above. This ensures that all of the dependencies come from the bioconda channel as opposed to the default channel.
+When adding this channel using the "add" command we are telling Conda to add the channel at the top, or highest priority of the channels accessible to our manager. The order of channels in your Conda matters due to the potential of channel collisions. To circumvent this issue and ensure that we do not encounter any channel collisions from duplicate packages we use the second line of code above. This ensures that all of the dependencies come from the bioconda channel as opposed to the default channel.
 
 If we wanted to set the priority back to our default channel we would have to edit the ~/.condarc file so that defaults is the first channel shown. The ~/.condarc file is only created upon creation of a new channel.
 
@@ -211,12 +211,12 @@ conda install bioconda::PKGNAME
 
 ## Job Submission Using Conda Environments
 
-Since your environments are saved in a unique file path on your node all of the packages will already be installed in the referenced environment, allowing you to customize your environment before submitting your job. Once the job is submitted it will be referencing the packages in your environment, meaning that you don’t need to redo any of your previous installations.
+Since your environments are saved in a unique file path on your node all of the packages will already be installed in the referenced environment, allowing you to customize your environment before submitting your job. Once the job is submitted it will be referencing the packages in your environment, meaning that you don't need to redo any of your previous installations.
 
 To load your environment use the following code, keeping in mind that the first three lines are example job submission code. Everything after those initial three lines will be as if you are running the same code in your node.
 
-> [!NOTE]
-> Unlike many software packages at the CRC, you generally should never load the conda module in your job scripts or configuration files after the initial configuration is complete.
+!!! note
+    Unlike many software packages at the CRC, you generally should never load the conda module in your job scripts or configuration files after the initial configuration is complete.
 
 ``` shell
 #!/bin/bash

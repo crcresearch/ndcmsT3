@@ -62,10 +62,10 @@ There are different categories in which the Modules are organized:
 - general_software
 - development_tools_and_libraries.
 
-> [!IMPORTANT]
-> Modules within the restricted_software category cannot be used without first receiving permission to access those pieces of software.
->
-> The deprecated category contains modules which are out of date or no longer being supported after the next biannual outage. The date of the next biannual outage can be found on the [main page](../index.html) . These modules can still be used, however it is recommended to move your application to a newer version of the deprecated module.
+!!! important
+    Modules within the restricted_software category cannot be used without first receiving permission to access those pieces of software.
+    
+    The deprecated category contains modules which are out of date or no longer being supported after the next biannual outage. The date of the next biannual outage can be found on the [main page](../index.md) . These modules can still be used, however it is recommended to move your application to a newer version of the deprecated module.
 
 ------------------------------------------------------------------------
 
@@ -127,8 +127,8 @@ module help matlab
 
 There are some cases where a module is desired for software which is installed into local user space. Local modules can coexist with CRC modules and being user space installed software, these modules will not become deprecated and removed over time by CRC administrators. Creating a local or private module can be straightforward once a piece of software is installed into user space.
 
-> [!NOTE]
-> For the rest of these instructions, it is assumed the software a module is intended for is already installed.
+!!! note
+    For the rest of these instructions, it is assumed the software a module is intended for is already installed.
 
 For more information on the module command itself, see `Module Command`.
 
