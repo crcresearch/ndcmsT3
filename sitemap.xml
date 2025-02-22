@@ -2,114 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://crcresearch.github.io/ndcmsT3/</loc>
-         <lastmod>2025-02-21</lastmod>
+         <lastmod>2025-02-22</lastmod>
     </url>
     <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/crc_infra/available_hardware/</loc>
-         <lastmod>2025-02-21</lastmod>
+         <loc>https://crcresearch.github.io/ndcmsT3/apps/dv5/</loc>
+         <lastmod>2025-02-22</lastmod>
     </url>
     <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/crc_infra/crc_uge_env/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/crc_infra/faculty_infrastructure/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/crc_infra/landing/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/crc_infra/resources/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/crc_infra/software/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/crc_infra/storage/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/help/faq/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/help/help/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/modules/conda/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/modules/matlab/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/modules/python/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/modules/r/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/modules/tensorflow/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/new_user/connecting_to_crc/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/new_user/introductory_videos/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/new_user/linux_guide/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/new_user/modules/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/new_user/obtain_account/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/new_user/quick_start/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/new_user/training/</loc>
-         <lastmod>2025-02-21</lastmod>
+         <loc>https://crcresearch.github.io/ndcmsT3/apps/eft/</loc>
+         <lastmod>2025-02-22</lastmod>
     </url>
     <url>
          <loc>https://crcresearch.github.io/ndcmsT3/resources/caml/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/resources/condor/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/resources/globus/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/resources/gpu/</loc>
-         <lastmod>2025-02-21</lastmod>
+         <lastmod>2025-02-22</lastmod>
     </url>
     <url>
          <loc>https://crcresearch.github.io/ndcmsT3/resources/ndcms/</loc>
-         <lastmod>2025-02-21</lastmod>
-    </url>
-    <url>
-         <loc>https://crcresearch.github.io/ndcmsT3/resources/singularity/</loc>
-         <lastmod>2025-02-21</lastmod>
+         <lastmod>2025-02-22</lastmod>
     </url>
 </urlset>
