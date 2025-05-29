@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write  # Needed for gh-deploy
+      pages: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,3 +33,4 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           mkdocs gh-deploy --force
+
