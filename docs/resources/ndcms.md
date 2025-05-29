@@ -4,8 +4,8 @@ The page contains information pertaining to the [Notre Dame High Energy Physics 
 
 Page Navigation
 
-> [!NOTE]
-> All of this documentation is specific to our NDCMS T3 cluster. It is written and maintained by the users of that cluster, which includes **you.** Please help us keep this up-to-date. The most important way in which you can do this is to send e-mail to <NDT3@listserv.nd.edu> if you try any of the documentation here and find it's out of date. Not on the mailing list? Contact <klannon@nd.edu> to get added.
+!!! note
+    All of this documentation is specific to our NDCMS T3 cluster. It is written and maintained by the users of that cluster, which includes **you.** Please help us keep this up-to-date. The most important way in which you can do this is to send e-mail to <NDT3@listserv.nd.edu> if you try any of the documentation here and find it's out of date. Not on the mailing list? Contact <klannon@nd.edu> to get added.
 
 ## Logging In and Setting up your Software Environment
 
@@ -50,8 +50,8 @@ With this setup, you may type just "ssh earth" to log into earth, and likewise f
 
 ### Setting up environment
 
-> [!NOTE]
-> Only the earth.crc.nd.edu machine has the software required to use CMSSW, CRAB, etc.
+!!! note
+    Only the earth.crc.nd.edu machine has the software required to use CMSSW, CRAB, etc.
 
 *First login or when experiencing trouble with Condor:* The first time you log into earth, set the AFS permissions of a directory to use for Condor as follows:
 
@@ -89,8 +89,8 @@ You'll have to configure Condor so that any output files are stored in the speci
 
 2)  Let us know that you've added your DN to the shared google doc file, please email <ijohnso1@nd.edu> and CC <khurtado@nd.edu>
 
-> [!NOTE]
-> If you would like to switch to a more modern shell, such as bash, you need to contact the CRC to have your shell changed in their database.\*\*
+!!! note
+    If you would like to switch to a more modern shell, such as bash, you need to contact the CRC to have your shell changed in their database.\*\*
 
 ------------------------------------------------------------------------
 
@@ -258,8 +258,8 @@ Hadoop is mounted at `/hadoop/store/user`. The Hadoop file system (hdfs) is a di
 
 Lobster doesn't do well working out of your AFS home directory. When you run Lobster jobs, you should tell Lobster to make your working area in `/tmpscratch/users/<username>`. Space is limited and there are no user quotas, so monitor carefully and clean up old files. We reserve the right to clean out this space if someone is using too much and not playing nice with others!
 
-> [!NOTE]
-> To Add you proxy DN and Notre Dame username, go to: <https://wiki.crc.nd.edu/w/index.php/NDCMS_SettingUpEnvironment#Add_you_proxy_DN_and_Notre_Dame_username_.28your_username_on_earth.crc.nd.edu.29>
+!!! note
+    To Add you proxy DN and Notre Dame username, go to: <https://wiki.crc.nd.edu/w/index.php/NDCMS_SettingUpEnvironment#Add_you_proxy_DN_and_Notre_Dame_username_.28your_username_on_earth.crc.nd.edu.29>
 
 ------------------------------------------------------------------------
 
