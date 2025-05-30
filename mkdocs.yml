@@ -14,7 +14,6 @@ nav:
   - HOME: index.md
   - RESOURCES:
     - NDCMS: resources/ndcms.md
-    - CAML: resources/caml.md
   - APPLICATIONS:
     - EFT: apps/eft.md
     - DV5: apps/dv5.md
