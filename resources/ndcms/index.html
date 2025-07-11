@@ -53,7 +53,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#setting-up-environment">Setting up environment</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#add-your-proxy-dn-and-notre-dame-username-your-username-on-earthcrcndedu">Add your proxy DN and Notre Dame username (your username on earth.crc.nd.edu)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#add-your-proxy-dn-and-notre-dame-username-your-username-on-gladoscrcndedu">Add your proxy DN and Notre Dame username (your username on glados.crc.nd.edu)</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#if-you-forgot-to-set-your-afs-permissions-at-first-login">If You Forgot to Set Your AFS Permissions at First Login</a>
     </li>
@@ -85,7 +85,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#hadoop-space">Hadoop Space</a>
+    <li class="toctree-l3"><a class="reference internal" href="#ceph-space">CEPH Space</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#lobster-working-storage">Lobster Working Storage</a>
     </li>
@@ -137,15 +137,15 @@
 </div>
 <h2 id="logging-in-and-setting-up-your-software-environment">Logging In and Setting up your Software Environment</h2>
 <p>From inside the ND network (being physically on campus or via VPN) or at CERN, one can log directly into the interactive head node:</p>
-<pre class="highlight"><code class="language-shell">ssh -Y *username*@earth.crc.nd.edu</code></pre>
+<pre class="highlight"><code class="language-shell">ssh -Y *username*@glados.crc.nd.edu</code></pre>
 <p>Alternatively, if that doesn't work, try:</p>
-<pre class="highlight"><code class="language-shell">/usr/bin/ssh -Y -l username@earth.crc.nd.edu</code></pre>
+<pre class="highlight"><code class="language-shell">/usr/bin/ssh -Y -l username@glados.crc.nd.edu</code></pre>
 <p>From a remote location (e.g. off campus, etc.), one must <em>first</em> log into the VPN. More information is available in the section <code>off-campus-connect</code>.</p>
 <pre class="highlight"><code class="language-shell">crcfe01.crc.nd.edu
 crcfe02.crc.nd.edu</code></pre>
 <p>Tip: Don't forget the <code>-Y</code> option for both ssh commands if you want any X windows to show up on your screen (i.e. opening TBrowsers, histograms, etc.)</p>
 <p>For more comfort, you can create the file ".ssh/config" on your local computer and insert an entry like</p>
-<pre class="highlight"><code class="language-shell">Host earth, crcfe01, crcfe02
+<pre class="highlight"><code class="language-shell">Host glados, crcfe01, crcfe02
     HostName        %h.crc.nd.edu
     User            *your_username*
     ForwardX11      yes
@@ -153,14 +153,14 @@ crcfe02.crc.nd.edu</code></pre>
     ControlMaster   auto
     ControlPath     ~/.ssh/control-%r@%h:%p</code></pre>
 <p>The last two lines are optional. They set up ssh to allow a second session to "tunnel" through the first one. As long as you have one ssh session open, further connections to earth do not require you to enter your password again. This should only be done for Notre Dame, as normally Kerberos authentication and ssh keys work better.</p>
-<p>With this setup, you may type just "ssh earth" to log into earth, and likewise for crcfe01 and crcfe02.</p>
+<p>With this setup, you may type just <code>"ssh glados"</code> to log into <code>glados</code>, and likewise for <code>crcfe01</code> and <code>crcfe02</code>.</p>
 <hr />
 <h3 id="setting-up-environment">Setting up environment</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Only the earth.crc.nd.edu machine has the software required to use CMSSW, CRAB, etc.</p>
+<p>Only the <code>glados.crc.nd.edu</code> machine has the software required to use CMSSW, CRAB, etc.</p>
 </div>
-<p><em>First login or when experiencing trouble with Condor:</em> The first time you log into earth, set the AFS permissions of a directory to use for Condor as follows:</p>
+<p><em>First login or when experiencing trouble with Condor:</em> The first time you log into glados, set the AFS permissions of a directory to use for Condor as follows:</p>
 <p>Your home directory needs to be readable by anyone on campus because Condor doesn't run the jobs under your username. In your home directory, do the following:</p>
 <pre class="highlight"><code class="language-shell">cd ~
 fs sa . nd_campus rl
@@ -177,7 +177,7 @@ fs sa . system:authuser rlidwk</code></pre>
 If you didn't do this the first time you logged in or created your Condor directory, this <em>is</em> fixable. See <code>here &lt;if-you-forgot&gt;</code></p>
 </blockquote>
 <hr />
-<h3 id="add-your-proxy-dn-and-notre-dame-username-your-username-on-earthcrcndedu">Add your proxy DN and Notre Dame username (your username on earth.crc.nd.edu)</h3>
+<h3 id="add-your-proxy-dn-and-notre-dame-username-your-username-on-gladoscrcndedu">Add your proxy DN and Notre Dame username (your username on glados.crc.nd.edu)</h3>
 <p>1)  Please add your proxy DN and ND username in the google doc below:</p>
 <p><a href="https://docs.google.com/document/d/1piHU3tvAdPEXis-evx1mzOD8YwyQ59SbgeLUZR4U1cE/edit">https://docs.google.com/document/d/1piHU3tvAdPEXis-evx1mzOD8YwyQ59SbgeLUZR4U1cE/edit</a></p>
 <p>2)  Let us know that you've added your DN to the shared google doc file, please email <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#106;&#111;&#104;&#110;&#115;&#111;&#49;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#105;&#106;&#111;&#104;&#110;&#115;&#111;&#49;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a> and CC <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#104;&#117;&#114;&#116;&#97;&#100;&#111;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#107;&#104;&#117;&#114;&#116;&#97;&#100;&#111;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a></p>
@@ -253,17 +253,27 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
 <p>Back to <code>Top of the Page &lt;ndcms&gt;</code>.</p>
 <p>Users have access to a variety of storage locations. The key is knowing the tradeoffs of each, so you can identify what's the right resource for you to use. If you don't have a directory in any of the spaces listed, ask for help at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
 <h3 id="home-area">Home Area</h3>
-<p>Each user has a home directory on <code>/afs/crc.nd.edu/user</code> with 100GB of personal disk space that is backed up nightly. This is where you should keep software that you're developing, papers that you're writing, your thesis draft, etc. Basically, use this for anything that you would be very sad to have to recreate if it were accidentally deleted or lost due to hardware failure.</p>
+<p>Each user has a home directory on <code>/users</code> with 100GB of personal disk space that is backed up nightly and cannot be increased. This is where you should keep software that you're developing, papers that you're writing, your thesis draft, etc. Basically, use this for anything that you would be very sad to have to recreate if it were accidentally deleted or lost due to hardware failure.</p>
 <p>To check the quota use <code>fs lq</code> (short for “fileservice listquota”)</p>
 <hr />
 <h3 id="scratch-space">Scratch Space</h3>
-<p>Also users get 500GB of non-backed up space in <code>/scratch365/&lt;username&gt;</code> and non-backed up space for small files in <code>/store/smallfiles</code>. There is no quota on <code>/store/smallfiles</code> but the total space is 80 TB and must be shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use <code>/store/smallfiles</code> as the performance degrades severely. In that case, either use <code>/scratch365</code> or <code>/hadoop/store/user</code> (see below).</p>
+<p>Also users get 250GB of non-backed up space in <code>/scratch365/&lt;username&gt;</code> and non-backed up space for small files in <code>/store/smallfiles</code>. There is no quota on <code>/store/smallfiles</code> but the total space is 80 TB and must be shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use <code>/store/smallfiles</code> as the performance degrades severely. In that case, either use <code>/scratch365</code> or <code>/hadoop/store/user</code> (see below).</p>
 <hr />
 <h4 id="accessing-the-scratch-space-from-grid-jobs">Accessing the scratch space from grid jobs</h4>
 <p>Grid jobs running at ND (e.g: via CMS Connect) need to prepend <code>/cms</code> to the /scratch365 and /store/smallfiles directories (<code>/cms/scratch365/&lt;username&gt;</code> and <code>/cms/store/smallfiles</code>) due to standard requirements in the CMS Global Pool for singularity-enabled sites for non-hadoop storage spaces to be visible, but they point to the same storage location.</p>
 <hr />
-<h3 id="hadoop-space">Hadoop Space</h3>
-<p>Hadoop is mounted at <code>/hadoop/store/user</code>. The Hadoop file system (hdfs) is a different sort of files system than most. Hadoop breaks your data up into blocks of ~128 MB and scatters two copies of each block across multiple physical disks. It does this for two reasons: The replication makes the system more resilient against hardware failures and it also provides better performance when many different jobs are reading or writing to the system. Like <code>/store/smallfiles</code>, Hadoop doesn't have per user quotas, and there is a lot of space available (at the time of this writing, 644 TB of raw space, but remember that every TB you store takes up ~2 TB of space because of replication). Hadoop is also the file system that is accessible with CMS/grid tools like gfal and XRootD. You should use Hadoop whenever you have very large datasets, when you need to access your data using gfal or XRootD, or when you will be accessing your data with many parallel running jobs (anything more than 100). There are some caveats: * Hadoop doesn't handle very small files well. If you write large numbers of files with sizes on the order of MB, don't use Hadoop. For files in that size range, use <code>/store/smallfiles</code> or <code>/scratch365</code> * Hadoop doesn't provide posix access directly. This means that normally you can't use commands like ''ls'' or ''cp''. We use something called FUSE to provide posix access to Hadoop, but FUSE can be broken if you try to read too much data too quickly. So, when running many batch jobs, its better to access the data directly using hdfs commands, or to use a tool, like XRootD or Lobster that does this for you. If you're running jobs on data in <code>/hadoop</code> and they are getting stuck or having Input/Output errors, you've probably crashed FUSE on some of the nodes. If this happens, ask for help [<a href="mailto:ndt3-list@nd.edu">mailto:ndt3-list@nd.edu</a> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>]. * ROOT cannot write directly into <code>/hadoop/store/user</code>. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to <code>/hadoop/store/user</code> (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
+<h3 id="ceph-space">CEPH Space</h3>
+<p>CEPH is mounted at <code>/cms/cephfs/data/store/user</code>. </p>
+<p>To access CEPH data, please use <code>skynet013.crc.nd.edu on port 1094</code>. The XRootD workers are <code>hactar01, hactar02, hactar03, skynet014 and skynet015</code>.</p>
+<pre class="highlight"><code class="language-shell">xrdmapc skynet013:1094 --list all
+0**** skynet013.crc.nd.edu:1094
+      Srv hactar03.crc.nd.edu:1094
+      Srv hactar02.crc.nd.edu:1094
+      Srv hactar01.crc.nd.edu:1094
+      Srv skynet015.crc.nd.edu:1094
+      Srv skynet014.crc.nd.edu:1094</code></pre>
+<p>[OUTDATED - TO BE UPDATED]
+The Hadoop file system (hdfs) is a different sort of files system than most. Hadoop breaks your data up into blocks of ~128 MB and scatters two copies of each block across multiple physical disks. It does this for two reasons: The replication makes the system more resilient against hardware failures and it also provides better performance when many different jobs are reading or writing to the system. Like <code>/store/smallfiles</code>, Hadoop doesn't have per user quotas, and there is a lot of space available (at the time of this writing, 644 TB of raw space, but remember that every TB you store takes up ~2 TB of space because of replication). Hadoop is also the file system that is accessible with CMS/grid tools like gfal and XRootD. You should use Hadoop whenever you have very large datasets, when you need to access your data using gfal or XRootD, or when you will be accessing your data with many parallel running jobs (anything more than 100). There are some caveats: * Hadoop doesn't handle very small files well. If you write large numbers of files with sizes on the order of MB, don't use Hadoop. For files in that size range, use <code>/store/smallfiles</code> or <code>/scratch365</code> * Hadoop doesn't provide posix access directly. This means that normally you can't use commands like ''ls'' or ''cp''. We use something called FUSE to provide posix access to Hadoop, but FUSE can be broken if you try to read too much data too quickly. So, when running many batch jobs, its better to access the data directly using hdfs commands, or to use a tool, like XRootD or Lobster that does this for you. If you're running jobs on data in <code>/hadoop</code> and they are getting stuck or having Input/Output errors, you've probably crashed FUSE on some of the nodes. If this happens, ask for help [<a href="mailto:ndt3-list@nd.edu">mailto:ndt3-list@nd.edu</a> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>]. * ROOT cannot write directly into <code>/hadoop/store/user</code>. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to <code>/hadoop/store/user</code> (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
 <hr />
 <h3 id="lobster-working-storage">Lobster Working Storage</h3>
 <p>Lobster doesn't do well working out of your AFS home directory. When you run Lobster jobs, you should tell Lobster to make your working area in <code>/tmpscratch/users/&lt;username&gt;</code>. Space is limited and there are no user quotas, so monitor carefully and clean up old files. We reserve the right to clean out this space if someone is using too much and not playing nice with others!</p>
