@@ -224,7 +224,7 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
 <h3 id="htcondor-monitoring">HTCondor Monitoring</h3>
 <p>To check the general status of HTCondor within the CRC, you can view the <a href="http://condor.cse.nd.edu/condor_matrix.cgi">HTCondor utilization matrix</a>, for more information on HTCondor itself view the <code>HTCondor &lt;condor&gt;</code> page.</p>
 <ul>
-<li>The official documentation for conodr command line utilities can be found <a href="http://www.cs.wisc.edu/condor/manual/v7.0/9_Command_Reference.html">here</a>.</li>
+<li>The official documentation for condor command line utilities can be found <a href="http://www.cs.wisc.edu/condor/manual/v7.0/9_Command_Reference.html">here</a>.</li>
 </ul>
 <h4 id="htcondor-job-monitoring">HTCondor Job Monitoring</h4>
 <p>To view the status of all jobs in the condor queue (or for a specific user), use the following command:</p>
@@ -250,14 +250,15 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
 <p>Remember that 'condor_qedit' will work on a specific job ID (xxx.y), a job cluster ID (xxx), or a username.</p>
 <hr />
 <h2 id="storage">Storage</h2>
-<p>Back to <code>Top of the Page &lt;ndcms&gt;</code>.</p>
+<p>Back to <a href="https://crcresearch.github.io/ndcmsT3/">Top of the Page</a></p>
 <p>Users have access to a variety of storage locations. The key is knowing the tradeoffs of each, so you can identify what's the right resource for you to use. If you don't have a directory in any of the spaces listed, ask for help at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
+<p><a href="https://docs.crc.nd.edu/transition/netapp/netapp.html#">Detailed information regarding Storage can be found here</a></p>
 <h3 id="home-area">Home Area</h3>
 <p>Each user has a home directory on <code>/users</code> with 100GB of personal disk space that is backed up nightly and cannot be increased. This is where you should keep software that you're developing, papers that you're writing, your thesis draft, etc. Basically, use this for anything that you would be very sad to have to recreate if it were accidentally deleted or lost due to hardware failure.</p>
-<p>To check the quota use <code>fs lq</code> (short for “fileservice listquota”)</p>
+<p>To check the quota use <code>df -h /users/username</code></p>
 <hr />
 <h3 id="scratch-space">Scratch Space</h3>
-<p>Also users get 250GB of non-backed up space in <code>/scratch365/&lt;username&gt;</code> and non-backed up space for small files in <code>/store/smallfiles</code>. There is no quota on <code>/store/smallfiles</code> but the total space is 80 TB and must be shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use <code>/store/smallfiles</code> as the performance degrades severely. In that case, either use <code>/scratch365</code> or <code>/hadoop/store/user</code> (see below).</p>
+<p>Also users get 250GB of non-backed up space in <code>/scratch365/&lt;username&gt;</code> and non-backed up space for small files in <code>/store/smallfiles</code>. There is no quota on <code>/store/smallfiles</code> but the total space is 80 TB and must be shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use <code>/store/smallfiles</code> as the performance degrades severely. In that case, either use <code>/scratch365</code> or <code>/cms/cephfs/data/store/user</code> (see below).</p>
 <hr />
 <h4 id="accessing-the-scratch-space-from-grid-jobs">Accessing the scratch space from grid jobs</h4>
 <p>Grid jobs running at ND (e.g: via CMS Connect) need to prepend <code>/cms</code> to the /scratch365 and /store/smallfiles directories (<code>/cms/scratch365/&lt;username&gt;</code> and <code>/cms/store/smallfiles</code>) due to standard requirements in the CMS Global Pool for singularity-enabled sites for non-hadoop storage spaces to be visible, but they point to the same storage location.</p>
@@ -272,6 +273,15 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
       Srv hactar01.crc.nd.edu:1094
       Srv skynet015.crc.nd.edu:1094
       Srv skynet014.crc.nd.edu:1094</code></pre>
+<p>To access the external data (xcache), please use <code>skynet013.crc.nd.edu on port 1096</code>. </p>
+<pre class="highlight"><code class="language-shell">xrdmapc skynet013:1096 --list all
+0**** skynet013.crc.nd.edu:1096
+      Srv primeradiant01.crc.nd.edu:1094
+      Srv primeradiant02.crc.nd.edu:1094
+      Srv primeradiant03.crc.nd.edu:1094
+      Srv primeradiant04.crc.nd.edu:1094
+      Srv primeradiant05.crc.nd.edu:1094
+      Srv primeradiant06.crc.nd.edu:1094</code></pre>
 <p>[OUTDATED - TO BE UPDATED]
 The Hadoop file system (hdfs) is a different sort of files system than most. Hadoop breaks your data up into blocks of ~128 MB and scatters two copies of each block across multiple physical disks. It does this for two reasons: The replication makes the system more resilient against hardware failures and it also provides better performance when many different jobs are reading or writing to the system. Like <code>/store/smallfiles</code>, Hadoop doesn't have per user quotas, and there is a lot of space available (at the time of this writing, 644 TB of raw space, but remember that every TB you store takes up ~2 TB of space because of replication). Hadoop is also the file system that is accessible with CMS/grid tools like gfal and XRootD. You should use Hadoop whenever you have very large datasets, when you need to access your data using gfal or XRootD, or when you will be accessing your data with many parallel running jobs (anything more than 100). There are some caveats: * Hadoop doesn't handle very small files well. If you write large numbers of files with sizes on the order of MB, don't use Hadoop. For files in that size range, use <code>/store/smallfiles</code> or <code>/scratch365</code> * Hadoop doesn't provide posix access directly. This means that normally you can't use commands like ''ls'' or ''cp''. We use something called FUSE to provide posix access to Hadoop, but FUSE can be broken if you try to read too much data too quickly. So, when running many batch jobs, its better to access the data directly using hdfs commands, or to use a tool, like XRootD or Lobster that does this for you. If you're running jobs on data in <code>/hadoop</code> and they are getting stuck or having Input/Output errors, you've probably crashed FUSE on some of the nodes. If this happens, ask for help [<a href="mailto:ndt3-list@nd.edu">mailto:ndt3-list@nd.edu</a> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>]. * ROOT cannot write directly into <code>/hadoop/store/user</code>. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to <code>/hadoop/store/user</code> (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
 <hr />
@@ -286,9 +296,9 @@ The Hadoop file system (hdfs) is a different sort of files system than most. Had
 <p>All CMS data are stored using the /store convention, Therefore we only need to map:</p>
 <pre class="highlight"><code class="language-shell">/+store/(.*)</code></pre>
 <p>Translation rules for PFN to LFN (Physical File Name to Logical File Name):</p>
-<pre class="highlight"><code class="language-shell">/hadoop/store ==&gt; /store</code></pre>
-<p>To see how much space is available in the hadoop /store area, you can type the following from earth:</p>
-<pre class="highlight"><code class="language-shell">hadoop fs -df -h /store</code></pre>
+<pre class="highlight"><code class="language-shell">/cms/cephfs/data/store ==&gt; /store</code></pre>
+<p>To see how much space is available in the CEPH /store area, you can type the following from earth:</p>
+<pre class="highlight"><code class="language-shell">df -h /cms/cephfs/data/store</code></pre>
               
             </div>
           </div><footer>
