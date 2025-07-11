@@ -160,7 +160,7 @@ Note: Unless otherwise noted, the links below only work for those on campus or c
 
 To check the general status of HTCondor within the CRC, you can view the [HTCondor utilization matrix](http://condor.cse.nd.edu/condor_matrix.cgi), for more information on HTCondor itself view the `HTCondor <condor>` page.
 
-- The official documentation for conodr command line utilities can be found [here](http://www.cs.wisc.edu/condor/manual/v7.0/9_Command_Reference.html).
+- The official documentation for condor command line utilities can be found [here](http://www.cs.wisc.edu/condor/manual/v7.0/9_Command_Reference.html).
 
 #### HTCondor Job Monitoring
 
@@ -222,23 +222,25 @@ Remember that 'condor_qedit' will work on a specific job ID (xxx.y), a job clust
 
 ------------------------------------------------------------------------
 
-## Storage
+## Storage 
 
-Back to `Top of the Page <ndcms>`.
+Back to [Top of the Page](<https://crcresearch.github.io/ndcmsT3/>)
 
 Users have access to a variety of storage locations. The key is knowing the tradeoffs of each, so you can identify what's the right resource for you to use. If you don't have a directory in any of the spaces listed, ask for help at <ndt3-list@nd.edu>.
+
+[Detailed information regarding Storage can be found here](<https://docs.crc.nd.edu/transition/netapp/netapp.html#>)
 
 ### Home Area
 
 Each user has a home directory on `/users` with 100GB of personal disk space that is backed up nightly and cannot be increased. This is where you should keep software that you're developing, papers that you're writing, your thesis draft, etc. Basically, use this for anything that you would be very sad to have to recreate if it were accidentally deleted or lost due to hardware failure.
 
-To check the quota use `fs lq` (short for “fileservice listquota”)
+To check the quota use `df -h /users/username`
 
 ------------------------------------------------------------------------
 
 ### Scratch Space
 
-Also users get 250GB of non-backed up space in `/scratch365/<username>` and non-backed up space for small files in `/store/smallfiles`. There is no quota on `/store/smallfiles` but the total space is 80 TB and must be shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use `/store/smallfiles` as the performance degrades severely. In that case, either use `/scratch365` or `/hadoop/store/user` (see below).
+Also users get 250GB of non-backed up space in `/scratch365/<username>` and non-backed up space for small files in `/store/smallfiles`. There is no quota on `/store/smallfiles` but the total space is 80 TB and must be shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use `/store/smallfiles` as the performance degrades severely. In that case, either use `/scratch365` or `/cms/cephfs/data/store/user` (see below).
 
 ------------------------------------------------------------------------
 
@@ -262,6 +264,19 @@ xrdmapc skynet013:1094 --list all
       Srv hactar01.crc.nd.edu:1094
       Srv skynet015.crc.nd.edu:1094
       Srv skynet014.crc.nd.edu:1094
+```
+
+To access the external data (xcache), please use `skynet013.crc.nd.edu on port 1096`. 
+
+``` shell
+xrdmapc skynet013:1096 --list all
+0**** skynet013.crc.nd.edu:1096
+      Srv primeradiant01.crc.nd.edu:1094
+      Srv primeradiant02.crc.nd.edu:1094
+      Srv primeradiant03.crc.nd.edu:1094
+      Srv primeradiant04.crc.nd.edu:1094
+      Srv primeradiant05.crc.nd.edu:1094
+      Srv primeradiant06.crc.nd.edu:1094
 ```
 
 [OUTDATED - TO BE UPDATED]
@@ -289,11 +304,11 @@ All CMS data are stored using the /store convention, Therefore we only need to m
 Translation rules for PFN to LFN (Physical File Name to Logical File Name):
 
 ``` shell
-/hadoop/store ==> /store
+/cms/cephfs/data/store ==> /store
 ```
 
-To see how much space is available in the hadoop /store area, you can type the following from earth:
+To see how much space is available in the CEPH /store area, you can type the following from earth:
 
 ``` shell
-hadoop fs -df -h /store
+df -h /cms/cephfs/data/store
 ```
