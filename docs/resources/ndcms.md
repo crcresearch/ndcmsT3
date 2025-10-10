@@ -228,9 +228,10 @@ Back to [Top of the Page](<https://crcresearch.github.io/ndcmsT3/>)
 
 Users have access to a variety of storage locations. The key is knowing the tradeoffs of each, so you can identify what's the right resource for you to use. If you don't have a directory in any of the spaces listed, ask for help at <ndt3-list@nd.edu>.
 
-[Detailed information regarding Storage can be found here](<https://docs.crc.nd.edu/transition/netapp/netapp.html#>)
 
 ### Home Area
+
+[Detailed information regarding the transition from AFS to NetApp Storage can be found here](<https://docs.crc.nd.edu/transition/netapp/netapp.html#>)
 
 Each user has a home directory on `/users` with 100GB of personal disk space that is backed up nightly and cannot be increased. This is where you should keep software that you're developing, papers that you're writing, your thesis draft, etc. Basically, use this for anything that you would be very sad to have to recreate if it were accidentally deleted or lost due to hardware failure.
 
@@ -254,10 +255,10 @@ Grid jobs running at ND (e.g: via CMS Connect) need to prepend `/cms` to the /sc
 
 CEPH is mounted at `/cms/cephfs/data/store/user`. 
 
-To access CEPH data, please use `skynet013.crc.nd.edu on port 1094`. The XRootD workers are `hactar01, hactar02, hactar03, skynet014 and skynet015`.
+To access CEPH data, please use `cmsxrootd.crc.nd.edu`. The default port is `1094`. The XRootD workers are `hactar01, hactar02, hactar03, skynet014 and skynet015`.
 
 ``` shell
-xrdmapc skynet013:1094 --list all
+xrdmapc cmsxrootd.crc.nd.edu:1094  --list all
 0**** skynet013.crc.nd.edu:1094
       Srv hactar03.crc.nd.edu:1094
       Srv hactar02.crc.nd.edu:1094
@@ -266,11 +267,11 @@ xrdmapc skynet013:1094 --list all
       Srv skynet014.crc.nd.edu:1094
 ```
 
-To access the external data (xcache), please use `skynet013.crc.nd.edu on port 1096`. 
+To access the external data (xcache), please use `cmsxcache.crc.nd.edu`. The default port is `1094`. The XRootD workers are `primeradiant01, primeradiant02, primeradiant03, primeradiant04, primeradiant05, primeradiant06`.
 
 ``` shell
-xrdmapc skynet013:1096 --list all
-0**** skynet013.crc.nd.edu:1096
+xrdmapc cmsxcache.crc.nd.edu:1094  --list all
+0**** deepthought.crc.nd.edu:1094
       Srv primeradiant01.crc.nd.edu:1094
       Srv primeradiant02.crc.nd.edu:1094
       Srv primeradiant03.crc.nd.edu:1094
@@ -279,8 +280,8 @@ xrdmapc skynet013:1096 --list all
       Srv primeradiant06.crc.nd.edu:1094
 ```
 
-[OUTDATED - TO BE UPDATED]
-The Hadoop file system (hdfs) is a different sort of files system than most. Hadoop breaks your data up into blocks of ~128 MB and scatters two copies of each block across multiple physical disks. It does this for two reasons: The replication makes the system more resilient against hardware failures and it also provides better performance when many different jobs are reading or writing to the system. Like `/store/smallfiles`, Hadoop doesn't have per user quotas, and there is a lot of space available (at the time of this writing, 644 TB of raw space, but remember that every TB you store takes up ~2 TB of space because of replication). Hadoop is also the file system that is accessible with CMS/grid tools like gfal and XRootD. You should use Hadoop whenever you have very large datasets, when you need to access your data using gfal or XRootD, or when you will be accessing your data with many parallel running jobs (anything more than 100). There are some caveats: \* Hadoop doesn't handle very small files well. If you write large numbers of files with sizes on the order of MB, don't use Hadoop. For files in that size range, use `/store/smallfiles` or `/scratch365` \* Hadoop doesn't provide posix access directly. This means that normally you can't use commands like ''ls'' or ''cp''. We use something called FUSE to provide posix access to Hadoop, but FUSE can be broken if you try to read too much data too quickly. So, when running many batch jobs, its better to access the data directly using hdfs commands, or to use a tool, like XRootD or Lobster that does this for you. If you're running jobs on data in `/hadoop` and they are getting stuck or having Input/Output errors, you've probably crashed FUSE on some of the nodes. If this happens, ask for help \[[mailto:ndt3-list@nd.edu](mailto:ndt3-list@nd.edu) <ndt3-list@nd.edu>\]. \* ROOT cannot write directly into `/hadoop/store/user`. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to `/hadoop/store/user` (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <ndt3-list@nd.edu>.
+[WE ARE UPDATING THIS PAGE]
+The Hadoop file system (hdfs) has been replaced with CephFS. If you need help, ask for help \[[mailto:ndt3-list@nd.edu](mailto:ndt3-list@nd.edu) <ndt3-list@nd.edu>\]. \* ROOT cannot write directly into `/cms/cephfs/data/store/user`. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to `/cms/cephfs/data/store/user` (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <ndt3-list@nd.edu>.
 
 ------------------------------------------------------------------------
 
