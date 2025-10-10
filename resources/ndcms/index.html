@@ -252,8 +252,8 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
 <h2 id="storage">Storage</h2>
 <p>Back to <a href="https://crcresearch.github.io/ndcmsT3/">Top of the Page</a></p>
 <p>Users have access to a variety of storage locations. The key is knowing the tradeoffs of each, so you can identify what's the right resource for you to use. If you don't have a directory in any of the spaces listed, ask for help at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
-<p><a href="https://docs.crc.nd.edu/transition/netapp/netapp.html#">Detailed information regarding Storage can be found here</a></p>
 <h3 id="home-area">Home Area</h3>
+<p><a href="https://docs.crc.nd.edu/transition/netapp/netapp.html#">Detailed information regarding the transition from AFS to NetApp Storage can be found here</a></p>
 <p>Each user has a home directory on <code>/users</code> with 100GB of personal disk space that is backed up nightly and cannot be increased. This is where you should keep software that you're developing, papers that you're writing, your thesis draft, etc. Basically, use this for anything that you would be very sad to have to recreate if it were accidentally deleted or lost due to hardware failure.</p>
 <p>To check the quota use <code>df -h /users/username</code></p>
 <hr />
@@ -265,25 +265,25 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
 <hr />
 <h3 id="ceph-space">CEPH Space</h3>
 <p>CEPH is mounted at <code>/cms/cephfs/data/store/user</code>. </p>
-<p>To access CEPH data, please use <code>skynet013.crc.nd.edu on port 1094</code>. The XRootD workers are <code>hactar01, hactar02, hactar03, skynet014 and skynet015</code>.</p>
-<pre class="highlight"><code class="language-shell">xrdmapc skynet013:1094 --list all
+<p>To access CEPH data, please use <code>cmsxrootd.crc.nd.edu</code>. The default port is <code>1094</code>. The XRootD workers are <code>hactar01, hactar02, hactar03, skynet014 and skynet015</code>.</p>
+<pre class="highlight"><code class="language-shell">xrdmapc cmsxrootd.crc.nd.edu:1094  --list all
 0**** skynet013.crc.nd.edu:1094
       Srv hactar03.crc.nd.edu:1094
       Srv hactar02.crc.nd.edu:1094
       Srv hactar01.crc.nd.edu:1094
       Srv skynet015.crc.nd.edu:1094
       Srv skynet014.crc.nd.edu:1094</code></pre>
-<p>To access the external data (xcache), please use <code>skynet013.crc.nd.edu on port 1096</code>. </p>
-<pre class="highlight"><code class="language-shell">xrdmapc skynet013:1096 --list all
-0**** skynet013.crc.nd.edu:1096
+<p>To access the external data (xcache), please use <code>cmsxcache.crc.nd.edu</code>. The default port is <code>1094</code>. The XRootD workers are <code>primeradiant01, primeradiant02, primeradiant03, primeradiant04, primeradiant05, primeradiant06</code>.</p>
+<pre class="highlight"><code class="language-shell">xrdmapc cmsxcache.crc.nd.edu:1094  --list all
+0**** deepthought.crc.nd.edu:1094
       Srv primeradiant01.crc.nd.edu:1094
       Srv primeradiant02.crc.nd.edu:1094
       Srv primeradiant03.crc.nd.edu:1094
       Srv primeradiant04.crc.nd.edu:1094
       Srv primeradiant05.crc.nd.edu:1094
       Srv primeradiant06.crc.nd.edu:1094</code></pre>
-<p>[OUTDATED - TO BE UPDATED]
-The Hadoop file system (hdfs) is a different sort of files system than most. Hadoop breaks your data up into blocks of ~128 MB and scatters two copies of each block across multiple physical disks. It does this for two reasons: The replication makes the system more resilient against hardware failures and it also provides better performance when many different jobs are reading or writing to the system. Like <code>/store/smallfiles</code>, Hadoop doesn't have per user quotas, and there is a lot of space available (at the time of this writing, 644 TB of raw space, but remember that every TB you store takes up ~2 TB of space because of replication). Hadoop is also the file system that is accessible with CMS/grid tools like gfal and XRootD. You should use Hadoop whenever you have very large datasets, when you need to access your data using gfal or XRootD, or when you will be accessing your data with many parallel running jobs (anything more than 100). There are some caveats: * Hadoop doesn't handle very small files well. If you write large numbers of files with sizes on the order of MB, don't use Hadoop. For files in that size range, use <code>/store/smallfiles</code> or <code>/scratch365</code> * Hadoop doesn't provide posix access directly. This means that normally you can't use commands like ''ls'' or ''cp''. We use something called FUSE to provide posix access to Hadoop, but FUSE can be broken if you try to read too much data too quickly. So, when running many batch jobs, its better to access the data directly using hdfs commands, or to use a tool, like XRootD or Lobster that does this for you. If you're running jobs on data in <code>/hadoop</code> and they are getting stuck or having Input/Output errors, you've probably crashed FUSE on some of the nodes. If this happens, ask for help [<a href="mailto:ndt3-list@nd.edu">mailto:ndt3-list@nd.edu</a> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>]. * ROOT cannot write directly into <code>/hadoop/store/user</code>. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to <code>/hadoop/store/user</code> (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
+<p>[WE ARE UPDATING THIS PAGE]
+The Hadoop file system (hdfs) has been replaced with CephFS. If you need help, ask for help [<a href="mailto:ndt3-list@nd.edu">mailto:ndt3-list@nd.edu</a> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>]. * ROOT cannot write directly into <code>/cms/cephfs/data/store/user</code>. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to <code>/cms/cephfs/data/store/user</code> (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
 <hr />
 <h3 id="lobster-working-storage">Lobster Working Storage</h3>
 <p>Lobster doesn't do well working out of your AFS home directory. When you run Lobster jobs, you should tell Lobster to make your working area in <code>/tmpscratch/users/&lt;username&gt;</code>. Space is limited and there are no user quotas, so monitor carefully and clean up old files. We reserve the right to clean out this space if someone is using too much and not playing nice with others!</p>
