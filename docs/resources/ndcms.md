@@ -116,13 +116,13 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;
 
 ------------------------------------------------------------------------
 
-## PhEDEx
+## Rucio
 
 Back to `Top of the Page <ndcms>`.
 
-The CMS experiment is managing hundreds petabytes of data recorded by the detector and simulated physics events. Data are transferred to distributed CMS sites for storage, processing and analysis. PhEDEx (Physics Experiment Data Export) maintains the knowledge of data replicas locations and manages data transfers between the sites.
+The CMS experiment is managing hundreds petabytes of data recorded by the detector and simulated physics events. Data are transferred to distributed CMS sites for storage, processing and analysis. Rucio maintains the knowledge of data replicas locations and manages data transfers between the sites.
 
-### Requesting a PhEDEx Transfer to the Notre Dame Tier 3 Site (US_T3_NotreDame)
+### Requesting a Rucio Transfer to the Notre Dame Tier 3 Site (T3_US_NotreDame)
 
 1.  use DAS [https://cmsweb.cern.ch/das/\]](https://cmsweb.cern.ch/das/]) to find the dataset you're interested in transferring
 
@@ -132,19 +132,24 @@ In the search field, use this format to search for your favorite dataset:
 dataset dataset=/Tau/Run2011A-PromptReco-v4/AOD
 ```
 
-Click on "Subscribe to PhEDEx"
+2.  Initiate a Rucio transfer to the T3_US_NotreDame site
 
-2.  Request a transfer to the US_T3_NotreDame site
+   A transfer with Rucio can be done on any system with a `/cvmfs` mount. Setup requires a valid VOMS proxy, and step-by-step instructions can be found in the official CMS documentation [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookFileTransfer#Option_1_Using_the_Command_Line). 
+   Rucio transfers are initiated by creating an object called a "rule". A rule moves data to a specified site, and then protects that dataset from deletion until the rule expires. Rucio rules for the Notre Dame T3 can be made with the following command: 
+   ```
+   rucio rule add cms:<desired_data> --copies 1 --rses T3_US_NotreDame --lifetime 15780000 --comment 'Use this comment to describe your usage' --ask-approval
+   ```
+   Some notes to keep in mind:
+        
+A descriptive comment can be very helpful for data management. Knowing who requested a dataset (and why!) can help protect your data during storage cleanup.
+        
+The lifetime of a Rucio rule when created via CLI is given in seconds. `15780000` seconds is approximately 6 months. After a rule expires, the dataset is unprotected and will be made available for deletion. Make sure to choose a lifetime that matches your needs, both so that your data isn't lost and also so that you are not taking up storage space that you no longer need.
 
-Under "Destinations" check the box next to
+4.  Asking for approval for your rules
 
-``` shell
-T3_US_NotreDame
-```
-
-At the bottom of the page, click "Submit Request", and click "confirm" on the following page. You will receive an email notification with a link to the status of your request.
-
-3.  You will receive a confirmation email when your request is approved by the site admin.
+Rules for the Notre Dame Tier 3 must be approved by the system administrator. Attempting to make rules without the `--ask-approval` argument will return an error. 
+   
+Once you have successfully created a rule, please email the system administrator, Irena Johnson (ijohnso1@nd.edu), to ask for your rule to be approved. Please use the subject line "Rucio Tier 3 Rule Approval", and include in the email your username (specifically your CERN username) and the ID of the rule (an alphanumeric string that will be returned when a rule is successfully created). Once your rule is approved, transfer should begin shortly. 
 
 ------------------------------------------------------------------------
 
@@ -294,7 +299,7 @@ Lobster doesn't do well working out of your AFS home directory. When you run Lob
 
 ------------------------------------------------------------------------
 
-### Storage space for PhEDEx
+### Storage space for Rucio
 
 All CMS data are stored using the /store convention, Therefore we only need to map:
 
