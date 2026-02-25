@@ -59,9 +59,9 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#phedex">PhEDEx</a>
+    <li class="toctree-l2"><a class="reference internal" href="#rucio">Rucio</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#requesting-a-phedex-transfer-to-the-notre-dame-tier-3-site-us_t3_notredame">Requesting a PhEDEx Transfer to the Notre Dame Tier 3 Site (US_T3_NotreDame)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#requesting-a-rucio-transfer-to-the-notre-dame-tier-3-site-t3_us_notredame">Requesting a Rucio Transfer to the Notre Dame Tier 3 Site (T3_US_NotreDame)</a>
     </li>
         </ul>
     </li>
@@ -89,7 +89,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#lobster-working-storage">Lobster Working Storage</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#storage-space-for-phedex">Storage space for PhEDEx</a>
+    <li class="toctree-l3"><a class="reference internal" href="#storage-space-for-rucio">Storage space for Rucio</a>
     </li>
         </ul>
     </li>
@@ -197,25 +197,29 @@ find . -type d -exec fs sa {} nd_campus rlidwk \;
 find . -type d -exec fs sa {} system:administrators rlidwka \;
 find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
 <hr />
-<h2 id="phedex">PhEDEx</h2>
+<h2 id="rucio">Rucio</h2>
 <p>Back to <code>Top of the Page &lt;ndcms&gt;</code>.</p>
-<p>The CMS experiment is managing hundreds petabytes of data recorded by the detector and simulated physics events. Data are transferred to distributed CMS sites for storage, processing and analysis. PhEDEx (Physics Experiment Data Export) maintains the knowledge of data replicas locations and manages data transfers between the sites.</p>
-<h3 id="requesting-a-phedex-transfer-to-the-notre-dame-tier-3-site-us_t3_notredame">Requesting a PhEDEx Transfer to the Notre Dame Tier 3 Site (US_T3_NotreDame)</h3>
+<p>The CMS experiment is managing hundreds petabytes of data recorded by the detector and simulated physics events. Data are transferred to distributed CMS sites for storage, processing and analysis. Rucio maintains the knowledge of data replicas locations and manages data transfers between the sites.</p>
+<h3 id="requesting-a-rucio-transfer-to-the-notre-dame-tier-3-site-t3_us_notredame">Requesting a Rucio Transfer to the Notre Dame Tier 3 Site (T3_US_NotreDame)</h3>
 <ol>
 <li>use DAS <a href="https://cmsweb.cern.ch/das/]">https://cmsweb.cern.ch/das/]</a> to find the dataset you're interested in transferring</li>
 </ol>
 <p>In the search field, use this format to search for your favorite dataset:</p>
 <pre class="highlight"><code class="language-shell">dataset dataset=/Tau/Run2011A-PromptReco-v4/AOD</code></pre>
-<p>Click on "Subscribe to PhEDEx"</p>
 <ol>
-<li>Request a transfer to the US_T3_NotreDame site</li>
+<li>Initiate a Rucio transfer to the T3_US_NotreDame site</li>
 </ol>
-<p>Under "Destinations" check the box next to</p>
-<pre class="highlight"><code class="language-shell">T3_US_NotreDame</code></pre>
-<p>At the bottom of the page, click "Submit Request", and click "confirm" on the following page. You will receive an email notification with a link to the status of your request.</p>
+<p>A transfer with Rucio can be done on any system with a <code>/cvmfs</code> mount. Setup requires a valid VOMS proxy, and step-by-step instructions can be found in the official CMS documentation <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookFileTransfer#Option_1_Using_the_Command_Line">here</a>. 
+   Rucio transfers are initiated by creating an object called a "rule". A rule moves data to a specified site, and then protects that dataset from deletion until the rule expires. Rucio rules for the Notre Dame T3 can be made with the following command: 
+   <pre class="highlight"><code>rucio rule add cms:&lt;desired_data&gt; --copies 1 --rses T3_US_NotreDame --lifetime 15780000 --comment 'Use this comment to describe your usage' --ask-approval</code></pre>
+   Some notes to keep in mind:</p>
+<p>A descriptive comment can be very helpful for data management. Knowing who requested a dataset (and why!) can help protect your data during storage cleanup.</p>
+<p>The lifetime of a Rucio rule when created via CLI is given in seconds. <code>15780000</code> seconds is approximately 6 months. After a rule expires, the dataset is unprotected and will be made available for deletion. Make sure to choose a lifetime that matches your needs, both so that your data isn't lost and also so that you are not taking up storage space that you no longer need.</p>
 <ol>
-<li>You will receive a confirmation email when your request is approved by the site admin.</li>
+<li>Asking for approval for your rules</li>
 </ol>
+<p>Rules for the Notre Dame Tier 3 must be approved by the system administrator. Attempting to make rules without the <code>--ask-approval</code> argument will return an error. </p>
+<p>Once you have successfully created a rule, please email the system administrator, Irena Johnson (ijohnso1@nd.edu), to ask for your rule to be approved. Please use the subject line "Rucio Tier 3 Rule Approval", and include in the email your username (specifically your CERN username) and the ID of the rule (an alphanumeric string that will be returned when a rule is successfully created). Once your rule is approved, transfer should begin shortly. </p>
 <hr />
 <h2 id="monitoring-tier-3-components-and-jobs">Monitoring Tier 3 components and Jobs</h2>
 <p>Back to <code>Top of the Page &lt;ndcms&gt;</code>.</p>
@@ -292,7 +296,7 @@ The Hadoop file system (hdfs) has been replaced with CephFS. If you need help, a
 <p>To Add you proxy DN and Notre Dame username, go to: <a href="https://wiki.crc.nd.edu/w/index.php/NDCMS_SettingUpEnvironment#Add_you_proxy_DN_and_Notre_Dame_username_.28your_username_on_earth.crc.nd.edu.29">https://wiki.crc.nd.edu/w/index.php/NDCMS_SettingUpEnvironment#Add_you_proxy_DN_and_Notre_Dame_username_.28your_username_on_earth.crc.nd.edu.29</a></p>
 </div>
 <hr />
-<h3 id="storage-space-for-phedex">Storage space for PhEDEx</h3>
+<h3 id="storage-space-for-rucio">Storage space for Rucio</h3>
 <p>All CMS data are stored using the /store convention, Therefore we only need to map:</p>
 <pre class="highlight"><code class="language-shell">/+store/(.*)</code></pre>
 <p>Translation rules for PFN to LFN (Physical File Name to Logical File Name):</p>
