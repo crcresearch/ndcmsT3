@@ -124,7 +124,7 @@ The CMS experiment is managing hundreds petabytes of data recorded by the detect
 
 ### Requesting a Rucio Transfer to the Notre Dame Tier 3 Site (T3_US_NotreDame)
 
-1.  use DAS [https://cmsweb.cern.ch/das/\]](https://cmsweb.cern.ch/das/]) to find the dataset you're interested in transferring
+#### Use DAS [https://cmsweb.cern.ch/das/\]](https://cmsweb.cern.ch/das/]) to find the dataset you're interested in transferring
 
 In the search field, use this format to search for your favorite dataset:
 
@@ -132,7 +132,7 @@ In the search field, use this format to search for your favorite dataset:
 dataset dataset=/Tau/Run2011A-PromptReco-v4/AOD
 ```
 
-2.  Initiate a Rucio transfer to the T3_US_NotreDame site
+#### Initiate a Rucio transfer to the T3_US_NotreDame site
 
    A transfer with Rucio can be done on any system with a `/cvmfs` mount. Setup requires a valid VOMS proxy, and step-by-step instructions can be found in the official CMS documentation [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookFileTransfer#Option_1_Using_the_Command_Line). 
    Rucio transfers are initiated by creating an object called a "rule". A rule moves data to a specified site, and then protects that dataset from deletion until the rule expires. Rucio rules for the Notre Dame T3 can be made with the following command: 
@@ -145,7 +145,7 @@ A descriptive comment can be very helpful for data management. Knowing who reque
         
 The lifetime of a Rucio rule when created via CLI is given in seconds. `15780000` seconds is approximately 6 months. After a rule expires, the dataset is unprotected and will be made available for deletion. Make sure to choose a lifetime that matches your needs, both so that your data isn't lost and also so that you are not taking up storage space that you no longer need.
 
-4.  Asking for approval for your rules
+#### Asking for approval for your rules
 
 Rules for the Notre Dame Tier 3 must be approved by the system administrator. Attempting to make rules without the `--ask-approval` argument will return an error. 
    
