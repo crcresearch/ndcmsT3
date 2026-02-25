@@ -122,7 +122,7 @@ Back to `Top of the Page <ndcms>`.
 
 The CMS experiment is managing hundreds petabytes of data recorded by the detector and simulated physics events. Data are transferred to distributed CMS sites for storage, processing and analysis. Rucio maintains the knowledge of data replicas locations and manages data transfers between the sites.
 
-### Requesting a Rucio Transfer to the Notre Dame Tier 3 Site (US_T3_NotreDame)
+### Requesting a Rucio Transfer to the Notre Dame Tier 3 Site (T3_US_NotreDame)
 
 1.  use DAS [https://cmsweb.cern.ch/das/\]](https://cmsweb.cern.ch/das/]) to find the dataset you're interested in transferring
 
