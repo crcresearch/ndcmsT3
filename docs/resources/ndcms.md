@@ -250,7 +250,7 @@ To check the quota use `df -h /users/username`
 ### Scratch Space
 
 !!! note
-/scratch365 has been configured to read-only. It will be permanently retired on June 22, 2026
+/scratch365 has been configured to read-only. It will be permanently retired on June 22, 2026.
 
 Also users get 250GB of non-backed up space in `/scratch365/<username>` and non-backed up space for small files in `/store/smallfiles`. There is no quota on `/store/smallfiles` but the total space is 80 TB and must be shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use `/store/smallfiles` as the performance degrades severely. In that case, either use `/scratch365` or `/cms/cephfs/data/store/user` (see below).
 
