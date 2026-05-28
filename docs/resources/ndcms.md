@@ -55,6 +55,9 @@ With this setup, you may type just `"ssh glados"` to log into `glados`, and like
 
 *First login or when experiencing trouble with Condor:* The first time you log into glados, set the AFS permissions of a directory to use for Condor as follows:
 
+!!! note
+    AFS home volumes have been configured as read-only
+
 Your home directory needs to be readable by anyone on campus because Condor doesn't run the jobs under your username. In your home directory, do the following:
 
 ``` shell
@@ -87,7 +90,7 @@ You'll have to configure Condor so that any output files are stored in the speci
 
 <https://docs.google.com/document/d/1piHU3tvAdPEXis-evx1mzOD8YwyQ59SbgeLUZR4U1cE/edit>
 
-2)  Let us know that you've added your DN to the shared google doc file, please email <ijohnso1@nd.edu> and CC <khurtado@nd.edu>
+2)  Let us know that you've added your DN to the shared google doc file, please email <ijohnso1@nd.edu> and CC <sbird2@nd.edu>
 
 !!! note
     If you would like to switch to a more modern shell, such as bash, you need to contact the CRC to have your shell changed in their database.\*\*
@@ -245,6 +248,9 @@ To check the quota use `df -h /users/username`
 ------------------------------------------------------------------------
 
 ### Scratch Space
+
+!!! note
+/scratch365 has been configured to read-only. It will be permanently retired on June 22, 2026
 
 Also users get 250GB of non-backed up space in `/scratch365/<username>` and non-backed up space for small files in `/store/smallfiles`. There is no quota on `/store/smallfiles` but the total space is 80 TB and must be shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use `/store/smallfiles` as the performance degrades severely. In that case, either use `/scratch365` or `/cms/cephfs/data/store/user` (see below).
 
