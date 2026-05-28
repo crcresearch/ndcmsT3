@@ -169,6 +169,10 @@ crcfe02.crc.nd.edu</code></pre>
 <p>Only the <code>glados.crc.nd.edu</code> machine has the software required to use CMSSW, CRAB, etc.</p>
 </div>
 <p><em>First login or when experiencing trouble with Condor:</em> The first time you log into glados, set the AFS permissions of a directory to use for Condor as follows:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>AFS home volumes have been configured as read-only</p>
+</div>
 <p>Your home directory needs to be readable by anyone on campus because Condor doesn't run the jobs under your username. In your home directory, do the following:</p>
 <pre class="highlight"><code class="language-shell">cd ~
 fs sa . nd_campus rl
@@ -188,7 +192,7 @@ If you didn't do this the first time you logged in or created your Condor direct
 <h3 id="add-your-proxy-dn-and-notre-dame-username-your-username-on-gladoscrcndedu">Add your proxy DN and Notre Dame username (your username on glados.crc.nd.edu)</h3>
 <p>1)  Please add your proxy DN and ND username in the google doc below:</p>
 <p><a href="https://docs.google.com/document/d/1piHU3tvAdPEXis-evx1mzOD8YwyQ59SbgeLUZR4U1cE/edit">https://docs.google.com/document/d/1piHU3tvAdPEXis-evx1mzOD8YwyQ59SbgeLUZR4U1cE/edit</a></p>
-<p>2)  Let us know that you've added your DN to the shared google doc file, please email <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#106;&#111;&#104;&#110;&#115;&#111;&#49;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#105;&#106;&#111;&#104;&#110;&#115;&#111;&#49;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a> and CC <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#104;&#117;&#114;&#116;&#97;&#100;&#111;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#107;&#104;&#117;&#114;&#116;&#97;&#100;&#111;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a></p>
+<p>2)  Let us know that you've added your DN to the shared google doc file, please email <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#106;&#111;&#104;&#110;&#115;&#111;&#49;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#105;&#106;&#111;&#104;&#110;&#115;&#111;&#49;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a> and CC <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#98;&#105;&#114;&#100;&#50;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#115;&#98;&#105;&#114;&#100;&#50;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you would like to switch to a more modern shell, such as bash, you need to contact the CRC to have your shell changed in their database.**</p>
@@ -264,6 +268,10 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
 <p>To check the quota use <code>df -h /users/username</code></p>
 <hr />
 <h3 id="scratch-space">Scratch Space</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>/scratch365 has been configured to read-only. It will be permanently retired on June 22, 2026</p>
 <p>Also users get 250GB of non-backed up space in <code>/scratch365/&lt;username&gt;</code> and non-backed up space for small files in <code>/store/smallfiles</code>. There is no quota on <code>/store/smallfiles</code> but the total space is 80 TB and must be shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use <code>/store/smallfiles</code> as the performance degrades severely. In that case, either use <code>/scratch365</code> or <code>/cms/cephfs/data/store/user</code> (see below).</p>
 <hr />
 <h4 id="accessing-the-scratch-space-from-grid-jobs">Accessing the scratch space from grid jobs</h4>
