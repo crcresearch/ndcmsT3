@@ -279,15 +279,17 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
 <hr />
 <h3 id="ceph-space">CEPH Space</h3>
 <p>CEPH is mounted at <code>/cms/cephfs/data/store/user</code>. </p>
-<p>To access CEPH data, please use <code>cmsxrootd.crc.nd.edu</code>. The default port is <code>1094</code>. The XRootD workers are <code>hactar01, hactar02, hactar03, skynet014 and skynet015</code>.</p>
+<p>To access CEPH data, please use <code>cmsxrootd.crc.nd.edu</code>. The default port is <code>1094</code>. The XRootD workers are <code>hactar01, hactar02, hactar03, hactar04, hactar05, skynet014 and skynet015</code>.</p>
 <pre class="highlight"><code class="language-shell">xrdmapc cmsxrootd.crc.nd.edu:1094  --list all
 0**** skynet013.crc.nd.edu:1094
+      Srv hactar05.crc.nd.edu:1094
+      Srv hactar04.crc.nd.edu:1094
       Srv hactar03.crc.nd.edu:1094
       Srv hactar02.crc.nd.edu:1094
       Srv hactar01.crc.nd.edu:1094
       Srv skynet015.crc.nd.edu:1094
       Srv skynet014.crc.nd.edu:1094</code></pre>
-<p>To access the external data (xcache), please use <code>cmsxcache.crc.nd.edu</code>. The default port is <code>1094</code>. The XRootD workers are <code>primeradiant01, primeradiant02, primeradiant03, primeradiant04, primeradiant05, primeradiant06</code>.</p>
+<p>To access the External data (xcache), please use <code>cmsxcache.crc.nd.edu</code>. The default port is <code>1094</code>. The XRootD workers are <code>primeradiant01, primeradiant02, primeradiant03, primeradiant04, primeradiant05, primeradiant06</code>.</p>
 <pre class="highlight"><code class="language-shell">xrdmapc cmsxcache.crc.nd.edu:1094  --list all
 0**** deepthought.crc.nd.edu:1094
       Srv primeradiant01.crc.nd.edu:1094
@@ -297,7 +299,7 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
       Srv primeradiant05.crc.nd.edu:1094
       Srv primeradiant06.crc.nd.edu:1094</code></pre>
 <p>[WE ARE UPDATING THIS PAGE]
-The Hadoop file system (hdfs) has been replaced with CephFS. If you need help, ask for help [<a href="mailto:ndt3-list@nd.edu">mailto:ndt3-list@nd.edu</a> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>]. * ROOT cannot write directly into <code>/cms/cephfs/data/store/user</code>. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to <code>/cms/cephfs/data/store/user</code> (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
+If you need help, ask for help [<a href="mailto:ndt3-list@nd.edu">mailto:ndt3-list@nd.edu</a> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>]. * ROOT cannot write directly into <code>/cms/cephfs/data/store/user</code>. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to <code>/cms/cephfs/data/store/user</code> (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
 <hr />
 <h3 id="lobster-working-storage">Lobster Working Storage</h3>
 <p>Lobster doesn't do well working out of your AFS home directory. When you run Lobster jobs, you should tell Lobster to make your working area in <code>/tmpscratch/users/&lt;username&gt;</code>. Space is limited and there are no user quotas, so monitor carefully and clean up old files. We reserve the right to clean out this space if someone is using too much and not playing nice with others!</p>
