@@ -88,7 +88,7 @@ You'll have to configure Condor so that any output files are stored in the speci
 
 1)  Please add your proxy DN and ND username in the google doc below:
 
-<https://docs.google.com/document/d/1piHU3tvAdPEXis-evx1mzOD8YwyQ59SbgeLUZR4U1cE/edit>
+<https://docs.google.com/document/d/1OlpWNzgmL5oTmpXdDi675P1rdkogbt9wI76cH997P8U/edit>
 
 2)  Let us know that you've added your DN to the shared google doc file, please email <ijohnso1@nd.edu> and CC <sbird2@nd.edu>
 
