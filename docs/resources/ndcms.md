@@ -267,11 +267,13 @@ Grid jobs running at ND (e.g: via CMS Connect) need to prepend `/cms` to the /sc
 
 CEPH is mounted at `/cms/cephfs/data/store/user`. 
 
-To access CEPH data, please use `cmsxrootd.crc.nd.edu`. The default port is `1094`. The XRootD workers are `hactar01, hactar02, hactar03, skynet014 and skynet015`.
+To access CEPH data, please use `cmsxrootd.crc.nd.edu`. The default port is `1094`. The XRootD workers are `hactar01, hactar02, hactar03, hactar04, hactar05, skynet014 and skynet015`.
 
 ``` shell
 xrdmapc cmsxrootd.crc.nd.edu:1094  --list all
 0**** skynet013.crc.nd.edu:1094
+      Srv hactar05.crc.nd.edu:1094
+      Srv hactar04.crc.nd.edu:1094
       Srv hactar03.crc.nd.edu:1094
       Srv hactar02.crc.nd.edu:1094
       Srv hactar01.crc.nd.edu:1094
@@ -279,7 +281,7 @@ xrdmapc cmsxrootd.crc.nd.edu:1094  --list all
       Srv skynet014.crc.nd.edu:1094
 ```
 
-To access the external data (xcache), please use `cmsxcache.crc.nd.edu`. The default port is `1094`. The XRootD workers are `primeradiant01, primeradiant02, primeradiant03, primeradiant04, primeradiant05, primeradiant06`.
+To access the External data (xcache), please use `cmsxcache.crc.nd.edu`. The default port is `1094`. The XRootD workers are `primeradiant01, primeradiant02, primeradiant03, primeradiant04, primeradiant05, primeradiant06`.
 
 ``` shell
 xrdmapc cmsxcache.crc.nd.edu:1094  --list all
@@ -293,7 +295,7 @@ xrdmapc cmsxcache.crc.nd.edu:1094  --list all
 ```
 
 [WE ARE UPDATING THIS PAGE]
-The Hadoop file system (hdfs) has been replaced with CephFS. If you need help, ask for help \[[mailto:ndt3-list@nd.edu](mailto:ndt3-list@nd.edu) <ndt3-list@nd.edu>\]. \* ROOT cannot write directly into `/cms/cephfs/data/store/user`. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to `/cms/cephfs/data/store/user` (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <ndt3-list@nd.edu>.
+If you need help, ask for help \[[mailto:ndt3-list@nd.edu](mailto:ndt3-list@nd.edu) <ndt3-list@nd.edu>\]. \* ROOT cannot write directly into `/cms/cephfs/data/store/user`. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to `/cms/cephfs/data/store/user` (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <ndt3-list@nd.edu>.
 
 ------------------------------------------------------------------------
 
