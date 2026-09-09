@@ -53,6 +53,10 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#setting-up-environment">Setting up environment</a>
     </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#add-your-cms-proxy-dn-and-notre-dame-username-your-username-on-gladoscrcndedu">Add your CMS proxy DN and Notre Dame username (your username on glados.crc.nd.edu)</a>
+        <ul>
     <li class="toctree-l3"><a class="reference internal" href="#add-your-proxy-dn-and-notre-dame-username-your-username-on-gladoscrcndedu">Add your proxy DN and Notre Dame username (your username on glados.crc.nd.edu)</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#if-you-forgot-to-set-your-afs-permissions-at-first-login">If You Forgot to Set Your AFS Permissions at First Login</a>
@@ -156,7 +160,7 @@ crcfe02.crc.nd.edu</code></pre>
     ForwardX11Trusted yes
     ControlMaster   auto
     ControlPath     ~/.ssh/control-%r@%h:%p</code></pre>
-<p>The last two lines are optional. They set up ssh to allow a second session to "tunnel" through the first one. As long as you have one ssh session open, further connections to earth do not require you to enter your password again. This should only be done for Notre Dame, as normally Kerberos authentication and ssh keys work better.</p>
+<p>The last two lines are optional. They set up ssh to allow a second session to "tunnel" through the first one. As long as you have one ssh session open, further connections to glados do not require you to enter your password again. This should only be done for Notre Dame, as normally Kerberos authentication and ssh keys work better.</p>
 <p>With this setup, you may type just <code>"ssh glados"</code> to log into <code>glados</code>, and likewise for <code>crcfe01</code> and <code>crcfe02</code>.</p>
 <hr />
 <h3 id="setting-up-environment">Setting up environment</h3>
@@ -185,6 +189,7 @@ fs sa . system:authuser rlidwk</code></pre>
 If you didn't do this the first time you logged in or created your Condor directory, this <em>is</em> fixable. See <code>here &lt;if-you-forgot&gt;</code></p>
 </blockquote>
 <hr />
+<h2 id="add-your-cms-proxy-dn-and-notre-dame-username-your-username-on-gladoscrcndedu">Add your CMS proxy DN and Notre Dame username (your username on glados.crc.nd.edu)</h2>
 <h3 id="add-your-proxy-dn-and-notre-dame-username-your-username-on-gladoscrcndedu">Add your proxy DN and Notre Dame username (your username on glados.crc.nd.edu)</h3>
 <p>1)  Please add your proxy DN and ND username in the google doc below:</p>
 <p><a href="https://docs.google.com/document/d/1OlpWNzgmL5oTmpXdDi675P1rdkogbt9wI76cH997P8U/edit">https://docs.google.com/document/d/1OlpWNzgmL5oTmpXdDi675P1rdkogbt9wI76cH997P8U/edit</a></p>
