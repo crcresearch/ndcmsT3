@@ -42,7 +42,7 @@ Host glados, crcfe01, crcfe02
     ControlPath     ~/.ssh/control-%r@%h:%p
 ```
 
-The last two lines are optional. They set up ssh to allow a second session to "tunnel" through the first one. As long as you have one ssh session open, further connections to earth do not require you to enter your password again. This should only be done for Notre Dame, as normally Kerberos authentication and ssh keys work better.
+The last two lines are optional. They set up ssh to allow a second session to "tunnel" through the first one. As long as you have one ssh session open, further connections to glados do not require you to enter your password again. This should only be done for Notre Dame, as normally Kerberos authentication and ssh keys work better.
 
 With this setup, you may type just `"ssh glados"` to log into `glados`, and likewise for `crcfe01` and `crcfe02`.
 
@@ -83,6 +83,8 @@ You'll have to configure Condor so that any output files are stored in the speci
 > If you didn't do this the first time you logged in or created your Condor directory, this *is* fixable. See `here <if-you-forgot>`
 
 ------------------------------------------------------------------------
+
+## Add your CMS proxy DN and Notre Dame username (your username on glados.crc.nd.edu)
 
 ### Add your proxy DN and Notre Dame username (your username on glados.crc.nd.edu)
 
