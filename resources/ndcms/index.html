@@ -87,11 +87,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#home-area">Home Area</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#scratch-space">Scratch Space</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#accessing-the-scratch-space-from-grid-jobs">Accessing the scratch space from grid jobs</a>
-    </li>
-        </ul>
+    <li class="toctree-l3"><a class="reference internal" href="#small-files">Small Files</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#ceph-space">CEPH Space</a>
     </li>
@@ -232,7 +228,9 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
 <p>Below are a collection of links that can be used to try to monitor the health of the Tier 3 components. If you see unexpected behavior--fewer than normal running jobs, slower job I/O, failing file transfers, etc.--please check here for indications of what might be wrong.</p>
 <p>Note: Unless otherwise noted, the links below only work for those on campus or connected with a VPN.</p>
 <h3 id="htcondor-monitoring">HTCondor Monitoring</h3>
-<p>To check the general status of HTCondor within the CRC, you can view the <a href="http://condor.cse.nd.edu/condor_matrix.cgi">HTCondor utilization matrix</a>, for more information on HTCondor itself view the <code>HTCondor &lt;condor&gt;</code> page.</p>
+<p>To check the status of HTCondor within the NDCMS environment (T3 environment), you can view the <a href="https://eddie.crc.nd.edu/cgi-bin/ndcms_condor_matrix">T3 HTCondor utilization matrix</a>.</p>
+<p>To check the general status of HTCondor within the CRC (opportunistic resources), you can view the <a href="http://condor.cse.nd.edu/condor_matrix.cgi">HTCondor utilization matrix</a>.</p>
+<p>For more information on HTCondor itself view the <code>HTCondor &lt;condor&gt;</code> page.</p>
 <ul>
 <li>The official documentation for condor command line utilities can be found <a href="http://www.cs.wisc.edu/condor/manual/v7.0/9_Command_Reference.html">here</a>.</li>
 </ul>
@@ -267,19 +265,12 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
 <p>Each user has a home directory on <code>/users</code> with 100GB of personal disk space that is backed up nightly and cannot be increased. This is where you should keep software that you're developing, papers that you're writing, your thesis draft, etc. Basically, use this for anything that you would be very sad to have to recreate if it were accidentally deleted or lost due to hardware failure.</p>
 <p>To check the quota use <code>df -h /users/username</code></p>
 <hr />
-<h3 id="scratch-space">Scratch Space</h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Scratch space /scratch365 has been configured to read-only and will be permanently retired on June 22, 2026.</p>
-</div>
-<p>Also users get 250GB of non-backed up space in <code>/scratch365/&lt;username&gt;</code> and non-backed up space for small files in <code>/store/smallfiles</code>. There is no quota on <code>/store/smallfiles</code> but the total space is 80 TB and must be shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use <code>/store/smallfiles</code> as the performance degrades severely. In that case, either use <code>/scratch365</code> or <code>/cms/cephfs/data/store/user</code> (see below).</p>
-<hr />
-<h4 id="accessing-the-scratch-space-from-grid-jobs">Accessing the scratch space from grid jobs</h4>
-<p>Grid jobs running at ND (e.g: via CMS Connect) need to prepend <code>/cms</code> to the /scratch365 and /store/smallfiles directories (<code>/cms/scratch365/&lt;username&gt;</code> and <code>/cms/store/smallfiles</code>) due to standard requirements in the CMS Global Pool for singularity-enabled sites for non-hadoop storage spaces to be visible, but they point to the same storage location.</p>
+<h3 id="small-files">Small Files</h3>
+<p>Also users have access to non-backed up space <code>/tmpscratch/users/&lt;username&gt;</code>. There is no quota on <code>/tmpscratch/users</code>, however it is shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use <code>/tmpscratch/users/&lt;username&gt;</code> as the performance degrades severely. In that case, either use <code>/cms/cephfs/data/store/user</code> or <code>/groups/&lt;PI&gt;/&lt;username&gt;</code> (see below).</p>
 <hr />
 <h3 id="ceph-space">CEPH Space</h3>
 <p>CEPH is mounted at <code>/cms/cephfs/data/store/user</code>. </p>
-<p>To access CEPH data, please use <code>cmsxrootd.crc.nd.edu</code>. The default port is <code>1094</code>. The XRootD workers are <code>hactar01, hactar02, hactar03, hactar04, hactar05, skynet014 and skynet015</code>.</p>
+<p>To access local CEPH data, please use <code>cmsxrootd.crc.nd.edu</code>. The default port is <code>1094</code>. The XRootD workers are <code>hactar01, hactar02, hactar03, hactar04, hactar05, skynet014 and skynet015</code>.</p>
 <pre class="highlight"><code class="language-shell">xrdmapc cmsxrootd.crc.nd.edu:1094  --list all
 0**** skynet013.crc.nd.edu:1094
       Srv hactar05.crc.nd.edu:1094
@@ -302,7 +293,7 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;</code></pre>
 If you need help, ask for help [<a href="mailto:ndt3-list@nd.edu">mailto:ndt3-list@nd.edu</a> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>]. * ROOT cannot write directly into <code>/cms/cephfs/data/store/user</code>. If your job is producing ROOT output, write it first to local disk (every worker node has local disk for this purpose) and then at the end of the job, copy the output to <code>/cms/cephfs/data/store/user</code> (possibly using gfal to avoid problems with FUSE!). Again, if you have questions, ask on <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;">&#110;&#100;&#116;&#51;&#45;&#108;&#105;&#115;&#116;&#64;&#110;&#100;&#46;&#101;&#100;&#117;</a>.</p>
 <hr />
 <h3 id="lobster-working-storage">Lobster Working Storage</h3>
-<p>Lobster doesn't do well working out of your AFS home directory. When you run Lobster jobs, you should tell Lobster to make your working area in <code>/tmpscratch/users/&lt;username&gt;</code>. Space is limited and there are no user quotas, so monitor carefully and clean up old files. We reserve the right to clean out this space if someone is using too much and not playing nice with others!</p>
+<p>When you run Lobster jobs, you should tell Lobster to make your working area in <code>/users/&lt;username&gt;</code>, <code>/groups/&lt;PI&gt;/&lt;username&gt;</code> or <code>/tmpscratch/users/&lt;username&gt;</code>. Space is limited in <code>/users/</code> (100 GB default quota) and <code>/tmpscratch/users/</code> does not have any user quotas, so monitor carefully and clean up old files. We reserve the right to clean out this space if someone is using too much and not playing nice with others!</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To Add you proxy DN and Notre Dame username, go to: <a href="https://wiki.crc.nd.edu/w/index.php/NDCMS_SettingUpEnvironment#Add_you_proxy_DN_and_Notre_Dame_username_.28your_username_on_earth.crc.nd.edu.29">https://wiki.crc.nd.edu/w/index.php/NDCMS_SettingUpEnvironment#Add_you_proxy_DN_and_Notre_Dame_username_.28your_username_on_earth.crc.nd.edu.29</a></p>
