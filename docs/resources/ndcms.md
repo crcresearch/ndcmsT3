@@ -166,7 +166,12 @@ Note: Unless otherwise noted, the links below only work for those on campus or c
 
 ### HTCondor Monitoring
 
-To check the general status of HTCondor within the CRC, you can view the [HTCondor utilization matrix](http://condor.cse.nd.edu/condor_matrix.cgi), for more information on HTCondor itself view the `HTCondor <condor>` page.
+To check the status of HTCondor within the NDCMS environment (T3 environment), you can view the [T3 HTCondor utilization matrix](https://eddie.crc.nd.edu/cgi-bin/ndcms_condor_matrix).
+
+To check the general status of HTCondor within the CRC (opportunistic resources), you can view the [HTCondor utilization matrix](http://condor.cse.nd.edu/condor_matrix.cgi).
+
+
+For more information on HTCondor itself view the `HTCondor <condor>` page.
 
 - The official documentation for condor command line utilities can be found [here](http://www.cs.wisc.edu/condor/manual/v7.0/9_Command_Reference.html).
 
@@ -247,19 +252,10 @@ To check the quota use `df -h /users/username`
 
 ------------------------------------------------------------------------
 
-### Scratch Space
+### Small Files
 
 
-!!! note
-    Scratch space /scratch365 has been configured to read-only and will be permanently retired on June 22, 2026.
-
-Also users get 250GB of non-backed up space in `/scratch365/<username>` and non-backed up space for small files in `/store/smallfiles`. There is no quota on `/store/smallfiles` but the total space is 80 TB and must be shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use `/store/smallfiles` as the performance degrades severely. In that case, either use `/scratch365` or `/cms/cephfs/data/store/user` (see below).
-
-------------------------------------------------------------------------
-
-#### Accessing the scratch space from grid jobs
-
-Grid jobs running at ND (e.g: via CMS Connect) need to prepend `/cms` to the /scratch365 and /store/smallfiles directories (`/cms/scratch365/<username>` and `/cms/store/smallfiles`) due to standard requirements in the CMS Global Pool for singularity-enabled sites for non-hadoop storage spaces to be visible, but they point to the same storage location.
+Also users have access to non-backed up space `/tmpscratch/users/<username>`. There is no quota on `/tmpscratch/users`, however it is shared by all users. In general, this storage is useful to use for temporary files of intermediate sizes. If you need reasonable access performance for multiple jobs to the files (e.g. you're going to run more than ~100 jobs reading or writing files in the batch system) then don't use `/tmpscratch/users/<username>` as the performance degrades severely. In that case, either use `/cms/cephfs/data/store/user` or `/groups/<PI>/<username>` (see below).
 
 ------------------------------------------------------------------------
 
@@ -267,7 +263,7 @@ Grid jobs running at ND (e.g: via CMS Connect) need to prepend `/cms` to the /sc
 
 CEPH is mounted at `/cms/cephfs/data/store/user`. 
 
-To access CEPH data, please use `cmsxrootd.crc.nd.edu`. The default port is `1094`. The XRootD workers are `hactar01, hactar02, hactar03, hactar04, hactar05, skynet014 and skynet015`.
+To access local CEPH data, please use `cmsxrootd.crc.nd.edu`. The default port is `1094`. The XRootD workers are `hactar01, hactar02, hactar03, hactar04, hactar05, skynet014 and skynet015`.
 
 ``` shell
 xrdmapc cmsxrootd.crc.nd.edu:1094  --list all
@@ -301,7 +297,7 @@ If you need help, ask for help \[[mailto:ndt3-list@nd.edu](mailto:ndt3-list@nd.e
 
 ### Lobster Working Storage
 
-Lobster doesn't do well working out of your AFS home directory. When you run Lobster jobs, you should tell Lobster to make your working area in `/tmpscratch/users/<username>`. Space is limited and there are no user quotas, so monitor carefully and clean up old files. We reserve the right to clean out this space if someone is using too much and not playing nice with others!
+When you run Lobster jobs, you should tell Lobster to make your working area in `/users/<username>`, `/groups/<PI>/<username>` or `/tmpscratch/users/<username>`. Space is limited in `/users/` (100 GB default quota) and `/tmpscratch/users/` does not have any user quotas, so monitor carefully and clean up old files. We reserve the right to clean out this space if someone is using too much and not playing nice with others!
 
 !!! note
     To Add you proxy DN and Notre Dame username, go to: <https://wiki.crc.nd.edu/w/index.php/NDCMS_SettingUpEnvironment#Add_you_proxy_DN_and_Notre_Dame_username_.28your_username_on_earth.crc.nd.edu.29>
