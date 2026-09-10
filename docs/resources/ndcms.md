@@ -80,10 +80,10 @@ fs sa . system:authuser rlidwk
 You'll have to configure Condor so that any output files are stored in the specific directory to which you've granted write permissions. This will avoid possible problems in which condor does not have the correct permissions to launch jobs from your AFS space.
 
 > [!WARNING]
-> If you didn't do this the first time you logged in or created your Condor directory, this *is* fixable. See `here <if-you-forgot>`
+> If you didn't do this the first time you logged in or created your Condor directory, this *is* fixable. See [here](#if-you-forgot).
 
 ------------------------------------------------------------------------
-
+<a id="add-your-proxy"></a>
 ## Add your CMS proxy DN and Notre Dame username (your username on glados.crc.nd.edu)
 
 [Back to Top of the Page](#ndcms)
@@ -99,7 +99,7 @@ You'll have to configure Condor so that any output files are stored in the speci
     If you would like to switch to a more modern shell, such as bash, you need to contact the CRC to have your shell changed in their database.\*\*
 
 ------------------------------------------------------------------------
-
+<a id="if-you-forgot"></a>
 ### If You Forgot to Set Your AFS Permissions at First Login
 
 You can go back and set your AFS permissions recursively after the fact using the "find" command carefully:
@@ -303,7 +303,7 @@ If you need help, ask for help \[[mailto:ndt3-list@nd.edu](mailto:ndt3-list@nd.e
 When you run Lobster jobs, you should tell Lobster to make your working area in `/users/<username>`, `/groups/<PI>/<username>` or `/tmpscratch/users/<username>`. Space is limited in `/users/` (100 GB default quota) and `/tmpscratch/users/` does not have any user quotas, so monitor carefully and clean up old files. We reserve the right to clean out this space if someone is using too much and not playing nice with others!
 
 !!! note
-    To Add you proxy DN and Notre Dame username, go to: <https://wiki.crc.nd.edu/w/index.php/NDCMS_SettingUpEnvironment#Add_you_proxy_DN_and_Notre_Dame_username_.28your_username_on_earth.crc.nd.edu.29>
+    To Add your CMS proxy DN and Notre Dame username, go to: [here](#add-your-proxy).
 
 ------------------------------------------------------------------------
 
