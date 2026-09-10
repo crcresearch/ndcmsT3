@@ -184,9 +184,10 @@ fs sa . system:authuser rlidwk</code></pre>
 <p>You'll have to configure Condor so that any output files are stored in the specific directory to which you've granted write permissions. This will avoid possible problems in which condor does not have the correct permissions to launch jobs from your AFS space.</p>
 <blockquote>
 <p>[!WARNING]
-If you didn't do this the first time you logged in or created your Condor directory, this <em>is</em> fixable. See <code>here &lt;if-you-forgot&gt;</code></p>
+If you didn't do this the first time you logged in or created your Condor directory, this <em>is</em> fixable. See <a href="#if-you-forgot">here</a>.</p>
 </blockquote>
 <hr />
+<p><a id="add-your-proxy"></a></p>
 <h2 id="add-your-cms-proxy-dn-and-notre-dame-username-your-username-on-gladoscrcndedu">Add your CMS proxy DN and Notre Dame username (your username on glados.crc.nd.edu)</h2>
 <p><a href="#ndcms">Back to Top of the Page</a></p>
 <p>1)  Please add your proxy DN and ND username in the google doc below:</p>
@@ -197,6 +198,7 @@ If you didn't do this the first time you logged in or created your Condor direct
 <p>If you would like to switch to a more modern shell, such as bash, you need to contact the CRC to have your shell changed in their database.**</p>
 </div>
 <hr />
+<p><a id="if-you-forgot"></a></p>
 <h3 id="if-you-forgot-to-set-your-afs-permissions-at-first-login">If You Forgot to Set Your AFS Permissions at First Login</h3>
 <p>You can go back and set your AFS permissions recursively after the fact using the "find" command carefully:</p>
 <p>Starting in your home directory or one of your subdirectories, you can do the following to set read permissions for all subdirectories below.</p>
@@ -299,7 +301,7 @@ If you need help, ask for help [<a href="mailto:ndt3-list@nd.edu">mailto:ndt3-li
 <p>When you run Lobster jobs, you should tell Lobster to make your working area in <code>/users/&lt;username&gt;</code>, <code>/groups/&lt;PI&gt;/&lt;username&gt;</code> or <code>/tmpscratch/users/&lt;username&gt;</code>. Space is limited in <code>/users/</code> (100 GB default quota) and <code>/tmpscratch/users/</code> does not have any user quotas, so monitor carefully and clean up old files. We reserve the right to clean out this space if someone is using too much and not playing nice with others!</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To Add you proxy DN and Notre Dame username, go to: <a href="https://wiki.crc.nd.edu/w/index.php/NDCMS_SettingUpEnvironment#Add_you_proxy_DN_and_Notre_Dame_username_.28your_username_on_earth.crc.nd.edu.29">https://wiki.crc.nd.edu/w/index.php/NDCMS_SettingUpEnvironment#Add_you_proxy_DN_and_Notre_Dame_username_.28your_username_on_earth.crc.nd.edu.29</a></p>
+<p>To Add your CMS proxy DN and Notre Dame username, go to: <a href="#add-your-proxy">here</a>.</p>
 </div>
 <hr />
 <h3 id="storage-space-for-rucio">Storage space for Rucio</h3>
