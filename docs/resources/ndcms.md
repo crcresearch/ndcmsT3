@@ -124,7 +124,7 @@ find . -type d -exec fs sa {} system:authuser rlidwk \;
 
 ## Rucio
 
-Back to `Top of the Page <ndcms>`.
+[Back to Top of the Page](#ndcms)
 
 The CMS experiment is managing hundreds petabytes of data recorded by the detector and simulated physics events. Data are transferred to distributed CMS sites for storage, processing and analysis. Rucio maintains the knowledge of data replicas locations and manages data transfers between the sites.
 
@@ -161,7 +161,7 @@ Once you have successfully created a rule, please email the system administrator
 
 ## Monitoring Tier 3 components and Jobs
 
-Back to `Top of the Page <ndcms>`.
+[Back to Top of the Page](#ndcms)
 
 Below are a collection of links that can be used to try to monitor the health of the Tier 3 components. If you see unexpected behavior--fewer than normal running jobs, slower job I/O, failing file transfers, etc.--please check here for indications of what might be wrong.
 
