@@ -56,7 +56,7 @@ With this setup, you may type just `"ssh glados"` to log into `glados`, and like
 *First login or when experiencing trouble with Condor:* The first time you log into glados, set the AFS permissions of a directory to use for Condor as follows:
 
 !!! note
-    AFS home volumes have been configured as read-only
+    `AFS home volumes` have been configured as read-only. The CRC will officially retire `AFS` in May, 2027.
 
 Your home directory needs to be readable by anyone on campus because Condor doesn't run the jobs under your username. In your home directory, do the following:
 
@@ -87,8 +87,6 @@ You'll have to configure Condor so that any output files are stored in the speci
 ## Add your CMS proxy DN and Notre Dame username (your username on glados.crc.nd.edu)
 
 Back to `Top of the Page <ndcms>`.
-
-### Add your proxy DN and Notre Dame username (your username on glados.crc.nd.edu)
 
 1)  Please add your proxy DN and ND username in the google doc below:
 
